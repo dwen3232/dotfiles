@@ -10,7 +10,9 @@ return {
         theme = "nightfly",
       },
       sections = {
+        -- TODO: customize this more, there's a lot that can be done!
         lualine_x = {
+          -- TODO: is this lazy_status stuff even working? I'm not sure how I would even check
           {
             lazy_status.updates,
             cond = lazy_status.has_updates,
