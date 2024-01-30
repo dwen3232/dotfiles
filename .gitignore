@@ -2,3 +2,7 @@
 lazy-lock.json
 
 gcloud/
+@quark/
+gcloud/
+iterm2/
+yarn/
