@@ -13,6 +13,8 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
   { import = "dwen.plugins" },
+  { import = "dwen.plugins.lsp", }
+  
 }, {
   checker = {
     enabled = true,
