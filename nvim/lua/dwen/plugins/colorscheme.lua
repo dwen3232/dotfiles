@@ -1,8 +1,5 @@
 return {
-  "bluz71/vim-nightfly-colors",
+  "catppuccin/nvim",
+  name = "catppuccin-mocha",
   priority = 1000,
-  config = function()
-    vim.cmd([[colorscheme nightfly]])
-  end,
 }
-
