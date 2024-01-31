@@ -1,7 +1,7 @@
 local opt = vim.opt
 
 -- TODO: refine all of these more
-opt.relativenumber = false
+opt.relativenumber = true
 opt.number = true
 
 opt.expandtab = true -- tabs to spaces
