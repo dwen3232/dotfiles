@@ -33,14 +33,14 @@ return {
       },
       filters = {
         git_ignored = false,
-        custom = { ".DS_Store" },
+        custom = { ".DS_Store", "__pycache__" },
       },
     })
 
     -- TODO: add keybindings?
     -- set keymaps
     local keymap = vim
-    .keymap                                                                                                             -- for conciseness
+        .keymap                                                                                                         -- for conciseness
 
     keymap.set("n", "<leader>ee", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle file explorer" })                         -- toggle file explorer
     keymap.set("n", "<leader>ef", "<cmd>NvimTreeFindFileToggle<CR>", { desc = "Toggle file explorer on current file" }) -- toggle file explorer on current file
