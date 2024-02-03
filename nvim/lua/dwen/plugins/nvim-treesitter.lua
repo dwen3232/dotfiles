@@ -37,8 +37,8 @@ return {
           node_incremental = "<C-space>",
           scope_incremental = false,
           node_decremental = "<bs>",
-        }
-      }
+        },
+      },
     })
   end,
 }

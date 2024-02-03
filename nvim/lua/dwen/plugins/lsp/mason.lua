@@ -15,7 +15,6 @@ return {
     local mason_null_ls = require("mason-null-ls")
     local mason_tool_installer = require("mason-tool-installer")
 
-
     -- enable mason and configure icons
     mason.setup({
       ui = {
@@ -41,14 +40,14 @@ return {
       automatic_installation = true, -- not the same as ensure_installed
     })
 
-   mason_null_ls.setup({
+    mason_null_ls.setup({
       ensure_installed = {
         "sonarlint-language-server",
-        "isort", 
+        "isort",
         "ruff",
         "mypy",
-      }
-    }) 
+      },
+    })
     mason_tool_installer.setup({
       ensure_installed = {
         "prettier",
