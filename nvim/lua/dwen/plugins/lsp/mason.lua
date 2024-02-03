@@ -1,7 +1,9 @@
+-- Setup for Mason and all of its adapters
 return {
   "williamboman/mason.nvim",
   dependencies = {
     "williamboman/mason-lspconfig.nvim",
+    "jay-babu/mason-null-ls.nvim",
     "WhoIsSethDaniel/mason-tool-installer.nvim",
   },
   config = function()
@@ -10,8 +12,9 @@ return {
 
     -- import mason-lspconfig
     local mason_lspconfig = require("mason-lspconfig")
-
+    local mason_null_ls = require("mason-null-ls")
     local mason_tool_installer = require("mason-tool-installer")
+
 
     -- enable mason and configure icons
     mason.setup({
@@ -38,6 +41,14 @@ return {
       automatic_installation = true, -- not the same as ensure_installed
     })
 
+   mason_null_ls.setup({
+      ensure_installed = {
+        "sonarlint-language-server",
+        "isort", 
+        "ruff",
+        "mypy",
+      }
+    }) 
     mason_tool_installer.setup({
       ensure_installed = {
         "prettier",
