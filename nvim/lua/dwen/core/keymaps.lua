@@ -1,8 +1,8 @@
 -- Setting leader to <space>
 vim.g.mapleader = " "
 
--- TODO: add custom keybindings?
 -- TODO: add window management keybindings?
+-- TODO: add tab switching keybindings?
 
 -- Let's center after moving a half page
 vim.api.nvim_set_keymap("n", "<C-D>", "<C-D>zz", { noremap = true, silent = true })

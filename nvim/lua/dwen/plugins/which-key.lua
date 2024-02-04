@@ -9,6 +9,7 @@ return {
       ["<leader>"] = { name = "+leader" },
       ["<leader>f"] = { name = "+find" },
       ["<leader>e"] = { name = "+explore" },
+      ["<leader>t"] = { name = "+trouble" },
       ["<leader>c"] = { name = "+code" },
     })
   end,
