@@ -11,7 +11,10 @@ opt.wrap = false
 
 opt.cursorline = true
 
-opt.signcolumn = "yes"
+opt.hlsearch = true
+opt.ignorecase = true
+opt.smartcase = true
 
+opt.signcolumn = "yes"
 
 opt.clipboard:append("unnamedplus") -- use system clipboard as default register
