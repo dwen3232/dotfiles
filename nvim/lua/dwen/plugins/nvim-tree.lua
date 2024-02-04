@@ -3,6 +3,7 @@ return {
   dependencies = { "nvim-tree/nvim-web-devicons" },
   config = function()
     local nvimtree = require("nvim-tree")
+    local api = require("nvim-tree.api")
 
     -- disable netrw at the very start of your init.lua
     vim.g.loaded_netrw = 1
@@ -10,6 +11,11 @@ return {
 
     -- OR setup with some options
     nvimtree.setup({
+      on_attach = function(bufnr)
+        api.config.mappings.default_on_attach(bufnr)
+
+        vim.keymap.del("n", "<C-K>", { buffer = bufnr })
+      end,
       sort = {
         sorter = "case_sensitive",
       },
@@ -45,5 +51,6 @@ return {
     keymap.set("n", "<leader>ef", "<cmd>NvimTreeFindFileToggle<CR>", { desc = "Toggle file explorer on current file" }) -- toggle file explorer on current file
     keymap.set("n", "<leader>ec", "<cmd>NvimTreeCollapse<CR>", { desc = "Collapse file explorer" }) -- collapse file explorer
     keymap.set("n", "<leader>er", "<cmd>NvimTreeRefresh<CR>", { desc = "Refresh file explorer" }) -- refresh file explorer
+    keymap.set("n", "<leader>ei", api.node.show_info_popup, { desc = "Show file info" })
   end,
 }
