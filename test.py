@@ -2,12 +2,13 @@ import os
 import sys
 
 
-def test(n: int):
+def test(foo: int):
     something = 5
     otherthing = 6
     # Something
+    test = ["something", "other", 1, 10]
     x = 0
-    for i in range(n):
+    for i in range(foo):
         if something != otherthing:
             something += 1
     print(test)

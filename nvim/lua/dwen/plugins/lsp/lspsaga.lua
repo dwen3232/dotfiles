@@ -10,6 +10,6 @@ return {
   config = function()
     local lspsaga = require("lspsaga")
 
-    -- lspsaga.require({})
+    -- lspsaga.setup({})
   end,
 }

@@ -3,6 +3,7 @@
 ## Useful applications
 # terminal
 brew install --cask kitty
+kitty +kitten themes --reload-in=all Catppuccin-Mocha
 # launcher (spotlight replacement)
 brew install --cask raycast
 # file explorer
@@ -35,4 +36,7 @@ brew install ripgrep
 brew install neofetch
 
 ## Language specific stuff
+# python
 brew install pyenv
+# javascript
+brew install nodejs
