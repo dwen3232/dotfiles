@@ -14,7 +14,7 @@ return {
     local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
     -- For prioritizing local linters and formatters for python tools
-    local virtual_env = vim.fn.getenv("VIRTUAL_ENV")
+    local env_path = ".venv/bin/"
     -- https://github.com/nvimtools/none-ls.nvim/blob/main/doc/BUILTINS.md
     null_ls.setup({
       sources = {
@@ -29,16 +29,16 @@ return {
         }),
         -- python
         diagnostics.mypy.with({
-          only_local = virtual_env or false,
+          only_local = env_path,
         }),
         diagnostics.ruff.with({
-          only_local = virtual_env or false,
+          only_local = env_path,
         }),
         formatting.ruff_format.with({
-          only_local = virtual_env or false,
+          only_local = env_path,
         }),
         formatting.isort.with({
-          only_local = virtual_env or false,
+          only_local = env_path,
         }),
       }, -- configure format on save
       on_attach = function(current_client, bufnr)
