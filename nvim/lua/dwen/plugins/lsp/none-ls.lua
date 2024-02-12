@@ -37,6 +37,9 @@ return {
         formatting.ruff_format.with({
           only_local = env_path,
         }),
+        formatting.ruff.with({
+          only_local = env_path,
+        }),
         formatting.isort.with({
           only_local = env_path,
         }),
