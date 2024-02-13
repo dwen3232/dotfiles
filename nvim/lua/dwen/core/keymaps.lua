@@ -1,7 +1,6 @@
 -- Setting leader to <space>
 vim.g.mapleader = " "
 
--- TODO: add window management keybindings?
 -- TODO: add tab switching keybindings?
 
 -- Let's center after moving a half page
