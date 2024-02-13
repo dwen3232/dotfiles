@@ -40,20 +40,22 @@ return {
       automatic_installation = true, -- not the same as ensure_installed
     })
 
+    -- NOTE: couldn't get none-ls to use local linters because of $PATH order (maybe?),
+    -- easiest solution is to just not install linters to mason dir
     mason_null_ls.setup({
       ensure_installed = {
-        "sonarlint-language-server",
-        "isort",
-        "ruff",
-        "mypy",
+        -- "sonarlint-language-server",
+        -- "isort",
+        -- "ruff",
+        -- "mypy",
       },
     })
 
     mason_tool_installer.setup({
       ensure_installed = {
-        "prettier",
-        "stylua",
-        "ruff",
+        -- "prettier",
+        -- "stylua",
+        -- "ruff",
       },
     })
   end,

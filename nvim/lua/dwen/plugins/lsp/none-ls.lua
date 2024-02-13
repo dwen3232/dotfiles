@@ -1,6 +1,6 @@
 return {
   "nvimtools/none-ls.nvim",
-  -- lazy = true,
+  lazy = true,
   dependencies = {
     "nvim-lua/plenary.nvim",
     "williamboman/mason.nvim",
@@ -14,6 +14,7 @@ return {
     local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
     -- For prioritizing local linters and formatters for python tools
+    -- TODO: dynamically get venv path, I think it has to be relative
     local env_path = ".venv/bin/"
     -- https://github.com/nvimtools/none-ls.nvim/blob/main/doc/BUILTINS.md
     null_ls.setup({
@@ -34,6 +35,12 @@ return {
         diagnostics.ruff.with({
           only_local = env_path,
         }),
+        diagnostics.flake8.with({
+          only_local = env_path,
+        }),
+        diagnostics.bandit.with({
+          only_local = env_path,
+        }),
         formatting.ruff_format.with({
           only_local = env_path,
         }),
@@ -41,6 +48,9 @@ return {
           only_local = env_path,
         }),
         formatting.isort.with({
+          only_local = env_path,
+        }),
+        formatting.black.with({
           only_local = env_path,
         }),
       }, -- configure format on save

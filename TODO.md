@@ -5,6 +5,7 @@
 - Set up code folding  (nvim-ufo)
 - Set up tests (neotest?)
 - Set up debugger
+- Set up linters/formatters to use .venv executables if available (prefer_local not working for some reason)
 
 
 # BACKLOG
