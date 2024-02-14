@@ -5,14 +5,16 @@ return {
   lazy = true,
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",
+    "folke/neodev.nvim",
     { "antosha417/nvim-lsp-file-operations", config = true },
   },
   config = function()
-    -- import lspconfig plugin
     local lspconfig = require("lspconfig")
-
-    -- import cmp-nvim-lsp plugin
     local cmp_nvim_lsp = require("cmp_nvim_lsp")
+    local neodev = require("neodev")
+
+    -- neodev needs to be configured before lspconfig
+    neodev.setup({})
 
     local keymap = vim.keymap -- for conciseness
 
