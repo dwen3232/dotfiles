@@ -8,6 +8,7 @@ opt.expandtab = true -- tabs to spaces
 opt.autoindent = true
 
 opt.wrap = false
+opt.foldlevel = 99
 
 opt.cursorline = true
 
