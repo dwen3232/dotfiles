@@ -32,6 +32,7 @@ brew install neovim
 brew tap homebrew/cask-fonts && brew install --cask font-hack-nerd-font
 # dependency for telescope fzf 
 brew install ripgrep
+brew install fd
 # terminal aesthetics
 brew install neofetch
 
