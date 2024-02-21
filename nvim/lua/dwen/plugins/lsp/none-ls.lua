@@ -10,6 +10,7 @@ return {
 
     local diagnostics = null_ls.builtins.diagnostics
     local formatting = null_ls.builtins.formatting
+    local code_actions = null_ls.builtins.code_actions
 
     local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
@@ -53,6 +54,9 @@ return {
         formatting.black.with({
           only_local = env_path,
         }),
+        -- JavaScript
+        code_actions.eslint,
+        formatting.prettierd,
       }, -- configure format on save
       on_attach = function(current_client, bufnr)
         if current_client.supports_method("textDocument/formatting") then
