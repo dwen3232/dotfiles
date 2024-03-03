@@ -6,6 +6,8 @@ opt.number = true
 
 opt.expandtab = true -- tabs to spaces
 opt.autoindent = true
+opt.shiftwidth = 4
+opt.tabstop = 4
 
 opt.wrap = false
 opt.foldlevel = 99
