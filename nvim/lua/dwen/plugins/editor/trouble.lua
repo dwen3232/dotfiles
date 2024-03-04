@@ -35,11 +35,11 @@ return {
 
     local keymap = vim.keymap
 
-    keymap.set("n", "<leader>tw", function()
+    keymap.set("n", "<leader>xw", function()
       trouble.toggle("workspace_diagnostics")
     end, { desc = "Workspace Diagnostics" })
 
-    keymap.set("n", "<leader>td", function()
+    keymap.set("n", "<leader>xd", function()
       trouble.toggle("document_diagnostics")
     end, { desc = "Document Diagnostics" })
   end,

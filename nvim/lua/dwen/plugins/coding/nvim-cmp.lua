@@ -36,7 +36,7 @@ return {
         ["<C-b>"] = cmp.mapping.scroll_docs(-4),
         ["<C-f>"] = cmp.mapping.scroll_docs(4),
         ["<C-Space>"] = cmp.mapping.complete(), -- show completion suggestions
-        ["<C-e>"] = cmp.mapping.abort(),        -- close completion window
+        ["<C-e>"] = cmp.mapping.abort(), -- close completion window
         ["<CR>"] = cmp.mapping.confirm({ select = false }),
         ["<Tab>"] = cmp.mapping.confirm({ select = false }),
       }),
@@ -47,5 +47,16 @@ return {
         }),
       },
     })
+
+    -- This doesn't work for some reason
+    -- cmp.setup.cmdline(":", {
+    --   mapping = cmp.mapping.preset.insert({
+    --     ["<C-k>"] = cmp.mapping.select_prev_item(),
+    --     ["<C-j>"] = cmp.mapping.select_next_item(),
+    --     ["<C-Space>"] = cmp.mapping.complete(),
+    --     ["<C-e>"] = cmp.mapping.abort(),
+    --     ["<CR>"] = cmp.mapping.confirm({ select = false }),
+    --   }),
+    -- })
   end,
 }

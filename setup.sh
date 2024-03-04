@@ -35,6 +35,8 @@ brew install ripgrep
 brew install fd
 # terminal aesthetics
 brew install neofetch
+brew install tmux
+brew install gcc
 
 ## Language specific stuff
 # python

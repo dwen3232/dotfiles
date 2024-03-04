@@ -6,8 +6,16 @@ return {
     conform.setup({
       formatters_by_ft = {
         lua = { "stylua" },
-        python = { "mypy", "ruff" },
+        python = { "ruff_fix", "ruff_format" },
+        html = { "prettierd" },
+        css = { "prettierd" },
+        json = { "prettierd" },
         javascript = { "prettierd" },
+        typescript = { "prettierd" },
+        typescriptreact = { "prettierd" },
+        javascriptreact = { "prettierd" },
+        rust = { "rustfmt" },
+        terraform = { "terraform_fmt" },
       },
     })
 
