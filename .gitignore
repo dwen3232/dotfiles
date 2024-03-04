@@ -1,5 +1,6 @@
 .DS_Store
 lazy-lock.json
+github-copilot/
 
 gcloud/
 @quark/

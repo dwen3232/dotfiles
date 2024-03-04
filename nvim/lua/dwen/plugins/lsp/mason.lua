@@ -50,6 +50,7 @@ return {
         "ruff",
         "mypy",
         "tflint",
+        "debugpy",
       },
     })
   end,

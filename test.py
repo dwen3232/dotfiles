@@ -1,6 +1,8 @@
 import sys
 import os
 
+print(sys)
+print(os)
 
 def test(foo: int):
     something = 5
@@ -12,6 +14,5 @@ def test(foo: int):
         if something != otherthing:
             something += 1
     print(test)
-
 
 test("test")

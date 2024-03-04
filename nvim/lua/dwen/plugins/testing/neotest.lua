@@ -61,9 +61,15 @@ return {
     keymap.set("n", "<leader>tt", function()
       neotest.summary.toggle()
     end, opts)
+
     opts.desc = "Stop nearest test"
     keymap.set("n", "<leader>ts", function()
       neotest.run.stop()
+    end, opts)
+
+    opts.desc = "Debug nearest test"
+    keymap.set("n", "<leader>td", function()
+      neotest.run.run({strategy = "dap"})
     end, opts)
   end,
 }

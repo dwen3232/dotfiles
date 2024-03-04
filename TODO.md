@@ -2,7 +2,6 @@
 
 - Set up treesitter
 - Set up lspsaga (need unmap a bunch of stuff already mapped to <leader>c)
-- Set up tests (neotest?)
 - Set up debugger
 - Refactor setup.sh into a Justfile
 
