@@ -7,11 +7,12 @@ return {
     wk.setup(opts)
     wk.register({
       ["<leader>"] = { name = "+leader" },
-      ["<leader>f"] = { name = "+find" },
-      ["<leader>e"] = { name = "+explore" },
-      ["<leader>t"] = { name = "+test" },
       ["<leader>c"] = { name = "+code" },
-      ["<leader>x"] = { name = "+trouble" },
+      ["<leader>d"] = { name = "+debug" },
+      ["<leader>e"] = { name = "+explore" },
+      ["<leader>f"] = { name = "+find" },
+      ["<leader>t"] = { name = "+test" },
+      ["<leader>x"] = { name = "+diagnostics" },
     })
   end,
 }

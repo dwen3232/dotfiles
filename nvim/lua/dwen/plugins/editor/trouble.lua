@@ -37,10 +37,10 @@ return {
 
     keymap.set("n", "<leader>xw", function()
       trouble.toggle("workspace_diagnostics")
-    end, { desc = "Workspace Diagnostics" })
+    end, { desc = "Toggle workspace diagnostics window" })
 
     keymap.set("n", "<leader>xd", function()
       trouble.toggle("document_diagnostics")
-    end, { desc = "Document Diagnostics" })
+    end, { desc = "Toggle buffer diagnostics window" })
   end,
 }

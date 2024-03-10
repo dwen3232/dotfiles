@@ -41,6 +41,6 @@ return {
 
     vim.keymap.set("n", "<leader>cf", function()
       conform.format()
-    end, { desc = "Trigger linting for current file" })
+    end, { desc = "Trigger formatting" })
   end,
 }
