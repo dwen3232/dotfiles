@@ -1,3 +1,9 @@
+-- TODO: set this up
 return {
-  "github/copilot.vim"
+  "zbirenbaum/copilot.lua",
+  event = { "InsertEnter" },
+  config = function()
+    local copilot = require("copilot")
+    copilot.setup()
+  end,
 }
