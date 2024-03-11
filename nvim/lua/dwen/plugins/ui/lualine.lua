@@ -11,6 +11,13 @@ return {
       },
       sections = {
         -- TODO: customize this more, there's a lot that can be done!
+        lualine_c = {
+          { 
+            'filename', 
+            file_status = true,  -- display file status (readonly status, modified status)
+            path = 1  -- 0 = just filename, 1 = relative path, 2 = absolute path
+          }
+        }, 
         lualine_x = {
           {
             lazy_status.updates,

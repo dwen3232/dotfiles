@@ -24,7 +24,7 @@ font_family      Hack Nerd Font Mono
 #:     italic_font      Operator Mono Book Italic
 #:     bold_italic_font Operator Mono Medium Italic
 
-font_size 15.0
+font_size 19.0
 
 #: Font size (in pts)
 
@@ -877,6 +877,7 @@ font_size 15.0
 #: between zero and one, with zero being fully faded).
 
 # hide_window_decorations no
+titlebar-only yes
 
 #: Hide the window decorations (title-bar and window borders) with
 #: yes. On macOS, titlebar-only and titlebar-and-corners can be used
@@ -1359,7 +1360,7 @@ font_size 15.0
 #: See rc_custom_auth <https://sw.kovidgoyal.net/kitty/remote-
 #: control/#rc-custom-auth> for details.
 
-# allow_remote_control no
+allow_remote_control yes
 
 #: Allow other programs to control kitty. If you turn this on, other
 #: programs can control all aspects of kitty, including sending text
@@ -1964,7 +1965,7 @@ font_size 15.0
 #::  You can open a new window with the current working directory set
 #::  to the working directory of the current window using::
 
-#::      map ctrl+alt+enter launch --cwd=current
+map ctrl+alt+enter launch --cwd=current
 
 #::  You can open a new window that is allowed to control kitty via
 #::  the kitty remote control facility with launch --allow-remote-
@@ -2469,6 +2470,6 @@ font_size 15.0
 
 
 # BEGIN_KITTY_THEME
-# Catppuccin-Macchiato
+# Catppuccin-Mocha
 include current-theme.conf
 # END_KITTY_THEME
