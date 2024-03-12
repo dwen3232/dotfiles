@@ -26,6 +26,7 @@ install-casks: install-brew
     @brew install --cask stats
     @brew install --cask brave-browser
     @brew install --cask spotify
+    @brew install --cask marta
     @brew install --cask orbstack # Docker drop-in replacement
     @brew install --cask tomatobar
     @brew install --cask openlens
