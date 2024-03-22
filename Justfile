@@ -31,6 +31,7 @@ install-casks: install-brew
     @brew install --cask tomatobar
     @brew install --cask openlens
     @brew install --cask boop
+    @brew install --cask basictex
     @brew tap homebrew/cask-fonts
     @brew install --cask font-hack-nerd-font
 

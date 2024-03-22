@@ -7,3 +7,5 @@ gcloud/
 gcloud/
 iterm2/
 yarn/
+
+tmux/plugins/*
