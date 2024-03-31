@@ -11,6 +11,7 @@ return {
       ["<leader>d"] = { name = "+debug" },
       ["<leader>e"] = { name = "+explore" },
       ["<leader>f"] = { name = "+find" },
+      ["<leader>h"] = { name = "+harpoon" },
       ["<leader>t"] = { name = "+test" },
       ["<leader>x"] = { name = "+diagnostics" },
     })
