@@ -32,6 +32,7 @@ install-casks: install-brew
     @brew install --cask openlens
     @brew install --cask boop
     @brew install --cask basictex
+    @brew install --cask obsidian
     @brew tap homebrew/cask-fonts
     @brew install --cask font-hack-nerd-font
 
