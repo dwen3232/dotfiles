@@ -7,3 +7,4 @@ vim.g.mapleader = " "
 -- Let's center after moving a half page
 vim.api.nvim_set_keymap("n", "<C-D>", "<C-D>zz", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<C-U>", "<C-U>zz", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<Esc>", "<cmd>:noh<cr>", { noremap = true, silent = true })
