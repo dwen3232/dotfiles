@@ -20,7 +20,7 @@ install-brew:
 install-casks: install-brew
     @echo "------------------------------------------"
     @echo "Installing casks..."
-    @brew install --cask kitty
+    @brew install --cask kitty # Does this work on work laptop? If not prob not work keeping
     @brew install --cask raycast
     @brew install --cask rectangle
     @brew install --cask stats

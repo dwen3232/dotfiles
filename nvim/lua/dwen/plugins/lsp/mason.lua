@@ -57,7 +57,6 @@ return {
 
     mason_dap.setup({
       ensure_installed = {"python"}
-
     })
   end,
 }
