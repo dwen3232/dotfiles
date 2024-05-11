@@ -20,53 +20,59 @@ install-brew:
 install-casks: install-brew
     @echo "------------------------------------------"
     @echo "Installing casks..."
-    @brew install --cask alt-tab # Does this work on work laptop?
-    @brew install --cask kitty
-    @brew install --cask raycast
-    @brew install --cask rectangle
-    @brew install --cask stats
-    @brew install --cask brave-browser
-    @brew install --cask spotify
-    @brew install --cask marta
-    @brew install --cask orbstack # Docker drop-in replacement
-    @brew install --cask tomatobar
-    @brew install --cask openlens
-    @brew install --cask boop
-    @brew install --cask basictex
-    @brew install --cask obsidian
-    @brew tap homebrew/cask-fonts
+    @brew install --cask alt-tab    # For windows-like window navigation
+    @brew install --cask kitty      # GPU-rendered GUI
+    @brew install --cask raycast    # Better spotlight
+    @brew install --cask rectangle  # Window manager, not exactly a tiler, but good enough for my needs
+    @brew install --cask stats      # OS stats
+    @brew install --cask brave-browser  # Preferred browser, maybe should try out firefox too?
+    @brew install --cask spotify    # Music
+    @brew install --cask marta      # Finder replacement, finder sucks so much
+    @brew install --cask orbstack   # Docker drop-in replacement
+    @brew install --cask openlens   # Open-source lens
+    @brew install --cask boop       # Dev utils
+    @brew install --cask basictex   # Latex
+    @brew install --cask obsidian   # Note taking app
+    @brew tap homebrew/cask-fonts   
     @brew install --cask font-hack-nerd-font
 
 # Install brew formulae
 install-formulae: install-brew
     @echo "------------------------------------------"
     @echo "Installing formulae..."
-    @brew install neovim
-    @brew install tmux
-    @brew install neofetch
-    @brew install tree
-    @brew install tree-sitter
-    @brew install ripgrep
-    @brew install fd
-    @brew install fzf
-    @brew install wget
+    @brew install neovim    # maybe I should build from source? 
+    @brew install tmux      # Terminal multiplexer
+    @brew install neofetch  # TODO: this got archived, remove this? Also has horrible performance on work laptop
+    @brew install tree      # Nice util for viewing dir structure
+    @brew install tree-sitter   # Language syntax highlighter
+    @brew install ripgrep   # Grep I use with Telescope
+    @brew install fd        # TODO: do I need this since I have ripgrep?
+    @brew install fzf       # TODO: do I need this since I have ripgrep?
+    @brew install wget      # This doesn't come preinstalled on MacOS, surprisingly
 
 # Install all language dependencies
 install-lang-deps: install-brew
+    # TODO: should this be split by language?
     @echo "------------------------------------------"
     @echo "Installing language dependencies..."
-    @brew install gcc
-    @brew install pyenv
-    @brew install virtualenv
-    @brew install poetry
-    @brew install nodejs
+    @brew install gcc   # C, C++ compiler
+    @brew install pyenv # Python version manager
+    @brew install virtualenv # Python virtual environments
+    @brew install poetry # Python dependency manager
+    @brew install nodejs # JS/TS backend runtime
+    @brew install nvm # NodeJS version manager
     @brew install terraform
-    @brew install nvm
     @brew install kubernetes-cli
-    @brew install just
+
+# Install all cloud provider SDKs
+install-cloud-clis: install-brew
+    @echo "------------------------------------------"
+    @echo "Installing cloud prover CLIs..."
+    @brew install awscli    # AWS CLI
+    @brew install google-cloud-sdk  # GCP CLI
 
 # Install all homebrew packages
-install-all: install-lang-deps install-formulae install-casks
+install-all: install-lang-deps install-formulae install-casks install-cloud-sdks
 
 # Setup terminal (kitty and zsh)
 setup-terminal: install-casks
