@@ -52,6 +52,7 @@ return {
         "ruff",
         "mypy",
         "tflint",
+        "tfsec",
       },
     })
 

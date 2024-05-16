@@ -19,7 +19,7 @@ return {
     local keymap = vim.keymap -- for conciseness
 
     -- local opts = { noremap = true, silent = true }
-    local opts = { noremap = true,}
+    local opts = { noremap = true }
     local on_attach = function(client, bufnr)
       opts.buffer = bufnr
 
@@ -111,6 +111,11 @@ return {
       flags = {
         debounce_text_changes = 200, -- in milis
       },
+    })
+
+    lspconfig["terraformls"].setup({
+        capabilities = capabilities,
+      on_attach = on_attach,
     })
 
     -- configure lua server (with special settings)
