@@ -49,6 +49,8 @@ install-formulae: install-brew
     @brew install fd        # TODO: do I need this since I have ripgrep?
     @brew install fzf       # TODO: do I need this since I have ripgrep?
     @brew install wget      # This doesn't come preinstalled on MacOS, surprisingly
+    @brew install git
+    @brew install mercurial
 
 # Install all language dependencies
 install-lang-deps: install-brew
@@ -56,12 +58,30 @@ install-lang-deps: install-brew
     @echo "------------------------------------------"
     @echo "Installing language dependencies..."
     @brew install gcc   # C, C++ compiler
-    @brew install pyenv # Python version manager
-    @brew install virtualenv # Python virtual environments
-    @brew install poetry # Python dependency manager
-    @brew install nodejs # JS/TS backend runtime
-    @brew install nvm # NodeJS version manager
-    @brew install terraform
+
+    # Python
+    @brew install pyenv
+    @brew install virtualenv
+    @brew install poetry 
+
+    # NodeJS
+    @brew install nvm
+
+    # Golang
+    @brew install mercurial
+    @bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
+
+    # Java (TODO)
+    @brew install jenv
+    @brew install java
+
+    # Terraform
+    @brew install tfenv
+    @tfenv install
+    @tfenv use
+    @terraform -install-autocomplete
+
+    # K8s
     @brew install kubernetes-cli
 
 # Install all cloud provider SDKs
@@ -113,3 +133,7 @@ setup-tmux: install-formulae
 
 # Setup all tools
 setup-all: setup-terminal setup-tmux
+
+# Upgrade all tools
+upgrade:
+    @brew upgrade
