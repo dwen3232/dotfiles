@@ -39,7 +39,7 @@ return {
       end,
     })
 
-    vim.keymap.set("n", "<leader>cf", function()
+    vim.keymap.set("n", "<leader>cf", function( )
       conform.format()
     end, { desc = "Trigger formatting" })
   end,

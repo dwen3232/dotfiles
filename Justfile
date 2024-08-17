@@ -33,6 +33,7 @@ install-casks: install-brew
     @brew install --cask boop       # Dev utils
     @brew install --cask basictex   # Latex
     @brew install --cask obsidian   # Note taking app
+    @brew install --cask anki       # Flask cards
     @brew tap homebrew/cask-fonts   
     @brew install --cask font-hack-nerd-font
 
@@ -43,6 +44,7 @@ install-formulae: install-brew
     @brew install neovim    # maybe I should build from source? 
     @brew install tmux      # Terminal multiplexer
     @brew install neofetch  # TODO: this got archived, remove this? Also has horrible performance on work laptop
+    @brew install lazygit   # CLI git tool
     @brew install tree      # Nice util for viewing dir structure
     @brew install tree-sitter   # Language syntax highlighter
     @brew install ripgrep   # Grep I use with Telescope
@@ -92,7 +94,7 @@ install-cloud-clis: install-brew
     @brew install google-cloud-sdk  # GCP CLI
 
 # Install all homebrew packages
-install-all: install-lang-deps install-formulae install-casks install-cloud-sdks
+install-all: install-lang-deps install-formulae install-casks install-cloud-clis
 
 # Setup terminal (kitty and zsh)
 setup-terminal: install-casks
