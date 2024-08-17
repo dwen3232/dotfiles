@@ -4,7 +4,7 @@ return {
     "nvim-treesitter/nvim-treesitter",
   },
   config = function()
-    autotag = require("nvim-ts-autotag")
+    local autotag = require("nvim-ts-autotag")
     autotag.setup()
   end,
 }
