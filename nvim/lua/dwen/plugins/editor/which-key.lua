@@ -1,3 +1,4 @@
+-- TODO: setup icons?
 return {
   "folke/which-key.nvim",
   event = "VeryLazy",
@@ -12,6 +13,8 @@ return {
       { "<leader>f", group = "+find" },
       { "<leader>t", group = "+test" },
       { "<leader>x", group = "+diagnostics" },
+      { "<leader>g", group = "+navigation" },
+      { "<leader>l", group = "+ai" },
     })
   end,
 }
