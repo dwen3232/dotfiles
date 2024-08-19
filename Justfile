@@ -1,7 +1,7 @@
 TPM_PATH := "$HOME/.config/tmux/plugins/tpm"
 
 # List all recipes
-default:
+_:
     @just --list
 
 # Installs homebrew
