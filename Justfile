@@ -34,7 +34,7 @@ install-casks: install-brew
     @brew install --cask basictex   # Latex
     @brew install --cask obsidian   # Note taking app
     @brew install --cask anki       # Flask cards
-    @brew tap homebrew/cask-fonts   
+    -@brew tap homebrew/cask-fonts   
     @brew install --cask font-hack-nerd-font
 
 # Install brew formulae
@@ -64,14 +64,21 @@ install-lang-deps: install-brew
     # Python
     @brew install pyenv
     @brew install virtualenv
+    @brew install pyenv-virtualenv
+    @brew install pipx
     @brew install poetry 
 
     # NodeJS
+    # TODO: this still needs quite a bit of manual setup
+    # export NVM_DIR="$HOME/.nvm"
+    # [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+    # [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
     @brew install nvm
 
     # Golang
     @brew install mercurial
-    @bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
+    # TODO: this script doesn't work
+    -@bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
 
     # Java (TODO)
     @brew install jenv
@@ -81,7 +88,8 @@ install-lang-deps: install-brew
     @brew install tfenv
     @tfenv install
     @tfenv use
-    @terraform -install-autocomplete
+    # TODO: this fails for some reason?
+    -@terraform -install-autocomplete
 
     # K8s
     @brew install kubernetes-cli
