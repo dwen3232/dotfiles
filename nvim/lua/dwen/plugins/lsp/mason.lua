@@ -47,6 +47,7 @@ return {
     -- can use both Mason and LspConfig names
     mason_tool_installer.setup({
       ensure_installed = {
+        "actionlint",
         "prettier",
         "stylua",
         "ruff",
