@@ -38,6 +38,7 @@ return {
         "lua_ls",
         "pyright",
         "rust_analyzer",
+        "sqlls",
       },
       -- auto-install configured servers (with lspconfig)
       automatic_installation = true, -- not the same as ensure_installed
@@ -54,11 +55,14 @@ return {
         "mypy",
         "tflint",
         "tfsec",
+        "hadolint",
+        "jsonlint",
+        "sqlfluff",
       },
     })
 
     mason_dap.setup({
-      ensure_installed = {"python"}
+      ensure_installed = { "python" },
     })
   end,
 }
