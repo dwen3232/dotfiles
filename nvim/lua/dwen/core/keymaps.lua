@@ -10,3 +10,11 @@ vim.api.nvim_set_keymap("n", "<C-U>", "<C-U>zz", { noremap = true, silent = true
 
 -- Removes highlights when hitting ESC
 vim.api.nvim_set_keymap("n", "<Esc>", "<cmd>:noh<cr>", { noremap = true, silent = true })
+
+-- Putting this here since file types with no LSP may stil have diagnostics (due to linters)
+vim.keymap.set(
+  "n",
+  "<leader>xx",
+  vim.diagnostic.open_float,
+  { noremap = true, silent = true, desc = "Show line diagnostics" }
+) -- show diagnostics for line
