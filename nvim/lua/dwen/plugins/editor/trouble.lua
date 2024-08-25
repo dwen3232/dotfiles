@@ -10,12 +10,12 @@ return {
     {
       "<leader>xd",
       "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
-      desc = "Show Current Buffer Diagnostics",
+      desc = "Show current buffer diagnostics",
     },
     {
       "<leader>xa",
       "<cmd>Trouble diagnostics toggle<cr>",
-      desc = "Show All Diagnostics",
+      desc = "Show all diagnostics",
     },
   },
 }
