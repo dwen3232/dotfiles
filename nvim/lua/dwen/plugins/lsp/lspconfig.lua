@@ -20,7 +20,7 @@ return {
 
     -- local opts = { noremap = true, silent = true }
     local opts = { noremap = true }
-    local on_attach = function(client, bufnr)
+    local on_attach = function(_, bufnr)
       opts.buffer = bufnr
 
       -- set keybinds
@@ -39,12 +39,8 @@ return {
       opts.desc = "Show LSP type definitions"
       keymap.set("n", "<leader>gt", "<cmd>Telescope lsp_type_definitions<CR>", opts) -- show lsp type definitions
 
-      opts.desc = "See available code actions"
-      keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts) -- see available code actions, in visual mode will apply to selection
-
-      opts.desc = "Show buffer diagnostics"
-      keymap.set("n", "<leader>xX", "<cmd>Telescope diagnostics bufnr=0<CR>", opts) -- show  diagnostics for file
-
+      opts.desc = "Fuzzy find diagnostics in buffer"
+      keymap.set("n", "<leader>fd", "<cmd>Telescope diagnostics<CR>", opts) -- show  diagnostics for file
 
       opts.desc = "Go to previous diagnostic"
       keymap.set("n", "[d", vim.diagnostic.goto_prev, opts) -- jump to previous diagnostic in buffer
@@ -55,11 +51,15 @@ return {
       opts.desc = "Show documentation for what is under cursor"
       keymap.set("n", "K", vim.lsp.buf.hover, opts) -- show documentation for what is under cursor
 
+      -- LSP
+      opts.desc = "See available code actions"
+      keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts) -- see available code actions, in visual mode will apply to selection
+
       opts.desc = "Smart rename"
       keymap.set("n", "<leader>cn", vim.lsp.buf.rename, opts) -- smart rename
 
       opts.desc = "Restart LSP"
-      keymap.set("n", "<leader>cs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
+      keymap.set("n", "<leader>cr", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
     end
 
     -- used to enable autocompletion (assign to every lsp server config)
@@ -112,7 +112,17 @@ return {
     })
 
     lspconfig["terraformls"].setup({
-        capabilities = capabilities,
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+
+    lspconfig["bashls"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+
+    lspconfig["sqlls"].setup({
+      capabilities = capabilities,
       on_attach = on_attach,
     })
 
