@@ -1,5 +1,4 @@
 -- TODO: setup icons?
--- TODO: setup hints for nvim-tree, because I always forget what my bindings are there
 return {
   "folke/which-key.nvim",
   event = "VeryLazy",

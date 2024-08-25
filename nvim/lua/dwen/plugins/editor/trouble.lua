@@ -1,4 +1,3 @@
--- TODO: I honestly don't like this that much, I think I can just replace this with lspsaga
 return {
   "folke/trouble.nvim",
   dependencies = {
