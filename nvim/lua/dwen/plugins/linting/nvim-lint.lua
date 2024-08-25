@@ -7,9 +7,13 @@ return {
     lint.linters_by_ft = {
       python = { "ruff", "mypy" },
       json = { "jsonlint" },
-      dockerfile = { "hadolint" },
-      terraform = { "tflint" },
+      terraform = { "tflint", "tfsec" },
+      -- TODO FIX: actionlint is triggered on all yaml files
+      -- Need to find a way to check the absolute path of a
+      -- yaml file for `.github`
       yaml = { "actionlint" },
+      sql = { "sqlfluff" },
+      dockerfile = { "hadolint" },
     }
 
     local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })

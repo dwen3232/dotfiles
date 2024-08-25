@@ -1,4 +1,3 @@
--- TODO: configure this
 return {
   "neovim/nvim-lspconfig",
   -- event = { "BufReadPre", "BufNewFile" },
@@ -122,6 +121,11 @@ return {
     })
 
     lspconfig["sqlls"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+
+    lspconfig["dockerls"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
     })
