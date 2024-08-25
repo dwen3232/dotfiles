@@ -3,7 +3,15 @@
 return {
   "folke/which-key.nvim",
   event = "VeryLazy",
-
+  keys = {
+    {
+      "<leader>?",
+      function()
+        require("which-key").show({ global = false })
+      end,
+      desc = "Show Keymaps",
+    },
+  },
   config = function(_, opts)
     local wk = require("which-key")
     wk.setup(opts)
