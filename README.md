@@ -1,12 +1,12 @@
 # My Configs
-
 Just some configs for things I like to use
 
 # TODOS
 - Set up debugger (only partially setup now)
-- My .gitignore is being strange, figure out why
 - Save open buffer state after :qa
+- Add window management keybinds
 
 # BACKLOG
-- Add GPG support for vim-fugitive https://github.com/tpope/vim-fugitive/issues/846
-- Configure LSP/Linter/Formatter for other languages (Docker?)
+- Review Lazy profile and plugin events (maybe more things can be async loaded?)
+- My .gitignore is being strange, figure out why
+- Figure out issues with conflicting keymaps (see which-key's checkhealth)
