@@ -72,25 +72,21 @@ return {
       vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
     end
 
-    -- configure html server
     lspconfig["html"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
     })
 
-    -- configure typescript server with plugin
     lspconfig["tsserver"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
     })
 
-    -- configure css server
     lspconfig["cssls"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
     })
 
-    -- configure tailwindcss server
     lspconfig["tailwindcss"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
@@ -101,7 +97,6 @@ return {
       on_attach = on_attach,
     })
 
-    -- configure python server
     lspconfig["pyright"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
@@ -111,6 +106,11 @@ return {
     })
 
     lspconfig["terraformls"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+
+    lspconfig["gopls"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
     })
