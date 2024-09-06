@@ -16,6 +16,7 @@ return {
         javascriptreact = { "prettier" },
         rust = { "rustfmt" },
         terraform = { "terraform_fmt" },
+        go = { "gofumpt"}
       },
     })
 

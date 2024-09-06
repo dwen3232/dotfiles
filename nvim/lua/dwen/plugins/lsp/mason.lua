@@ -55,6 +55,8 @@ return {
         "prettier",
         "stylua",
         "ruff",
+        "golangci-lint",
+        "gofumpt",
         "mypy",
         "tflint",
         "tfsec",
