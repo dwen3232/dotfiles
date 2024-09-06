@@ -34,6 +34,7 @@ return {
       command! NeotestSummary lua require("neotest").summary.toggle()
     ]])
     opts.desc = "Run nearest test"
+
     keymap.set("n", "<leader>ti", function()
       neotest.run.run()
     end, opts)
@@ -70,7 +71,7 @@ return {
 
     opts.desc = "Debug nearest test"
     keymap.set("n", "<leader>td", function()
-      neotest.run.run({strategy = "dap"})
+      neotest.run.run({ strategy = "dap" })
     end, opts)
   end,
 }
