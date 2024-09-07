@@ -10,13 +10,14 @@ return {
         html = { "prettier" },
         css = { "prettier" },
         json = { "prettier" },
+        yaml = { "prettier" },
         javascript = { "prettier" },
         typescript = { "prettier" },
         typescriptreact = { "prettier" },
         javascriptreact = { "prettier" },
         rust = { "rustfmt" },
         terraform = { "terraform_fmt" },
-        go = { "gofumpt"}
+        go = { "gofumpt" },
       },
     })
 
@@ -40,7 +41,7 @@ return {
       end,
     })
 
-    vim.keymap.set("n", "<leader>cf", function( )
+    vim.keymap.set("n", "<leader>cf", function()
       conform.format()
     end, { desc = "Trigger formatting" })
   end,
