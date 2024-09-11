@@ -18,6 +18,7 @@ return {
       { "<leader>c", group = "+code" },
       { "<leader>d", group = "+debug" },
       { "<leader>e", group = "+explore" },
+      { "<leader>h", group = "+harpoon" },
       { "<leader>f", group = "+find" },
       { "<leader>t", group = "+test" },
       { "<leader>x", group = "+diagnostics" },
