@@ -11,7 +11,7 @@ return {
     telescope.load_extension("harpoon")
   end,
   keys = {
-    { "<leader>a", [[ <cmd>lua require("harpoon.mark").add_file()<cr> ]], desc = "Mark current file" },
+    { "<leader>ha", [[ <cmd>lua require("harpoon.mark").add_file()<cr> ]], desc = "Mark current file" },
     { "<leader>hd", [[ <cmd>lua require("harpoon.mark").rm_file()<cr> ]], desc = "Remove current file" },
     { "<leader>hh", [[ <cmd>Telescope harpoon marks<cr> ]], desc = "Find marks" },
     { "<leader>fh", [[ <cmd>Telescope harpoon marks<cr> ]], desc = "Find marks" },
