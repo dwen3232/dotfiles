@@ -10,6 +10,7 @@ return {
     local debugpy_path = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
     python_dap.setup(debugpy_path)
 
+    -- Signs
     vim.fn.sign_define("DapStopped", { text = "👉" })
     vim.fn.sign_define("DapBreakpoint", { text = "🔴" })
     vim.fn.sign_define("DapBreakpointCondition", { text = "🟡" })
