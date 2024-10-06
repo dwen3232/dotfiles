@@ -2,7 +2,8 @@ TPM_PATH := "$HOME/.config/tmux/plugins/tpm"
 
 # List all recipes
 _:
-    @just --list
+    @just --list --unsorted
+
 
 # Installs homebrew
 install-brew:
@@ -15,6 +16,7 @@ install-brew:
     else \
         echo "Homebrew is already installed!"; \
     fi
+
 
 # Install brew casks
 install-casks: install-brew
@@ -129,7 +131,7 @@ setup-terminal: install-casks
     @brew install zsh-autosuggestions
 
 # Setup tmux
-setup-tmux: install-formulae
+setup-tmux: install-formulae sync-submodules
     @echo "------------------------------------------"
     @echo "Setting up tmux..."
     @echo "Checking for TPM installation..."
@@ -144,13 +146,19 @@ setup-tmux: install-formulae
     @echo "All missing plugins have been installed."
     # @just update-tmux-plugins
 
+# Setup configs
+setup-configs: install-formulae
+    @just stow-configs
+
+
 # Setup all tools
-setup-all: setup-terminal setup-tmux
+setup-all: setup-configs setup-terminal setup-tmux
 
 # Upgrade all tools
 upgrade:
     @brew upgrade
 
+# Adds tmux plugins as submodules
 update-tmux-plugins:
     #!/usr/bin/env bash
     set -euo pipefail
@@ -162,15 +170,18 @@ update-tmux-plugins:
         git submodule add $url $repo
     done
 
+# Syncs all submodules
 sync-submodules:
     git submodule init
     git submodule update
 
 
+# Creates symlinks in ~/.config/
 stow-configs:
     # TODO: filter this to only stow directories or specific files
     @stow --restow --target=$HOME/.config .
 
+# Deletes symlinks in ~/.config/
 unstow-configs:
     # TODO: filter this to only stow directories or specific files
     stow --delete --target=$HOME/.config .
