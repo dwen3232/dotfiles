@@ -43,6 +43,9 @@ install-casks: install-brew
 install-formulae: install-brew
     @echo "------------------------------------------"
     @echo "Installing formulae..."
+    @brew install git
+    @brew install stow      # Symlink farm
+    @brew install direnv
     @brew install neovim    # maybe I should build from source? 
     @brew install tmux      # Terminal multiplexer
     @brew install neofetch  # TODO: this got archived, remove this? Also has horrible performance on work laptop
@@ -53,16 +56,15 @@ install-formulae: install-brew
     @brew install fd        # TODO: do I need this since I have ripgrep?
     @brew install fzf       # TODO: do I need this since I have ripgrep?
     @brew install wget      # This doesn't come preinstalled on MacOS, surprisingly
-    @brew install git
     @brew install mercurial
     @brew install jq
-    @brew install stow      # Symlink farm
 
 # Install all language dependencies
 install-lang-deps: install-brew
     # TODO: should this be split by language?
     @echo "------------------------------------------"
     @echo "Installing language dependencies..."
+
     @brew install gcc   # C, C++ compiler
 
     # Python
