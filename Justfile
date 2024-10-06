@@ -54,6 +54,7 @@ install-formulae: install-brew
     @brew install git
     @brew install mercurial
     @brew install jq
+    @brew install stow      # Symlink farm
 
 # Install all language dependencies
 install-lang-deps: install-brew
