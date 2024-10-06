@@ -141,6 +141,7 @@ setup-tmux: install-formulae
     @echo "Installing missing plugins..."
     @TMUX_PLUGIN_MANAGER_PATH={{TPM_PATH}} tmux start-server \; source-file ~/.config/tmux/tmux.conf \; run-shell "{{TPM_PATH}}/bin/install_plugins"
     @echo "All missing plugins have been installed."
+    # @just update-tmux-plugins
 
 # Setup all tools
 setup-all: setup-terminal setup-tmux
@@ -148,3 +149,19 @@ setup-all: setup-terminal setup-tmux
 # Upgrade all tools
 upgrade:
     @brew upgrade
+
+update-tmux-plugins:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    for repo in tmux/plugins/*; do
+        pushd $repo
+        url=$(git remote get-url $(git remote))
+        popd
+        git rm --cached $repo
+        git submodule add $url $repo
+    done
+
+sync-submodules:
+    git submodule init
+    git submodule update
+
