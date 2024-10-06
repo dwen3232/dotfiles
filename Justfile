@@ -165,3 +165,11 @@ sync-submodules:
     git submodule init
     git submodule update
 
+
+stow-configs:
+    # TODO: filter this to only stow directories or specific files
+    @stow --restow --target=$HOME/.config .
+
+unstow-configs:
+    # TODO: filter this to only stow directories or specific files
+    stow --delete --target=$HOME/.config .
