@@ -164,10 +164,12 @@ upgrade:
 update-tmux-plugins:
     #!/usr/bin/env bash
     set -euo pipefail
-    for repo in tmux/plugins/*; do
+    for repo in dot-config/tmux/plugins/*; do
         pushd $repo
+        echo $(git remote)
         url=$(git remote get-url $(git remote))
         popd
+        echo $repo $url
         git rm --cached $repo
         git submodule add $url $repo
     done
@@ -180,10 +182,9 @@ sync-submodules:
 
 # Creates symlinks in ~/.config/
 stow-configs:
-    # TODO: filter this to only stow directories or specific files
-    @stow --restow --target=$HOME/.config .
+    @stow --restow --dotfiles --target=$HOME --ignore=Justfile . 
 
 # Deletes symlinks in ~/.config/
 unstow-configs:
     # TODO: filter this to only stow directories or specific files
-    stow --delete --target=$HOME/.config .
+    @stow --delete --dotfiles --target=$HOME .
