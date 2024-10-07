@@ -1,18 +1,18 @@
-[submodule "tmux/plugins/tmux"]
+[submodule "dot-config/tmux/plugins/tmux"]
 	path = dot-config/tmux/plugins/tmux
 	url = https://git::@github.com/catppuccin/tmux
-[submodule "tmux/plugins/tmux-continuum"]
+[submodule "dot-config/tmux/plugins/tmux-continuum"]
 	path = dot-config/tmux/plugins/tmux-continuum
 	url = https://git::@github.com/tmux-plugins/tmux-continuum
-[submodule "tmux/plugins/tmux-fzf"]
+[submodule "dot-config/tmux/plugins/tmux-fzf"]
 	path = dot-config/tmux/plugins/tmux-fzf
 	url = https://git::@github.com/sainnhe/tmux-fzf
-[submodule "tmux/plugins/tmux-resurrect"]
+[submodule "dot-config/tmux/plugins/tmux-resurrect"]
 	path = dot-config/tmux/plugins/tmux-resurrect
 	url = https://git::@github.com/tmux-plugins/tmux-resurrect
-[submodule "tmux/plugins/tpm"]
+[submodule "dot-config/tmux/plugins/tpm"]
 	path = dot-config/tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
-[submodule "tmux/plugins/vim-tmux-navigator"]
+[submodule "dot-config/tmux/plugins/vim-tmux-navigator"]
 	path = dot-config/tmux/plugins/vim-tmux-navigator
 	url = https://git::@github.com/christoomey/vim-tmux-navigator
