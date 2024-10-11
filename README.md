@@ -3,7 +3,8 @@ Just some configs for things I like to use
 
 
 # TODOS
-- Setup direnv and add .zshrc file
+- [oil.nvim](https://github.com/stevearc/oil.nvim)
+- [substitute mode]
 - Save open buffer state after :qa
 - Add window management keybinds
 - Figure out issues with conflicting keymaps (see which-key's checkhealth)
