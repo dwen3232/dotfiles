@@ -1,6 +1,10 @@
 -- Setting leader to <space>
 vim.g.mapleader = " "
 
+-- disable netrw at the very start of your init.lua
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 -- TODO: add window management keybindings?
 -- TODO: add tab switching keybindings?
 
