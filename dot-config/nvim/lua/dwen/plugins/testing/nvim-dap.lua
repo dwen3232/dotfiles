@@ -15,32 +15,42 @@ return {
     vim.fn.sign_define("DapBreakpoint", { text = "🔴" })
     vim.fn.sign_define("DapBreakpointCondition", { text = "🟡" })
     vim.fn.sign_define("DapBreakpointRejected", { text = "❌" })
-
-    -- Mappings
-    local keymap = vim.keymap -- for conciseness
-    local opts = { noremap = true, silent = true }
-
-    -- TODO: this could be refactored to use the lua API directly
-    -- should do that in the future, because the lua API is much more powerful
-    opts.desc = "Toggle breakpoint"
-    keymap.set("n", "<leader>db", "<cmd>DapToggleBreakpoint<CR>", opts)
-
-    opts.desc = "Toggle REPL shell"
-    keymap.set("n", "<leader>ds", "<cmd>DapToggleRepl<CR>", opts)
-
-    opts.desc = "Step into function"
-    keymap.set("n", "<leader>di", "<cmd>DapStepInto<CR>", opts)
-
-    opts.desc = "Step out of function"
-    keymap.set("n", "<leader>do", "<cmd>DapStepOut<CR>", opts)
-
-    opts.desc = "Step over line"
-    keymap.set("n", "<leader>dn", "<cmd>DapStepOver<CR>", opts)
-
-    opts.desc = "Continue to next breakpoint"
-    keymap.set("n", "<leader>dc", "<cmd>DapContinue<CR>", opts)
-
-    opts.desc = "Disconnect"
-    keymap.set("n", "<leader>dd", "<cmd>DapDisconnect<CR>", opts)
   end,
+  keys = {
+    {
+      "<leader>db",
+      "<cmd>DapToggleBreakpoint<CR>",
+      desc = "Toggle breakpoint",
+    },
+    {
+      "<leader>ds",
+      "<cmd>DapToggleRepl<CR>",
+      desc = "Toggle REPL shell",
+    },
+    {
+      "<leader>di",
+      "<cmd>DapStepInto<CR>",
+      desc = "Step into function",
+    },
+    {
+      "<leader>do",
+      "<cmd>DapStepOut<CR>",
+      desc = "Step out of function",
+    },
+    {
+      "<leader>dn",
+      "<cmd>DapStepOver<CR>",
+      desc = "Step over line",
+    },
+    {
+      "<leader>dc",
+      "<cmd>DapContinue<CR>",
+      desc = "Continue to next breakpoint",
+    },
+    {
+      "<leader>dd",
+      "<cmd>DapDisconnect<CR>",
+      desc = "Disconnect",
+    },
+  },
 }
