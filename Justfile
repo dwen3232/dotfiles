@@ -58,6 +58,7 @@ install-formulae: install-brew
     @brew install wget      # This doesn't come preinstalled on MacOS, surprisingly
     @brew install mercurial
     @brew install jq
+    @brew install imagemagick
 
 # Install all language dependencies
 install-lang-deps: install-brew

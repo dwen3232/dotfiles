@@ -136,4 +136,7 @@ export PATH="$PATH:/Users/davidwen/.local/bin"
 
 eval "$(direnv hook zsh)"
 
+# For imagemagick
+export DYLD_LIBRARY_PATH="$(brew --prefix)/lib:$DYLD_LIBRARY_PATH"
+
 neofetch
