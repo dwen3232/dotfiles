@@ -59,6 +59,8 @@ install-formulae: install-brew
     @brew install mercurial
     @brew install jq
     @brew install imagemagick
+    @brew install apache-spark
+    @brew install dvc
 
 # Install all language dependencies
 install-lang-deps: install-brew
