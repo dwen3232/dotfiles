@@ -61,6 +61,7 @@ install-formulae: install-brew
     @brew install imagemagick
     @brew install apache-spark
     @brew install dvc
+    @brew install kind      # For local kubernetes clusters on docker container nodes
 
 # Install all language dependencies
 install-lang-deps: install-brew
