@@ -139,7 +139,13 @@ eval "$(direnv hook zsh)"
 # For imagemagick
 export DYLD_LIBRARY_PATH="$(brew --prefix)/lib:$DYLD_LIBRARY_PATH"
 
-
 # pyenv virtualenv auto activate
 eval "$(pyenv virtualenv-init -)"
 neofetch
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/davidwen/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+
+# Read from .env
+set -a && source ~/.env && set +a
