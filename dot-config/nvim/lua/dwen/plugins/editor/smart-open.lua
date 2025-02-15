@@ -15,7 +15,9 @@ return {
     {
       "<leader><leader>",
       function()
-        require("telescope").extensions.smart_open.smart_open()
+        require("telescope").extensions.smart_open.smart_open({
+          cwd_only = true,
+        })
       end,
       desc = "Smart Find",
     },
