@@ -12,8 +12,6 @@ vim.g.loaded_netrwPlugin = 1
 vim.api.nvim_set_keymap("n", "<C-D>", "<C-D>zz", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<C-U>", "<C-U>zz", { noremap = true, silent = true })
 
--- Removes highlights when hitting ESC
-vim.api.nvim_set_keymap("n", "<Esc>", "<cmd>:noh<cr>", { noremap = true, silent = true })
 
 -- Putting this here since file types with no LSP may stil have diagnostics (due to linters)
 vim.keymap.set(
