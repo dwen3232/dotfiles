@@ -25,12 +25,12 @@ return {
         },
       },
       hooks = {
-        Explain = function(gp, params)
+        Explain = function(plugin, params)
           local template = "I have the following code from {{filename}}:\n\n"
             .. "```{{filetype}}\n{{selection}}\n```\n\n"
             .. "Please respond by explaining the code above."
-          local agent = gp.get_chat_agent()
-          gp.Prompt(params, gp.Target.popup, agent, template)
+          local agent = plugin.get_chat_agent()
+          plugin.Prompt(params, plugin.Target.popup, agent, template)
         end,
       },
       default_chat_agent = "SonnetMLE",
