@@ -1,6 +1,7 @@
 return {
   "olimorris/codecompanion.nvim",
   dependencies = {
+  "ravitemer/mcphub.nvim",
     "nvim-lua/plenary.nvim",
     "nvim-treesitter/nvim-treesitter",
     "j-hui/fidget.nvim",
@@ -23,6 +24,16 @@ return {
     },
   },
   opts = {
+    extensions = {
+      mcphub = {
+        callback = "mcphub.extensions.codecompanion",
+        opts = {
+          show_result_in_chat = true, -- Show the mcp tool result in the chat buffer
+          make_vars = true, -- make chat #variables from MCP server resources
+          make_slash_commands = true, -- make /slash_commands from MCP server prompts
+        },
+      },
+    },
     strategies = {
       -- Change the default chat adapter
       inline = { adapter = "anthropic" },
@@ -66,6 +77,6 @@ return {
     },
   },
   init = function()
-    require("dwen.plugins.coding.codecompanion.fidget-spinner"):init()
+    require("dwen.plugins.ai.codecompanion.fidget-spinner"):init()
   end,
 }
