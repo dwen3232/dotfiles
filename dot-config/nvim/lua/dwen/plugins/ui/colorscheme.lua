@@ -5,4 +5,11 @@ return {
   config = function()
     vim.cmd([[colorscheme catppuccin]])
   end,
+  ---@type CatppuccinOptions
+  opts = {
+    integrations = {
+      blink_cmp = true,
+    },
+  },
 }
+

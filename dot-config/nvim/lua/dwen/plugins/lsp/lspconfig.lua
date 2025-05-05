@@ -2,8 +2,8 @@ return {
   "neovim/nvim-lspconfig",
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
-    "hrsh7th/cmp-nvim-lsp",
     "folke/neodev.nvim",
+    "saghen/blink.cmp",
     { "antosha417/nvim-lsp-file-operations", config = true },
   },
   config = function()
@@ -105,13 +105,12 @@ return {
       end,
     })
 
-    local cmp_nvim_lsp = require("cmp_nvim_lsp")
     local neodev = require("neodev")
+    local capabilities = require("blink.cmp").get_lsp_capabilities()
 
     -- neodev needs to be configured before lspconfig
     neodev.setup({})
     -- used to enable autocompletion (assign to every lsp server config)
-    local capabilities = cmp_nvim_lsp.default_capabilities()
 
     vim.diagnostic.config({
       severity_sort = true,
@@ -139,7 +138,6 @@ return {
         end,
       },
     })
-
     vim.lsp.enable({
       "html",
       "ts_ls",
@@ -181,6 +179,7 @@ return {
             library = {
               [vim.fn.expand("$VIMRUNTIME/lua")] = true,
               [vim.fn.stdpath("config") .. "/lua"] = true,
+              [vim.fn.stdpath("data") .. "/lazy"] = true,
             },
           },
         },
