@@ -19,6 +19,7 @@ return {
       },
     })
 
+    -- TODO: make this work for blink.nvim
     -- import nvim-autopairs completion functionality
     local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 

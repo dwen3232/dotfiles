@@ -1,3 +1,6 @@
+-- TODO: think I still need to set up autopairs. Doesn't seem that important though
+-- https://github.com/Saghen/blink.cmp/discussions/157
+---@type LazySpec
 return {
   "saghen/blink.cmp",
   -- optional: provides snippets for the snippet source
