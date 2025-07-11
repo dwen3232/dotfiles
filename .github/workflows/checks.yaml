@@ -1,0 +1,20 @@
+name: Justfile Bootstrap Check
+
+on:
+  push:
+    paths:
+      - "Justfile"
+
+jobs:
+  test-justfile:
+    runs-on: macos-latest
+    name: Check Boostrap Script
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Just
+        run: brew install just
+
+      - name: Run bootstrap commands
+        run: just install-brew
