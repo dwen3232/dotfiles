@@ -1,21 +1,21 @@
-name: Justfile Bootstrap Check
+name: Validate dotfiles
 
 on:
-  push:
-    paths:
-      - "Justfile"
+  # push:
+  #   paths:
+  #     - "Justfile"
   workflow_dispatch:
 
 jobs:
   test-justfile:
     runs-on: macos-latest
-    name: Check Boostrap Script
+    name: Validate Boostrap
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
       - name: Install Just
         run: brew install just
-
       - name: Install Casks
         run: just install-casks
+      - name: Install Formulae
+        run: just install-formulae
