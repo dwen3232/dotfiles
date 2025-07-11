@@ -17,5 +17,5 @@ jobs:
       - name: Install Just
         run: brew install just
 
-      - name: Run bootstrap commands
-        run: just install-brew
+      - name: Install Casks
+        run: just install-casks
