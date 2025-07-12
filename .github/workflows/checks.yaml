@@ -15,9 +15,5 @@ jobs:
         uses: actions/checkout@v4
       - name: Install Just
         run: brew install just
-      - name: Install Casks
-        run: just install-casks
-      - name: Install Formulae
-        run: just install-formulae
-      - name: Install Language Dependencies
-        run: just install-lang-deps
+      - name: Setup All
+        run: just setup-all
