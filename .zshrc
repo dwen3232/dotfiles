@@ -147,5 +147,17 @@ neofetch
 export PATH="/Users/davidwen/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 
-# Read from .env
-set -a && source ~/.env && set +a
+# Using this so that lazygit can read from .config/ for configurations, this might break other stuff, idk yet
+export XDG_CONFIG_HOME="$HOME/.config"
+
+# Need this for husky to find pnpm properly
+export PATH=$PATH:$HOME/.local/share/pnpm
+
+# Read from .env.root
+set -a && source ~/.env.root && set +a
+
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/davidwen/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions
