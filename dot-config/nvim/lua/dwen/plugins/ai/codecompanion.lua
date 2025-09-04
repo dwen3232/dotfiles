@@ -1,7 +1,7 @@
 return {
   "olimorris/codecompanion.nvim",
   dependencies = {
-  "ravitemer/mcphub.nvim",
+    "ravitemer/mcphub.nvim",
     "nvim-lua/plenary.nvim",
     "nvim-treesitter/nvim-treesitter",
     "j-hui/fidget.nvim",
@@ -24,6 +24,9 @@ return {
     },
   },
   opts = {
+    opts = {
+      log_level = "INFO",
+    },
     extensions = {
       mcphub = {
         callback = "mcphub.extensions.codecompanion",
