@@ -94,6 +94,9 @@ install-lang-deps: install-brew
     @brew install jenv
     @brew install java
 
+    # C-sharp
+    @brew install mono
+
     # Terraform
     @brew install tfenv
     @tfenv install

@@ -147,5 +147,5 @@ neofetch
 export PATH="/Users/davidwen/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 
-# Read from .env
-set -a && source ~/.env && set +a
+# Set global environment variables that I need everywhere (access tokens and the like)
+set -a && source ~/.global_env && set +a
