@@ -139,6 +139,9 @@ eval "$(direnv hook zsh)"
 # For imagemagick
 export DYLD_LIBRARY_PATH="$(brew --prefix)/lib:$DYLD_LIBRARY_PATH"
 
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"
 # pyenv virtualenv auto activate
 eval "$(pyenv virtualenv-init -)"
 neofetch
@@ -147,5 +150,47 @@ neofetch
 export PATH="/Users/davidwen/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 
+# Using this so that lazygit can read from .config/ for configurations, this might break other stuff, idk yet
+export XDG_CONFIG_HOME="$HOME/.config"
+
+# Need this for husky to find pnpm properly
+export PATH=$PATH:$HOME/.local/share/pnpm
+
+# Read from .env.root
+set -a && source ~/.env.root && set +a
+
 # Set global environment variables that I need everywhere (access tokens and the like)
 set -a && source ~/.global_env && set +a
+
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/davidwen/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions
+
+
+
+## FUNCTIONS
+killport() {
+    if [ -z "$1" ]; then
+        echo "Usage: killport <port_number>"
+        return 1
+    fi
+    
+    local pids=$(lsof -ti :$1)
+    
+    if [ -z "$pids" ]; then
+        echo "No process found running on port $1"
+        return 1
+    fi
+    
+    echo "Killing processes running on port $1: $pids"
+    echo "$pids" | xargs kill -9
+    
+    if [ $? -eq 0 ]; then
+        echo "Processes killed successfully"
+    else
+        echo "Failed to kill some processes"
+        return 1
+    fi
+}

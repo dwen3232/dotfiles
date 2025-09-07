@@ -67,7 +67,7 @@ return {
     })
 
     mason_dap.setup({
-      ensure_installed = { "python" },
+      ensure_installed = { "python", "js" },
     })
   end,
 }

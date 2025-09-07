@@ -84,11 +84,14 @@ install-lang-deps: install-brew
     # [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
     # [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
     @brew install nvm
+    @brew install npm
 
     # Golang
     @brew install mercurial
     # TODO: this script doesn't work
-    -@bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
+    # -@bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
+    # doing this temporarily
+    @brew install go
 
     # Java (TODO)
     @brew install jenv
