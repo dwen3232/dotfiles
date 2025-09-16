@@ -22,20 +22,21 @@ install-brew:
 install-casks: install-brew
     @echo "------------------------------------------"
     @echo "Installing casks..."
-    @brew install --cask alt-tab    # For windows-like window navigation
-    @brew install --cask kitty      # GPU-rendered GUI
-    @brew install --cask raycast    # Better spotlight
-    @brew install --cask rectangle  # Window manager, not exactly a tiler, but good enough for my needs
-    @brew install --cask stats      # OS stats
-    @brew install --cask brave-browser  # Preferred browser, maybe should try out firefox too?
-    @brew install --cask spotify    # Music
-    @brew install --cask marta      # Finder replacement, finder sucks so much
-    @brew install --cask orbstack   # Docker drop-in replacement
-    @brew install --cask openlens   # Open-source lens
-    @brew install --cask boop       # Dev utils
-    @brew install --cask basictex   # Latex
-    @brew install --cask obsidian   # Note taking app
-    @brew install --cask anki       # Flask cards
+    @brew install --cask alt-tab            # For windows-like window navigation
+    @brew install --cask kitty              # GPU-rendered GUI
+    @brew install --cask raycast            # Better spotlight
+    @brew install --cask rectangle          # Window manager, not exactly a tiler, but good enough for my needs
+    @brew install --cask stats              # OS stats
+    @brew install --cask brave-browser      # Preferred browser, maybe should try out firefox too?
+    @brew install --cask spotify            # Music
+    @brew install --cask marta              # Finder replacement, finder sucks so much
+    @brew install --cask orbstack           # Docker drop-in replacement
+    @brew install --cask openlens           # Open-source lens
+    @brew install --cask boop               # Dev utils
+    @brew install --cask basictex           # Latex
+    @brew install --cask obsidian           # Note taking app
+    @brew install --cask anki               # Flask cards
+    @brew install --cask jordanbaird-ice    # Menu bar
     -@brew tap homebrew/cask-fonts   
     @brew install --cask font-hack-nerd-font
 
