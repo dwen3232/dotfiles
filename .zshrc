@@ -144,7 +144,6 @@ export PYENV_ROOT="$HOME/.pyenv"
 eval "$(pyenv init - zsh)"
 # pyenv virtualenv auto activate
 eval "$(pyenv virtualenv-init -)"
-neofetch
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="/Users/davidwen/.rd/bin:$PATH"
@@ -156,11 +155,14 @@ export XDG_CONFIG_HOME="$HOME/.config"
 # Need this for husky to find pnpm properly
 export PATH=$PATH:$HOME/.local/share/pnpm
 
-# Read from .env.root
-set -a && source ~/.env.root && set +a
-
-# Set global environment variables that I need everywhere (access tokens and the like)
-set -a && source ~/.global_env && set +a
+# Source all .zshrc.* files (e.g., .zshrc.work, .zshrc.personal)
+for config in ~/.zshrc.*; do
+  if [ -f "$config" ]; then
+    set -a
+    source "$config"
+    set +a
+  fi
+done
 
 # The following lines have been added by Docker Desktop to enable Docker CLI completions.
 fpath=(/Users/davidwen/.docker/completions $fpath)
