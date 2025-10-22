@@ -118,8 +118,20 @@ install-cloud-clis: install-brew
     @brew install awscli    # AWS CLI
     @brew install google-cloud-sdk  # GCP CLI
 
+install-agents:
+    @echo "------------------------------------------"
+    @echo "Installing Claude Code..."
+    @curl -fsSL https://claude.ai/install.sh | bash
+    @claude mcp add --transport http github https://api.githubcopilot.com/mcp -H "Authorization: Bearer $(env | grep GITHUB_PAT | cut -d '=' -f2)"
+
+
+install-npm-globals:
+    @npm install -g @bitwarden/cli
+
+
+
 # Install all homebrew packages
-install-all: install-lang-deps install-formulae install-casks install-cloud-clis
+install-all: install-lang-deps install-formulae install-casks install-cloud-clis install-agents install-npm-globals
 
 # Setup terminal (kitty and zsh)
 setup-terminal: install-casks
