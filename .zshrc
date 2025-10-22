@@ -178,23 +178,50 @@ killport() {
         echo "Usage: killport <port_number>"
         return 1
     fi
-    
+
     local pids=$(lsof -ti :$1)
-    
+
     if [ -z "$pids" ]; then
         echo "No process found running on port $1"
         return 1
     fi
-    
+
     echo "Killing processes running on port $1: $pids"
     echo "$pids" | xargs kill -9
-    
+
     if [ $? -eq 0 ]; then
         echo "Processes killed successfully"
     else
         echo "Failed to kill some processes"
         return 1
     fi
+}
+
+# Claude Code wrapper with default parameters
+cld() {
+    typeset -A CLAUDE_DEFAULTS
+    CLAUDE_DEFAULTS=(
+        --allowed-tools "Read,Write,Edit,Bash,Grep,Glob"
+        # --model "sonnet"
+        # --max-tokens "4096"
+    )
+
+    local default_args=()
+    for flag in ${(k)CLAUDE_DEFAULTS}; do
+        local flag_present=false
+        for arg in "$@"; do
+            if [[ "$arg" == "$flag" ]]; then
+                flag_present=true
+                break
+            fi
+        done
+
+        if ! $flag_present; then
+            default_args+=("$flag" "${CLAUDE_DEFAULTS[$flag]}")
+        fi
+    done
+
+    command claude "${default_args[@]}" "$@"
 }
 
 # pnpm
