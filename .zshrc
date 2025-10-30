@@ -158,6 +158,7 @@ export PATH=$PATH:$HOME/.local/share/pnpm
 # Source all .zshrc.* files (e.g., .zshrc.work, .zshrc.personal)
 for config in ~/.zshrc.*; do
   if [ -f "$config" ]; then
+    echo "Sourcing $config..."
     set -a
     source "$config"
     set +a

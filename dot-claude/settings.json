@@ -1,3 +1,11 @@
 {
-  "alwaysThinkingEnabled": true
+  "permissions": {
+    "allow": [
+      "Read(~/Repositories/agent-core/)",
+      "Read(~/Repositories/lahzo-integrations/)",
+      "Read(~/Repositories/dotfiles/)",
+      "Bash(tree:*)"
+    ]
+  },
+  "alwaysThinkingEnabled": false
 }
