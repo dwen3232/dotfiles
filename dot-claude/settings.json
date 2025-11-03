@@ -4,8 +4,12 @@
       "Read(~/Repositories/agent-core/)",
       "Read(~/Repositories/lahzo-integrations/)",
       "Read(~/Repositories/dotfiles/)",
-      "Bash(tree:*)"
+      "Read(~/Repositories/ui-core/)",
+      "Read(~/Repositories/infra/)",
+      "Bash(tree:*)",
+      "WebSearch",
+      "WebFetch"
     ]
   },
-  "alwaysThinkingEnabled": false
+  "alwaysThinkingEnabled": true
 }
