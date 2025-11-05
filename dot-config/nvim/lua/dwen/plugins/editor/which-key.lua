@@ -24,6 +24,7 @@ return {
       { "<leader>x", group = "+diagnostics" },
       { "<leader>g", group = "+navigation" },
       { "<leader>l", group = "+ai" },
+      { "<leader>o", group = "+options" },
     })
   end,
 }
