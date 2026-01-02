@@ -5,10 +5,17 @@ vim.api.nvim_create_user_command("CleanLazyLock", function()
 	local lazy_dir = vim.fn.expand("~/.local/share/nvim/lazy")
 	local cache_dir = vim.fn.expand("~/.cache/nvim/luac")
 
-	-- Delete lazy plugin directory
+	-- Delete lazy plugin directory (except lazy.nvim itself to keep the plugin manager)
 	if vim.fn.isdirectory(lazy_dir) == 1 then
-		vim.fn.delete(lazy_dir, "rf")
-		print("Deleted: " .. lazy_dir)
+		-- Get all plugin directories except lazy.nvim
+		local plugins = vim.fn.readdir(lazy_dir)
+		for _, plugin in ipairs(plugins) do
+			if plugin ~= "lazy.nvim" then
+				local plugin_path = lazy_dir .. "/" .. plugin
+				vim.fn.delete(plugin_path, "rf")
+				print("Deleted: " .. plugin_path)
+			end
+		end
 	else
 		print("Directory not found: " .. lazy_dir)
 	end
@@ -21,7 +28,10 @@ vim.api.nvim_create_user_command("CleanLazyLock", function()
 		print("Directory not found: " .. cache_dir)
 	end
 
-	print("Neovim cleanup complete!")
+	print("Neovim cleanup complete! Exiting...")
+
+	-- Exit Neovim so user can restart and restore from lockfile
+	vim.cmd("qall!")
 end, {
-	desc = "Delete lazy plugin directory and luac cache",
+	desc = "Delete lazy plugins and cache, then restore from lockfile",
 })
