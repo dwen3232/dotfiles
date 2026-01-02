@@ -49,6 +49,7 @@ install-formulae: install-brew
     @brew install direnv
     @brew install neovim    # maybe I should build from source? 
     @brew install tmux      # Terminal multiplexer
+    @brew install zellij    # Modern terminal multiplexer
     @brew install neofetch  # TODO: this got archived, remove this? Also has horrible performance on work laptop
     @brew install lazygit   # CLI git tool
     @brew install tree      # Nice util for viewing dir structure
@@ -204,7 +205,7 @@ sync-submodules:
 
 # Creates symlinks in ~/.config/
 stow-configs:
-    @stow --restow --dotfiles --target=$HOME --ignore=Justfile . 
+    @stow --restow --dotfiles --target=$HOME --ignore=.gitmodules . 
 
 # Deletes symlinks in ~/.config/
 unstow-configs:

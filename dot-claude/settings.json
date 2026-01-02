@@ -6,6 +6,9 @@
       "Read(~/Repositories/dotfiles/)",
       "Read(~/Repositories/ui-core/)",
       "Read(~/Repositories/infra/)",
+      "Read(~/Justfile)",
+      "Write(~/Justfile)",
+      "Read(~/.zshrc)",
       "Bash(tree:*)",
       "WebSearch",
       "WebFetch"
