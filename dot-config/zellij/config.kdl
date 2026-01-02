@@ -1,0 +1,93 @@
+// Zellij Configuration
+// Full documentation: https://zellij.dev/documentation/
+
+// Keybindings
+// To completely override defaults, use: keybinds clear-defaults=true
+keybinds {
+    normal {
+        // Add custom keybindings here
+    }
+
+    // Tmux mode for tmux users - accessible via Ctrl+b
+    tmux {
+        bind "[" { SwitchToMode "Scroll"; }
+        bind "Ctrl b" { Write 2; SwitchToMode "Normal"; }
+        bind "\"" { NewPane "Down"; SwitchToMode "Normal"; }
+        bind "%" { NewPane "Right"; SwitchToMode "Normal"; }
+        bind "z" { ToggleFocusFullscreen; SwitchToMode "Normal"; }
+        bind "c" { NewTab; SwitchToMode "Normal"; }
+        bind "," { SwitchToMode "RenameTab"; }
+        bind "p" { GoToPreviousTab; SwitchToMode "Normal"; }
+        bind "n" { GoToNextTab; SwitchToMode "Normal"; }
+        bind "h" { MoveFocus "Left"; SwitchToMode "Normal"; }
+        bind "l" { MoveFocus "Right"; SwitchToMode "Normal"; }
+        bind "j" { MoveFocus "Down"; SwitchToMode "Normal"; }
+        bind "k" { MoveFocus "Up"; SwitchToMode "Normal"; }
+        bind "o" { FocusNextPane; }
+        bind "d" { Detach; }
+        bind "Space" { NextSwapLayout; }
+        bind "x" { CloseFocus; SwitchToMode "Normal"; }
+    }
+}
+
+// Shell configuration
+// Default shell for new panes (defaults to $SHELL)
+// default_shell "zsh"
+
+// Default working directory for new panes
+// default_cwd ""
+
+// UI Configuration
+// Show frames around panes
+pane_frames true
+
+// Auto-layout panes according to predefined layouts
+auto_layout true
+
+// Enable mouse support
+mouse_mode true
+
+// Simplified UI without arrow fonts
+// simplified_ui false
+
+// Session Management
+// Save sessions for later resurrection
+session_serialization true
+
+// Include pane scrollback when serializing
+// serialize_pane_viewport false
+
+// Scrollback buffer size (lines per pane)
+scroll_buffer_size 10000
+
+// Clipboard Configuration
+// Copy command (if terminal doesn't support OSC 52)
+// macOS: pbcopy (default when available)
+// copy_command "pbcopy"
+
+// Automatically copy selection when releasing mouse
+copy_on_select true
+
+// Editor for scrollback buffer (defaults to $EDITOR or $VISUAL)
+// scrollback_editor "nvim"
+
+// Theme Configuration
+// Available themes: default, dracula, nord, catppuccin, etc.
+// See: https://github.com/zellij-org/zellij/tree/main/example/themes
+// theme "default"
+
+// Layout Configuration
+// Default layout on startup
+// default_layout "default"
+
+// Starting mode (normal, locked, etc.)
+// default_mode "normal"
+
+// Enable styled underlines (undercurl)
+styled_underlines true
+
+// Mirror session when attaching with other users
+mirror_session false
+
+// Action on force close (detach or quit)
+on_force_close "detach"
