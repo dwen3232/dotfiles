@@ -13,6 +13,7 @@ source $ZSH/oh-my-zsh.sh
 
 
 alias nv="nvim"
+alias claude="/Users/davidwen/.claude/local/claude"
 
 # Node Version Manager
 export NVM_DIR="$HOME/.nvm"
@@ -115,4 +116,3 @@ killport() {
         return 1
     fi
 }
-
