@@ -11,8 +11,23 @@
       "Read(~/.zshrc)",
       "Bash(tree:*)",
       "WebSearch",
-      "WebFetch"
+      "WebFetch",
+      "Skill(global-installer)",
+      "Skill(github)"
     ]
   },
-  "alwaysThinkingEnabled": true
+  "alwaysThinkingEnabled": true,
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/stop-notification/notify.sh",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  }
 }

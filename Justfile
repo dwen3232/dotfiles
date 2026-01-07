@@ -64,6 +64,7 @@ install-formulae: install-brew
     @brew install apache-spark
     @brew install dvc
     @brew install kind      # For local kubernetes clusters on docker container nodes
+    @brew install minicom   # Serial communication program
 
 # Install all language dependencies
 install-lang-deps: install-brew
@@ -124,6 +125,7 @@ install-agents:
     @echo "Installing Claude Code..."
     @curl -fsSL https://claude.ai/install.sh | bash
     @claude mcp add --transport http github https://api.githubcopilot.com/mcp -H "Authorization: Bearer $(env | grep GITHUB_PAT | cut -d '=' -f2)"
+    @brew install terminal-notifier  # For Claude Code notifications
 
 
 install-npm-globals:
