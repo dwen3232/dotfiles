@@ -27,6 +27,16 @@
             "command": "if [ -f \"$CLAUDE_PROJECT_DIR/.claude/hooks/post-edit.sh\" ]; then data=$(cat); \"$CLAUDE_PROJECT_DIR/.claude/hooks/post-edit.sh\" \"$(echo \"$data\" | jq -r '.tool_input.file_path // \"\"')\" \"$(echo \"$data\" | jq -r '.tool_response.success // false')\"; else echo \"No post edit script found!\"; fi"
           }
         ]
+      },
+      {
+        "matcher": "AskUserQuestion",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/stop-notification/notify.sh",
+            "timeout": 5
+          }
+        ]
       }
     ],
     "Stop": [
