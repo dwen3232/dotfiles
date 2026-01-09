@@ -47,7 +47,7 @@ install-formulae: install-brew
     @brew install git
     @brew install stow      # Symlink farm
     @brew install direnv
-    @brew install neovim    # maybe I should build from source? 
+    @brew install neovim    # maybe I should build from source?
     @brew install tmux      # Terminal multiplexer
     @brew install zellij    # Modern terminal multiplexer
     @brew install neofetch  # TODO: this got archived, remove this? Also has horrible performance on work laptop
@@ -65,6 +65,7 @@ install-formulae: install-brew
     @brew install dvc
     @brew install kind      # For local kubernetes clusters on docker container nodes
     @brew install minicom   # Serial communication program
+    @brew tap atlassian/homebrew-acli && brew install acli  # Official Atlassian CLI for Jira
 
 # Install all language dependencies
 install-lang-deps: install-brew
@@ -207,7 +208,7 @@ sync-submodules:
 
 # Creates symlinks in ~/.config/
 stow-configs:
-    @stow --restow --dotfiles --target=$HOME --ignore=.gitmodules . 
+    @stow --restow --dotfiles --target=$HOME --ignore=.claude/ . 
 
 # Deletes symlinks in ~/.config/
 unstow-configs:
