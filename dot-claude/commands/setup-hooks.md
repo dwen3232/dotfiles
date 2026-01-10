@@ -1,6 +1,7 @@
 ---
 description: Set up project-level Claude hooks
 argument-hint: [additional-context]
+allowed-tools: Write(.claude/hooks/*), Bash(mkdir -p .claude/hooks:*), Bash(chmod +x .claude/hooks/*:*), Read(*), Read(*/*), Bash(which:*), Bash(command:*)
 ---
 
 # Setup Hooks
@@ -18,6 +19,7 @@ The user may provide additional context via `$ARGUMENTS`. Use this to customize 
    - Check for go.mod (Go project)
    - Check for Gemfile (Ruby project)
    - Look at actual source files in common directories (src/, lib/, etc.)
+   - **IMPORTANT**: NEVER read .env files, .env.local, or other environment/secrets files
 
 2. For each detected language/framework, check if appropriate formatters are installed:
    - **JS/TS**: prettier, eslint with --fix
