@@ -10,6 +10,7 @@
       "Write(~/Justfile)",
       "Read(~/.zshrc)",
       "Bash(tree:*)",
+      "Bash(jira list *)",
       "WebSearch",
       "WebFetch",
       "Skill(global-installer)",
@@ -33,7 +34,18 @@
         "hooks": [
           {
             "type": "command",
-            "command": "~/.claude/hooks/stop-notification/notify.sh",
+            "command": "data=$(cat); ~/.claude/hooks/notifications/notify.sh \"$(echo \"$data\" | jq -r '.tool_name // \"unknown\"')\"",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "PermissionRequest": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "data=$(cat); ~/.claude/hooks/notifications/notify.sh \"$(echo \"$data\" | jq -r '.tool_name // \"unknown\"')\"",
             "timeout": 5
           }
         ]
@@ -44,7 +56,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "~/.claude/hooks/stop-notification/notify.sh",
+            "command": "data=$(cat); ~/.claude/hooks/notifications/notify.sh \"$(echo \"$data\" | jq -r '.hook_event_name // \"Stop\"')\"",
             "timeout": 5
           }
         ]
