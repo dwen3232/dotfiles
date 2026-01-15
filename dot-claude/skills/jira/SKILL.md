@@ -1,6 +1,14 @@
 ---
 name: jira
 description: Use when interacting with Jira
+allowed-tools:
+  - Read
+  - Grep
+  - Glob
+  - Bash(acli jira workitem view:*)
+  - Bash(acli jira workitem search:*)
+  - Bash(acli jira auth:*)
+  - Bash(acli jira --help:*)
 ---
 
 # Jira CLI Skill

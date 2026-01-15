@@ -10,7 +10,6 @@
       "Write(~/Justfile)",
       "Read(~/.zshrc)",
       "Bash(tree:*)",
-      "Bash(jira list *)",
       "WebSearch",
       "WebFetch",
       "Skill(global-installer)",
