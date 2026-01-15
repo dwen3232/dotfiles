@@ -34,7 +34,6 @@ if command -v terminal-notifier >/dev/null 2>&1; then
     -title "$title" \
     -message "$message" \
     -group "claude-code" \
-    -appIcon "file://~/.claude./hooks/notifications/claude-logo.png" \
     -sound default \
     -ignoreDnD
 fi
