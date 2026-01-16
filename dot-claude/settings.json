@@ -16,7 +16,6 @@
       "Skill(github)"
     ]
   },
-  "alwaysThinkingEnabled": true,
   "hooks": {
     "PostToolUse": [
       {
@@ -27,39 +26,16 @@
             "command": "if [ -f \"$CLAUDE_PROJECT_DIR/.claude/hooks/post-edit.sh\" ]; then data=$(cat); \"$CLAUDE_PROJECT_DIR/.claude/hooks/post-edit.sh\" \"$(echo \"$data\" | jq -r '.tool_input.file_path // \"\"')\" \"$(echo \"$data\" | jq -r '.tool_response.success // false')\"; else echo \"No post edit script found!\"; fi"
           }
         ]
-      },
-      {
-        "matcher": "AskUserQuestion",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "data=$(cat); ~/.claude/hooks/notifications/notify.sh \"$(echo \"$data\" | jq -r '.tool_name // \"unknown\"')\"",
-            "timeout": 5
-          }
-        ]
-      }
-    ],
-    "PermissionRequest": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "data=$(cat); ~/.claude/hooks/notifications/notify.sh \"$(echo \"$data\" | jq -r '.tool_name // \"unknown\"')\"",
-            "timeout": 5
-          }
-        ]
-      }
-    ],
-    "Stop": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "data=$(cat); ~/.claude/hooks/notifications/notify.sh \"$(echo \"$data\" | jq -r '.hook_event_name // \"Stop\"')\"",
-            "timeout": 5
-          }
-        ]
       }
     ]
+  },
+  "alwaysThinkingEnabled": true,
+  "plugins": [
+    {
+      "source": "~/.claude/plugins/claude-notifications"
+    }
+  ],
+  "enabledPlugins": {
+    "claude-notifications@qol-plugins": true
   }
 }
