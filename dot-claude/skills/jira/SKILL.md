@@ -1,6 +1,6 @@
 ---
 name: jira
-description: Use when interacting with Jira
+description: Use when interacting with Jira stories and sprints
 allowed-tools:
   - Read
   - Grep
