@@ -9,8 +9,8 @@ vim.g.loaded_netrwPlugin = 1
 -- TODO: add tab switching keybindings?
 
 -- Let's center after moving a half page
-vim.api.nvim_set_keymap("n", "<C-D>", "<C-D>zz", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-U>", "<C-U>zz", { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("n", "<C-D>", "<C-D>zz", { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("n", "<C-U>", "<C-U>zz", { noremap = true, silent = true })
 
 -- Putting this here since file types with no LSP may stil have diagnostics (due to linters)
 vim.keymap.set(
