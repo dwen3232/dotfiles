@@ -29,13 +29,14 @@
       }
     ]
   },
+  "enabledPlugins": {
+    "claude-notifications@qol-plugins": true
+  },
   "alwaysThinkingEnabled": true,
   "plugins": [
     {
       "source": "~/.claude/plugins/claude-notifications"
     }
   ],
-  "enabledPlugins": {
-    "claude-notifications@qol-plugins": true
-  }
+  "model": "opus"
 }

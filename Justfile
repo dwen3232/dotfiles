@@ -66,6 +66,8 @@ install-formulae: install-brew
     @brew install kind      # For local kubernetes clusters on docker container nodes
     @brew install minicom   # Serial communication program
     @brew tap atlassian/homebrew-acli && brew install acli  # Official Atlassian CLI for Jira
+    @brew install pandoc    # Document converter (markdown, PDF, etc.)
+    @brew install btop      # Resource monitor with customizable keybindings
 
 # Install all language dependencies
 install-lang-deps: install-brew
