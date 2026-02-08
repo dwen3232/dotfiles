@@ -157,6 +157,15 @@ return {
       capabilities = capabilities,
     })
 
+    vim.lsp.config("terraformls", {
+      capabilities = capabilities,
+      init_options = {
+        indexing = {
+          ignoreDirectoryNames = { "node_modules", ".pnpm" },
+        },
+      },
+    })
+
     vim.lsp.config("pyright", {
       capabilities = capabilities,
       -- on_attach = on_attach,
