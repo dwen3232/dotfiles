@@ -93,10 +93,6 @@ install-lang-deps: install-brew
     @brew install npm
 
     # Golang
-    @brew install mercurial
-    # TODO: this script doesn't work
-    # -@bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
-    # doing this temporarily
     @brew install go
 
     # Java (TODO)
