@@ -206,7 +206,7 @@ sync-submodules:
 
 # Creates symlinks in ~/.config/
 stow-configs:
-    @stow --restow --dotfiles --target=$HOME --ignore=.claude/ . 
+    @stow --restow --dotfiles --target=$HOME --ignore='\.claude' .
 
 # Deletes symlinks in ~/.config/
 unstow-configs:
