@@ -157,6 +157,15 @@ return {
       capabilities = capabilities,
     })
 
+    vim.lsp.config("ts_ls", {
+      capabilities = capabilities,
+      init_options = {
+        preferences = {
+          maximumHoverLength = 10000,
+        },
+      },
+    })
+
     vim.lsp.config("terraformls", {
       capabilities = capabilities,
       init_options = {

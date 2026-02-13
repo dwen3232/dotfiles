@@ -33,11 +33,11 @@ return {
 
     local format_augroup = vim.api.nvim_create_augroup("format", { clear = true })
 
-    vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+    vim.api.nvim_create_autocmd({ "BufWritePre" }, {
       pattern = "*",
       group = format_augroup,
       callback = function(args)
-        conform.format({ bufnr = args.buf })
+        conform.format({ bufnr = args.buf, timeout_ms = 3000 })
       end,
     })
 
