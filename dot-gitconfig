@@ -1,0 +1,14 @@
+[user]
+	email = davidrwen@gmail.com
+	name = David Wen
+[http]
+	postBuffer = 157286400
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+[push]
+	autoSetupRemote = true
+[pull]
+	ff = only
