@@ -7,7 +7,7 @@ return {
     lint.linters_by_ft = {
       python = { "ruff", "mypy" },
       json = { "jsonlint" },
-      terraform = { "tflint", "tfsec" },
+      terraform = { "tfsec" },
       -- TODO FIX: actionlint is triggered on all yaml files
       -- Need to find a way to check the absolute path of a
       -- yaml file for `.github`
