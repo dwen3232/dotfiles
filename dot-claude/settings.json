@@ -10,6 +10,7 @@
       "Write(~/Justfile)",
       "Read(~/.zshrc)",
       "Bash(tree:*)",
+      "Bash(ls:*)",
       "WebSearch",
       "WebFetch",
       "Skill(global-installer)",
@@ -33,10 +34,10 @@
     "claude-notifications@qol-plugins": true
   },
   "alwaysThinkingEnabled": true,
+  "voiceEnabled": false,
   "plugins": [
     {
-      "source": "~/.claude/plugins/claude-notifications"
+      "source": "~/.claude/plugins/marketplaces/qol-plugins/plugins/claude-notifications"
     }
-  ],
-  "model": "opus"
+  ]
 }

@@ -1,3 +1,8 @@
 {
-  "repositories": {}
+  "repositories": {
+    "qol-plugins": {
+      "source": "github",
+      "repo": "dwen3232/qol-plugins"
+    }
+  }
 }
