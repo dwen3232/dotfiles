@@ -7,31 +7,35 @@ return {
     "nvim-treesitter/nvim-treesitter",
     -- Adapters
     "nvim-neotest/neotest-python",
-    -- TODO: had to make a commit to get rid of annoying errors from DAP, make a PR in neotest-jest for this!
-    "dwen3232/neotest-jest",
+    "marilari88/neotest-vitest",
   },
   config = function()
     local neotest = require("neotest")
 
     --Adapters
     local pytest = require("neotest-python")
-    -- TODO: this doesn't work in lahzo-integrations for whatever reason
-    local jest = require("neotest-jest")({
-      -- jestCommand = "pnpm test --",
-      jestConfigFile = function(file)
-        if string.find(file, "/packages/") then
-          return string.match(file, "(.-/[^/]+/)src") .. "package.json"
+    local vitest = require("neotest-vitest")({
+      vitestCommand = "pnpm vitest",
+      cwd = function(path)
+        local vite_config = vim.fn.findfile("vite.config.ts", path .. ";")
+        if vite_config ~= "" then
+          return vim.fn.fnamemodify(vite_config, ":h")
         end
-
-        return vim.fn.getcwd() .. "/package.json"
+        local pkg = vim.fn.findfile("package.json", path .. ";")
+        if pkg ~= "" then
+          return vim.fn.fnamemodify(pkg, ":h")
+        end
+        return vim.fn.getcwd()
       end,
-      jest_test_discovery = false,
+      filter_dir = function(name, _rel_path, _root)
+        return name ~= "node_modules"
+      end,
     })
 
     neotest.setup({
       adapters = {
         pytest,
-        jest,
+        vitest,
       },
     })
 
