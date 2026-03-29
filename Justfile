@@ -22,7 +22,7 @@ install-brew:
 install-casks: install-brew
     @echo "------------------------------------------"
     @echo "Installing casks..."
-    @brew install --cask alt-tab            # For windows-like window navigation
+    @brew install --cask dockdoor            # For windows-like window navigation
     @brew install --cask kitty              # GPU-rendered GUI
     @brew install --cask raycast            # Better spotlight
     @brew install --cask rectangle          # Window manager, not exactly a tiler, but good enough for my needs
