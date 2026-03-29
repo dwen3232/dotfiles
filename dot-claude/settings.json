@@ -6,28 +6,13 @@
       "Read(~/Repositories/dotfiles/)",
       "Read(~/Repositories/ui-core/)",
       "Read(~/Repositories/infra/)",
-      "Read(~/Justfile)",
-      "Write(~/Justfile)",
-      "Read(~/.zshrc)",
       "Bash(tree:*)",
       "Bash(ls:*)",
+      "Bash(tail:*)",
+      "Bash(grep:*)",
+      "Bash(wc:*)",
       "WebSearch",
-      "WebFetch",
-      "Skill(global-installer)",
-      "Skill(github)"
-    ]
-  },
-  "hooks": {
-    "PostToolUse": [
-      {
-        "matcher": "Edit|Write",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "if [ -f \"$CLAUDE_PROJECT_DIR/.claude/hooks/post-edit.sh\" ]; then data=$(cat); \"$CLAUDE_PROJECT_DIR/.claude/hooks/post-edit.sh\" \"$(echo \"$data\" | jq -r '.tool_input.file_path // \"\"')\" \"$(echo \"$data\" | jq -r '.tool_response.success // false')\"; else echo \"No post edit script found!\"; fi"
-          }
-        ]
-      }
+      "WebFetch"
     ]
   },
   "enabledPlugins": {
