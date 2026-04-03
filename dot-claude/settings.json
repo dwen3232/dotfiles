@@ -19,7 +19,8 @@
     "claude-notifications@qol-plugins": true
   },
   "alwaysThinkingEnabled": true,
-  "voiceEnabled": false,
+  "effortLevel": "high",
+  "voiceEnabled": true,
   "plugins": [
     {
       "source": "~/.claude/plugins/marketplaces/qol-plugins/plugins/claude-notifications"

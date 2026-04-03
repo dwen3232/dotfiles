@@ -2,7 +2,7 @@
 name: iterate
 description: Orchestrate planner → implementer → evaluator pipeline to take a task from prompt to reviewed, working code.
 argument-hint: <task description>
-allowed-tools: Agent(planner), Agent(implementer), Agent(evaluator), Read(**), AskUserQuestion
+allowed-tools: Agent(planner), Agent(implementer), Agent(evaluator), Agent(code-smell-checker), Read(**), AskUserQuestion
 ---
 
 # Iterate
@@ -38,7 +38,12 @@ Invoke the `evaluator` agent with this prompt:
 
 ### Step 4: Loop or finish
 
-- If the verdict is **PASS**: inform the user the task is complete. Show a brief summary of what was built.
+- If the verdict is **PASS**: invoke the `code-smell-checker` agent with this prompt:
+
+  > The implementation in this repo just passed evaluation. Check all files changed in this task (use `git diff` against the base branch) for code smells. Only touch files that have unit test coverage. Never touch test files. Make no-op refactors only — do not change behavior.
+
+  Then inform the user the task is complete. Show a brief summary of what was built.
+
 - If the verdict is **FAIL** or **PARTIAL**: invoke the `implementer` agent again with this prompt:
 
   > The evaluator found the following issues: <paste blocking issues from evaluation report>. Fix them. The success criteria are in PLAN.md.
