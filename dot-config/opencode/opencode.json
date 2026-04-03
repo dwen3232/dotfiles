@@ -1,0 +1,25 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "plugin": ["opencode-claude-auth"],
+  "permission": {
+    "bash": {
+      "*": "ask",
+      "tree *": "allow",
+      "ls *": "allow",
+      "tail *": "allow",
+      "grep *": "allow",
+      "wc *": "allow",
+      "rg *": "allow",
+      "head *": "allow"
+    },
+    "webfetch": "allow",
+    "websearch": "allow",
+    "external_directory": {
+      "~/Repositories/agent-core/**": "allow",
+      "~/Repositories/lahzo-integrations/**": "allow",
+      "~/Repositories/dotfiles/**": "allow",
+      "~/Repositories/ui-core/**": "allow",
+      "~/Repositories/infra/**": "allow"
+    }
+  }
+}
