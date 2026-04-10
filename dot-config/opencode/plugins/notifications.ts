@@ -8,8 +8,10 @@
  *   session.idle      - Session finished a turn, awaiting input
  *   session.error     - Session encountered an error
  */
-export const NotificationsPlugin = async ({ $, directory }) => {
-  const getContext = async () => {
+import type { Plugin } from "@opencode-ai/plugin"
+
+export const NotificationsPlugin: Plugin = async ({ $, directory }) => {
+  const getContext = async (): Promise<string> => {
     const repoName = directory.split("/").pop() || "unknown"
     try {
       const branch = (
@@ -23,7 +25,7 @@ export const NotificationsPlugin = async ({ $, directory }) => {
     }
   }
 
-  const notify = async (title, message) => {
+  const notify = async (title: string, message: string): Promise<void> => {
     await $`terminal-notifier -title ${title} -message ${message} -group opencode -sound default -ignoreDnD`
       .quiet()
       .nothrow()
