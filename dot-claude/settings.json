@@ -11,12 +11,23 @@
       "Bash(tail:*)",
       "Bash(grep:*)",
       "Bash(wc:*)",
+      "Bash(bq query:*)",
+      "Bash(gh pr diff:*)",
       "WebSearch",
       "WebFetch"
     ]
   },
   "enabledPlugins": {
-    "claude-notifications@qol-plugins": true
+    "claude-notifications@qol-plugins": true,
+    "caveman@caveman": true
+  },
+  "extraKnownMarketplaces": {
+    "caveman": {
+      "source": {
+        "source": "github",
+        "repo": "JuliusBrussee/caveman"
+      }
+    }
   },
   "alwaysThinkingEnabled": true,
   "effortLevel": "high",
