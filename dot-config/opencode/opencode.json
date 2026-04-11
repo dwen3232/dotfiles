@@ -10,11 +10,20 @@
       "grep *": "allow",
       "wc *": "allow",
       "rg *": "allow",
-      "head *": "allow"
+      "head *": "allow",
+      "npx tsc *": "allow",
+      "echo *": "allow",
+      "mkdir *": "allow",
+      "mv *": "allow"
+    },
+    "task": {
+      "*": "deny",
+      "iterate-orchestrator": "allow"
     },
     "webfetch": "allow",
     "websearch": "allow",
     "external_directory": {
+      "~/Repositories/lahzo-monorepo*/**": "allow",
       "~/Repositories/agent-core/**": "allow",
       "~/Repositories/lahzo-integrations/**": "allow",
       "~/Repositories/dotfiles/**": "allow",
