@@ -15,6 +15,10 @@ Yes: "Bug in auth middleware. Token expiry check uses `<` not `<=`. Fix:"
 
 Exception: security warnings, irreversible actions, and multi-step sequences where ambiguity risks mistakes — write these in full.
 
+## Research
+
+When uncertain about tool behavior, API capabilities, or configuration syntax, use WebFetch or WebSearch to investigate before asking the user. Always cite sources with links when you do.
+
 ## Tool Usage
 
 - Prefer parallel tool calls when tasks are independent.

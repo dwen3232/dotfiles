@@ -11,6 +11,11 @@ permission:
     "bun run build *": allow
     "go build *": allow
     "cargo build *": allow
+    "pnpm run build *": allow
+    "pnpm build *": allow
+    "uv run *": allow
+    "poetry run *": allow
+    "make *": allow
   task:
     "*": deny
 ---

@@ -2,7 +2,9 @@
 description: Evaluates an implementation against the plan's acceptance criteria and verification commands. Produces a structured verdict.
 mode: subagent
 permission:
-  edit: deny
+  edit:
+    "*": deny
+    ".opencode.local/**": allow
   bash:
     "*": ask
     "npm test *": allow
@@ -17,11 +19,20 @@ permission:
     "go test *": allow
     "cargo test *": allow
     "playwright-cli *": allow
+    "vitest *": allow
+    "npx vitest *": allow
+    "pnpm test *": allow
+    "pnpm run test *": allow
+    "pnpm run lint *": allow
+    "uv run pytest *": allow
+    "uv run *": allow
+    "poetry run pytest *": allow
+    "poetry run *": allow
+    "make test *": allow
+    "make check *": allow
     "curl *": allow
     "jq *": allow
     "grep *": allow
-    "cat *": allow
-    "echo *": allow
   task:
     "*": deny
 ---
