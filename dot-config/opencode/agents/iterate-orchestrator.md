@@ -18,6 +18,8 @@ You are the iterate orchestrator. You manage one complete planner → implemente
 
 You will receive a task description.
 
+Track an attempt counter, starting at 1. Increment it after each implementation attempt.
+
 ### Step 1: Plan
 
 Invoke the `planner` agent with the task description:
@@ -25,7 +27,7 @@ Invoke the `planner` agent with the task description:
 > Task: {task description}
 
 Wait for it to complete. The planner will respond with a single line in the format:
-`PLAN written to .opencode.local/YYYYMMDD-{slug}/PLAN.md`
+`PLAN written to .opencode.local/{YYYYMMDD}-{slug}/PLAN.md`
 
 Extract the working directory from this response (e.g. `.opencode.local/20260411-oauth-login/`). All subsequent artifact paths are derived from this directory. If the planner does not respond in this format or the directory cannot be determined, stop and report the failure.
 
@@ -45,7 +47,7 @@ Invoke the `evaluator` agent:
 
 > Working directory: {working_dir}
 > Read {working_dir}PLAN.md and {working_dir}CHANGES.md.
-> Run all verification commands from the plan.
+> Run all verification checks and behavioral specs from the plan.
 > Write your evaluation to: {working_dir}EVAL.md
 
 Wait for it to complete. Read the verdict from `{working_dir}EVAL.md`.
@@ -54,14 +56,14 @@ Wait for it to complete. Read the verdict from `{working_dir}EVAL.md`.
 
 **If PASS**: report success. Include a one-paragraph summary of what was built and what tests passed.
 
-**If PARTIAL or FAIL** (and attempt < 3): invoke the `implementer` again:
+**If PARTIAL or FAIL** (and attempt <= 3): invoke the `implementer` again:
 
-> Working directory: {working_dir}
+> This is attempt {n} of 3. Working directory: {working_dir}
 > Read {working_dir}PLAN.md and {working_dir}CHANGES.md.
 > The evaluator found blocking issues — read {working_dir}EVAL.md and fix them.
-> Update {working_dir}CHANGES.md with your fixes.
+> Append a "### Attempt {n} fixes" section to {working_dir}CHANGES.md describing what you changed.
 
-Then re-run the evaluator (Step 3). Increment the attempt counter.
+Then re-run the evaluator (Step 3).
 
 **If still failing after 3 attempts**: stop. Report the working directory, the remaining blocking issues from `{working_dir}EVAL.md`, and what was attempted.
 

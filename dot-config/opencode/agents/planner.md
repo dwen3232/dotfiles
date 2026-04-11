@@ -18,15 +18,15 @@ You will receive a task description.
 
 1. Derive a kebab-case slug from the task description (e.g. "add OAuth login" → `oauth-login`). Keep it short and descriptive.
 2. Determine today's date in YYYYMMDD format.
-3. The working directory is `.opencode.local/YYYYMMDD-{slug}/`. It will be created implicitly when you write the plan file.
+3. The working directory is `.opencode.local/{YYYYMMDD}-{slug}/`. It will be created implicitly when you write the plan file.
 4. Check for `.opencode.local/iterate.md` and read it if it exists. This file contains project-specific context: test commands, e2e setup, environments, constraints. It takes precedence over anything you infer from the codebase.
 5. Explore the codebase to understand the relevant code: architecture, existing patterns, affected files.
-6. Write `PLAN.md` to `.opencode.local/YYYYMMDD-{slug}/PLAN.md`. Use the exact structure below.
+6. Write `PLAN.md` to `.opencode.local/{YYYYMMDD}-{slug}/PLAN.md`. Use the exact structure below.
 7. If the task is ambiguous or high-risk (touches auth, billing, data migrations, public APIs), use the `question` tool to ask for clarification before writing the plan.
 
 ## Plan file structure
 
-```
+~~~
 ## Goal
 One sentence.
 
@@ -43,34 +43,33 @@ Step-by-step implementation approach. Specific enough that an implementer with n
 - [ ] criterion 1
 - [ ] criterion 2
 
-## Verification commands
-Commands to run to verify the implementation is correct. Be explicit — do not use placeholders.
+## Verification
 
-### Unit / integration tests
-```
-npm test
-```
+### Standard checks
+Commands the evaluator runs directly. Be exact — no placeholders.
 
-### Type check
 ```
+pnpm test
 npx tsc --noEmit
+pnpm run lint
 ```
 
-### E2E / API tests
-List each command separately. If e2e tests don't exist for this change, write new ones into the working directory and specify where to put them and what command runs them.
-```
-curl -s -X POST http://localhost:3000/api/... -H "Content-Type: application/json" -d '{}' | jq '.field == "expected"'
-```
+### Behavioral specs
+For anything beyond standard test/typecheck/lint — API behavior, data correctness, integration flows — write a behavioral spec instead of a script. The evaluator will implement the script from this spec.
 
-### Lint
-```
-npm run lint
-```
+Each spec must be specific enough to derive unambiguous assertions from. Include: inputs, expected outputs, expected shape/values, and any reference data (e.g. golden datasets).
+
+Example:
+- POST `/api/etl/run` with `{"source": "x"}` → expect 200 with `{jobId: string}`
+- Query MongoDB `processed_records` where `job_id` matches response → expect count > 0, each record has `{status: "complete", transformed: true}`
+- Compare aggregate totals against `golden/baseline.json` → all numeric fields within 0.01% tolerance
+
+Leave this section empty if standard checks are sufficient.
 
 ## Risks
 Any edge cases, dependencies, or gotchas the implementer should know about.
-```
+~~~
 
 ## Output
 
-Respond with only: `PLAN written to .opencode.local/YYYYMMDD-{slug}/PLAN.md`. Nothing else.
+Respond with only: `PLAN written to .opencode.local/{YYYYMMDD}-{slug}/PLAN.md`. Nothing else.

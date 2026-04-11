@@ -17,14 +17,20 @@
       "mv *": "allow",
       "jq *": "allow",
       "git status": "allow",
+      "git status *": "allow",
       "git log *": "allow",
       "git diff *": "allow",
       "git show *": "allow",
       "git branch *": "allow",
       "pnpm *": "allow",
+      "pnpm publish": "deny",
       "pnpm publish *": "deny",
       "uv *": "allow",
+      "uv publish": "deny",
+      "uv publish *": "deny",
       "poetry *": "allow",
+      "poetry publish": "deny",
+      "poetry publish *": "deny",
       "docker ps *": "allow",
       "docker images *": "allow",
       "docker logs *": "allow",
@@ -49,7 +55,8 @@
       "~/Repositories/lahzo-integrations/**": "allow",
       "~/Repositories/dotfiles/**": "allow",
       "~/Repositories/ui-core/**": "allow",
-      "~/Repositories/infra/**": "allow"
+      "~/Repositories/infra/**": "allow",
+      "~/Repositories/lahzo-opencode-context/**": "allow"
     }
   }
 }
