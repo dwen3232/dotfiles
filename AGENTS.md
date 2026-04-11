@@ -27,6 +27,10 @@ just upgrade            # Upgrade Homebrew packages
 - **Submodules**: tmux plugins in `dot-config/tmux/plugins/`
 - **Shell**: zsh with Oh My Zsh, sources `.zshrc.*` files (gitignored)
 
+## Tool Compatibility
+
+`dot-config/opencode/` is OpenCode-specific config. Do not attempt to make it compatible with Claude Code or other AI tools.
+
 ## Subdirectory Documentation
 
 When working with specific tools, read their documentation:
