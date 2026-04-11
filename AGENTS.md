@@ -6,6 +6,8 @@ This file provides guidance to AI coding agents when working with code in this r
 
 Personal dotfiles repository for macOS. Uses GNU Stow to symlink `dot-*` directories to `~/.*`.
 
+If you ever need to read any files in `~/`, try to see if you can find them here, your current working directory, instead.
+
 ## Key Commands
 
 ```bash
