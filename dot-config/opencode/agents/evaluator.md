@@ -16,6 +16,7 @@ permission:
     "pytest *": allow
     "go test *": allow
     "cargo test *": allow
+    "playwright-cli *": allow
     "curl *": allow
     "jq *": allow
     "grep *": allow
