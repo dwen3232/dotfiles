@@ -3,7 +3,6 @@ description: Implements a task based on a structured plan file. Produces a chang
 mode: subagent
 permission:
   bash:
-    "*": deny
     "npm run build": allow
     "npm run build *": allow
     "npx tsc *": allow

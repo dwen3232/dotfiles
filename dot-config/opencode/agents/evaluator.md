@@ -6,7 +6,6 @@ permission:
     "*": deny
     ".opencode.local/**": allow
   bash:
-    "*": ask
     "npm test": allow
     "npm test *": allow
     "npm run test *": allow
@@ -34,6 +33,7 @@ permission:
     "pnpm run test *": allow
     "pnpm run lint": allow
     "pnpm run lint *": allow
+    "pnpm build": allow
     "uv run *": allow
     "poetry run *": allow
     "make test": allow
