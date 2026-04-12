@@ -25,6 +25,11 @@ vim.keymap.set("n", "<leader>on", function()
   vim.opt.relativenumber = not vim.opt.relativenumber:get()
 end, { noremap = true, silent = true, desc = "Toggle relative line numbers" })
 
+-- Toggle line wrap
+vim.keymap.set("n", "<leader>ow", function()
+  vim.opt.wrap = not vim.opt.wrap:get()
+end, { noremap = true, silent = true, desc = "Toggle line wrap" })
+
 -- Override Ctrl+g to show file info AND copy relative path to clipboard
 vim.keymap.set("n", "<C-g>", function()
   local filepath = vim.fn.expand('%')
