@@ -12,7 +12,13 @@ zstyle ':omz:update' frequency 13
 
 plugins=(git direnv)
 
+DISABLE_AUTO_TITLE=true
+
 source $ZSH/oh-my-zsh.sh
+
+# Set kitty window title to tilde-shortened current directory
+set_kitty_title() { print -Pn "\e]0;%~\a" }
+add-zsh-hook precmd set_kitty_title
 
 # ============================================================================
 # HOMEBREW
