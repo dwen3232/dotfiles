@@ -29,7 +29,9 @@ Invoke the `planner` agent with the task description:
 Wait for it to complete. The planner will respond with a single line in the format:
 `PLAN written to .opencode.local/{YYYYMMDD}-{slug}/PLAN.md`
 
-Extract the working directory from this response (e.g. `.opencode.local/20260411-oauth-login/`). All subsequent artifact paths are derived from this directory. If the planner does not respond in this format or the directory cannot be determined, stop and report the failure.
+If the planner responds with `PLAN aborted by user.`, stop and report `ITERATE ABORTED: planner aborted by user.`
+
+Otherwise extract the working directory from the response (e.g. `.opencode.local/20260411-oauth-login/`). All subsequent artifact paths are derived from this directory. If the planner does not respond in either expected format, stop and report the failure.
 
 ### Step 2: Implement
 
@@ -81,3 +83,10 @@ ITERATE FAIL: {working_dir} after 3 attempts
 Blocking issues:
 {paste blocking issues from EVAL.md}
 ```
+
+On user abort (planner returned `PLAN aborted by user.`):
+```
+ITERATE ABORTED: planner aborted by user.
+```
+
+
