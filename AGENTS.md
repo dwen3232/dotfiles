@@ -6,7 +6,12 @@ This file provides guidance to AI coding agents when working with code in this r
 
 Personal dotfiles repository for macOS. Uses GNU Stow to symlink `dot-*` directories to `~/.*`.
 
-If you ever need to read any files in `~/`, try to see if you can find them here, your current working directory, instead.
+**Never read files directly from `~/` or any absolute path under `/Users/`.** All dotfiles are managed here via Stow. Use the repo path instead:
+- `~/.config/foo` → `dot-config/foo`
+- `~/.claude/foo` → `dot-claude/foo`
+- `~/foo` → `dot-foo` (if it exists)
+
+If a file isn't in the repo, ask the user rather than reading it from the home directory.
 
 ## Key Commands
 
