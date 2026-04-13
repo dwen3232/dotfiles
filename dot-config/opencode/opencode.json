@@ -48,8 +48,7 @@
       "terraform output *": "allow"
     },
     "task": {
-      "*": "deny",
-      "iterate-orchestrator": "allow"
+      "*": "deny"
     },
     "webfetch": "allow",
     "websearch": "allow",
