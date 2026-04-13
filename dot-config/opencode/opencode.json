@@ -19,6 +19,7 @@
       "echo *": "allow",
       "mkdir *": "allow",
       "mv *": "allow",
+      "rm *": "allow",
       "jq *": "allow",
       "git status": "allow",
       "git status *": "allow",
