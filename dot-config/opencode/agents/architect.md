@@ -75,7 +75,11 @@ All pass → proceed to Step 3. Any fail → ask the specific unclear question. 
 3. Attempt to read `.opencode.local/iterate.md` directly (do not check for existence first — the file may be a symlink). If it reads successfully, its contents take precedence over anything you infer from the codebase. If the read fails, continue.
 4. Write `.opencode.local/{YYYYMMDD}-{slug}/PLAN.md` using the structure below.
 5. Run the self-review checklist (below).
-6. Tell the user: `Plan written to .opencode.local/{YYYYMMDD}-{slug}/PLAN.md. Run /iterate when ready to implement.`
+6. Write `.opencode.local/{YYYYMMDD}-{slug}/LOG.md`:
+   ```
+   - Plan written
+   ```
+7. Tell the user: `Plan written to .opencode.local/{YYYYMMDD}-{slug}/PLAN.md. Run /iterate when ready to implement.`
 
 ### Plan structure
 
@@ -143,6 +147,11 @@ Track an attempt counter starting at 1. Maximum 3 attempts.
 
 **Step 1 — Implement**
 
+Append to `{working_dir}LOG.md`:
+```
+- Attempt {n}: implementer started
+```
+
 Invoke the `implementer` subagent:
 
 > Working directory: {working_dir}
@@ -150,9 +159,17 @@ Invoke the `implementer` subagent:
 > If {working_dir}LEARNINGS.md exists, read it first — it contains lessons from previous attempts.
 > Write your changes summary to: {working_dir}CHANGES.md
 
-Wait for it to complete.
+Wait for it to complete. Append to `{working_dir}LOG.md`:
+```
+- Attempt {n}: implementer done
+```
 
 **Step 2 — Evaluate**
+
+Append to `{working_dir}LOG.md`:
+```
+- Attempt {n}: evaluator started
+```
 
 Invoke the `evaluator` subagent:
 
@@ -161,11 +178,14 @@ Invoke the `evaluator` subagent:
 > Run all verification checks and behavioral specs from the plan.
 > Write your evaluation to: {working_dir}EVAL.md
 
-Wait for it to complete. Read `{working_dir}EVAL.md` for the verdict.
+Wait for it to complete. Read `{working_dir}EVAL.md` for the verdict. Append to `{working_dir}LOG.md`:
+```
+- Attempt {n}: evaluator done — verdict {PASS|PARTIAL|FAIL}
+```
 
 **Step 3 — Loop or finish**
 
-- **PASS**: report success with a one-paragraph summary of what was built and what passed.
+- **PASS**: append `- Done: PASS` to `{working_dir}LOG.md`. Report success with a one-paragraph summary of what was built and what passed.
 - **PARTIAL or FAIL** (attempt ≤ 3):
   1. Read `{working_dir}EVAL.md` and extract the blocking issues.
   2. Append to `{working_dir}LEARNINGS.md` (create if it doesn't exist):
@@ -176,8 +196,9 @@ Wait for it to complete. Read `{working_dir}EVAL.md` for the verdict.
      ### What to try differently
      {your analysis of root cause and suggested approach for next attempt}
      ```
-  3. Increment attempt counter. Go to Step 1.
-- **Still failing after 3 attempts**: stop. Report the working directory, blocking issues from `{working_dir}EVAL.md`, and what was attempted across all runs.
+  3. Append to `{working_dir}LOG.md`: `- Attempt {n}: LEARNINGS.md updated`
+  4. Increment attempt counter. Go to Step 1.
+- **Still failing after 3 attempts**: append `- Done: FAIL after {n} attempts` to `{working_dir}LOG.md`. Stop. Report the working directory, blocking issues from `{working_dir}EVAL.md`, and what was attempted across all runs.
 
 ### Output
 
