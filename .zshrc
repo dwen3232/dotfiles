@@ -86,6 +86,8 @@ export PATH="/Users/davidwen/.rd/bin:$PATH"
 export EDITOR="/opt/homebrew/bin/nvim"
 export XDG_CONFIG_HOME="$HOME/.config"
 export DYLD_LIBRARY_PATH="$(brew --prefix)/lib:$DYLD_LIBRARY_PATH"
+# Allow OpenCode to make websearch calls
+export OPENCODE_ENABLE_EXA=1
 
 eval "$(direnv hook zsh)"
 
