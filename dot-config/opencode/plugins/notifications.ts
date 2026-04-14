@@ -4,7 +4,8 @@
  *
  * Events handled:
  *   question.asked    - AI is asking a structured question
- *   permission.asked  - AI needs permission to use a tool
+ *   permission.asked  - AI needs permission to use a tool (via permission.ask hook,
+ *                       covers both primary and subagent child sessions)
  *   session.idle      - Session finished a turn, awaiting input
  *   session.error     - Session encountered an error
  */
@@ -33,6 +34,17 @@ export const NotificationsPlugin: Plugin = async ({ $, directory }) => {
   };
 
   return {
+    "permission.ask": async (input, _output) => {
+      // Fires for all sessions (primary and subagent child sessions).
+      // The event hook's permission.asked only fires for the primary session.
+      const context = await getContext();
+      const pattern = input.pattern;
+      const detail = pattern
+        ? `${input.type}: ${Array.isArray(pattern) ? pattern.join(", ") : pattern}`
+        : input.type;
+      await notify("OpenCode - Permission Required", `[${context}] ${detail}`);
+      // Leave _output.status unchanged so the user is still prompted.
+    },
     event: async ({ event: _event }) => {
       // Cast to v2 Event — workaround for @opencode-ai/plugin using v1 SDK types
       // https://github.com/anomalyco/opencode/issues/7147
@@ -42,16 +54,6 @@ export const NotificationsPlugin: Plugin = async ({ $, directory }) => {
         const first = event.properties.questions[0];
         const detail = first?.question || first?.header || "Question";
         await notify("OpenCode - Question", `[${context}] ${detail}`);
-      } else if (event.type === "permission.asked") {
-        const context = await getContext();
-        const { permission, patterns } = event.properties;
-        const detail = patterns?.length
-          ? `${permission}: ${patterns.join(", ")}`
-          : permission;
-        await notify(
-          "OpenCode - Permission Required",
-          `[${context}] ${detail}`,
-        );
       } else if (event.type === "session.idle") {
         const context = await getContext();
         await notify("OpenCode - Awaiting Input", context);
