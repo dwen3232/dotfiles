@@ -48,7 +48,10 @@ export const NotificationsPlugin: Plugin = async ({ $, directory }) => {
         const detail = patterns.length
           ? `${permission}: ${patterns.join(", ")}`
           : permission;
-        await notify("OpenCode - Permission Required", `[${context}] ${detail}`);
+        await notify(
+          "OpenCode - Permission Required",
+          `[${context}] ${detail}`,
+        );
       } else if (event.type === "session.idle") {
         const context = await getContext();
         await notify("OpenCode - Awaiting Input", context);
