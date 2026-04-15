@@ -2,11 +2,19 @@
   "$schema": "https://opencode.ai/config.json",
   "plugin": ["opencode-claude-auth"],
   "instructions": ["CLAUDE.local.md"],
+  "mcp": {
+    "linear": {
+      "type": "remote",
+      "url": "https://mcp.linear.app/mcp",
+      "enabled": true
+    }
+  },
   "permission": {
     "bash": {
       "*": "ask",
       "tree *": "allow",
       "ls *": "allow",
+      "sed *": "allow",
       "tail *": "allow",
       "grep *": "allow",
       "wc *": "allow",
