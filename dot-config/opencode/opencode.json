@@ -22,6 +22,7 @@
       "mv *": "allow",
       "rm *": "allow",
       "jq *": "allow",
+      "which *": "allow",
       "git status": "allow",
       "git status *": "allow",
       "git log *": "allow",
@@ -47,7 +48,9 @@
       "gcloud * list *": "allow",
       "gcloud * describe *": "allow",
       "terraform show *": "allow",
-      "terraform output *": "allow"
+      "terraform output *": "allow",
+      "gh pr list *": "allow",
+      "gh pr view *": "allow"
     },
     "task": {
       "*": "deny"
