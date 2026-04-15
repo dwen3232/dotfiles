@@ -123,6 +123,8 @@ install-agents:
     @echo "------------------------------------------"
     @echo "Installing Claude Code..."
     @curl -fsSL https://claude.ai/install.sh | bash
+    @brew install opencode
+    @curl -fsSL https://ocx.kdco.dev/install.sh | sh
     @claude mcp add --transport http github https://api.githubcopilot.com/mcp -H "Authorization: Bearer $(env | grep GITHUB_PAT | cut -d '=' -f2)"
     @brew install terminal-notifier  # For Claude Code notifications
 
