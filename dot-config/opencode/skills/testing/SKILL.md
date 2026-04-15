@@ -87,9 +87,4 @@ trigger this? If yes, test it.
 
 ## Framework reference
 
-Before writing tests, read the appropriate file for framework-specific patterns
-and examples.
-
-| Framework | File                |
-|-----------|---------------------|
-| Vitest    | index/vitest.md     |
+Before writing tests, check the `index/` directory for framework-specific patterns and examples.

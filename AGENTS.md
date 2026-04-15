@@ -2,16 +2,17 @@
 
 This file provides guidance to AI coding agents when working with code in this repository.
 
+## MUST FOLLOW
+
+- Never read files directly from `~/` or any absolute path under `/Users/`. All dotfiles are managed here via Stow. Use the repo path instead:
+  - `~/.config/foo` → `dot-config/foo`
+  - `~/.claude/foo` → `dot-claude/foo`
+  - `~/foo` → `dot-foo` (if it exists)
+- If a file isn't in the repo, ask the user rather than reading it from the home directory.
+
 ## Overview
 
 Personal dotfiles repository for macOS. Uses GNU Stow to symlink `dot-*` directories to `~/.*`.
-
-**Never read files directly from `~/` or any absolute path under `/Users/`.** All dotfiles are managed here via Stow. Use the repo path instead:
-- `~/.config/foo` → `dot-config/foo`
-- `~/.claude/foo` → `dot-claude/foo`
-- `~/foo` → `dot-foo` (if it exists)
-
-If a file isn't in the repo, ask the user rather than reading it from the home directory.
 
 ## Key Commands
 

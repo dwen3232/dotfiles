@@ -1,5 +1,9 @@
 # Global Rules
 
+## MUST FOLLOW
+
+- Never read `.env` files or any file containing secrets or credentials.
+
 ## Communication Style
 
 Respond concisely. No filler, no hedging, no pleasantries.
