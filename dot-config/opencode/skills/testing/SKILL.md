@@ -77,6 +77,10 @@ data silently pass through. If you only care about specific arguments, use the
 framework's wildcard matcher (e.g. `expect.any()`) for the rest rather than
 omitting them.
 
+## No circular assertions
+
+Never import a constant from application code and assert that it equals itself. That test can never fail — it proves nothing. Assert against the raw literal value instead, or define a separate constant local to the test.
+
 ## Edge cases
 
 Cover boundaries, error paths, and realistic unusual inputs — each in its own
