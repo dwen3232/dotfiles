@@ -12,5 +12,5 @@ description: >
   - "add few-shot examples to this prompt"
   - "rewrite this prompt to reduce hallucinations"
   - "help me structure this prompt for a coding assistant"
-  - You are editing a file that contains an LLM system prompt or instruction set
+  - The text you are editing is intended to direct model behavior — even if it lives inside a `.py`, `.ts`, or other source file
 ---
