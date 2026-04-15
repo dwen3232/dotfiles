@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@opencode-ai/plugin": "1.4.3",
+    "node-notifier": "^10.0.1"
+  }
+}

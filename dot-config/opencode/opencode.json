@@ -23,6 +23,7 @@
       "rm *": "allow",
       "jq *": "allow",
       "which *": "allow",
+      "dirname *": "allow",
       "git status": "allow",
       "git status *": "allow",
       "git log *": "allow",
@@ -50,7 +51,8 @@
       "terraform show *": "allow",
       "terraform output *": "allow",
       "gh pr list *": "allow",
-      "gh pr view *": "allow"
+      "gh pr view *": "allow",
+      "op *": "allow"
     },
     "task": {
       "*": "deny"
