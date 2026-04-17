@@ -37,8 +37,14 @@ function dedupeQuestion(key: string): boolean {
 }
 
 export const NotificationsPlugin: Plugin = async ({ client }) => {
-  const log = (level: "debug" | "info" | "warn" | "error", message: string, extra?: Record<string, unknown>) =>
-    client.app.log({ body: { service: "notifications.ts", level, message, extra } });
+  const log = (
+    level: "debug" | "info" | "warn" | "error",
+    message: string,
+    extra?: Record<string, unknown>,
+  ) =>
+    client.app.log({
+      body: { service: NotificationsPlugin.name, level, message, extra },
+    });
 
   log("info", "plugin loaded");
 
