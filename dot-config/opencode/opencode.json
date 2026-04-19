@@ -35,6 +35,7 @@
       "rsync *": "allow",
       "true *": "allow",
       "rg *": "allow",
+      "sort *": "allow",
       "git status": "allow",
       "git status *": "allow",
       "git log *": "allow",
