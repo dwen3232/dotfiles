@@ -7,6 +7,14 @@
       "type": "remote",
       "url": "https://mcp.linear.app/mcp",
       "enabled": true
+    },
+    "langsmith": {
+      "type": "local",
+      "command": ["uvx", "langsmith-mcp-server"],
+      "enabled": true,
+      "environment": {
+        "LANGSMITH_API_KEY": "{env:LANGSMITH_API_KEY}"
+      }
     }
   },
   "permission": {
