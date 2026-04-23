@@ -86,6 +86,7 @@
       "~/Repositories/dotfiles/**": "allow",
       "~/Repositories/ui-core/**": "allow",
       "~/Repositories/infra/**": "allow",
+      "~/Repositories/multiverse/**": "allow",
       "~/Repositories/lahzo-opencode-context/**": "allow"
     }
   }
