@@ -44,6 +44,7 @@
       "true *": "allow",
       "rg *": "allow",
       "sort *": "allow",
+      "nl *": "allow",
       "git status": "allow",
       "git status *": "allow",
       "git log *": "allow",
