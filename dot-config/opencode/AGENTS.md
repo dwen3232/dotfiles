@@ -3,7 +3,7 @@
 ## MUST FOLLOW
 
 - Never read `.env` files or any file containing secrets or credentials.
-- Never stage changes in git unless explicitly asked to.
+- Never stage, commit, or push changes in git unless explicitly asked to.
 
 ## Communication Style
 
