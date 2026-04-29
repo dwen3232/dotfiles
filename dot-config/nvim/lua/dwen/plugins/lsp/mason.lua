@@ -63,6 +63,7 @@ return {
         "hadolint",
         "jsonlint",
         "sqlfluff",
+        "eslint_d",
       },
     })
 

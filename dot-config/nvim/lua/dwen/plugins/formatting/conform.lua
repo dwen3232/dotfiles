@@ -12,7 +12,7 @@ return {
         json = { "prettier" },
         yaml = { "prettier" },
         javascript = { "prettier" },
-        typescript = { "prettier", "eslint_d" },
+        typescript = { "prettier", "eslint" },
         typescriptreact = { "prettier" },
         javascriptreact = { "prettier" },
         rust = { "rustfmt" },

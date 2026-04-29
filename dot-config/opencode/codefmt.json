@@ -1,0 +1,20 @@
+{
+  "formatters_by_ext": {
+    ".ts": ["prettier"],
+    ".tsx": ["prettier"],
+    ".js": ["prettier"],
+    ".jsx": ["prettier"],
+    ".json": ["prettier"],
+    ".md": ["prettier"],
+    ".css": ["prettier"],
+    ".html": ["prettier"],
+    ".yaml": ["prettier"],
+    ".yml": ["prettier"],
+    ".py": ["isort", "black"],
+    ".go": ["gofmt"],
+    ".rs": ["rustfmt"],
+    ".lua": ["stylua"],
+    ".sh": ["shfmt"]
+  },
+  "disabled": []
+}
