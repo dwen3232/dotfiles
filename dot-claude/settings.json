@@ -36,5 +36,8 @@
     {
       "source": "~/.claude/plugins/marketplaces/qol-plugins/plugins/claude-notifications"
     }
-  ]
+  ],
+  "editorMode": "vim",
+  "preferredNotifChannel": "kitty",
+  "autoCompactEnabled": false
 }
