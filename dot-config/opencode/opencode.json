@@ -7,14 +7,6 @@
       "type": "remote",
       "url": "https://mcp.linear.app/mcp",
       "enabled": true
-    },
-    "langsmith": {
-      "type": "local",
-      "command": ["uvx", "langsmith-mcp-server"],
-      "enabled": true,
-      "environment": {
-        "LANGSMITH_API_KEY": "{env:LANGSMITH_API_KEY}"
-      }
     }
   },
   "permission": {
@@ -105,7 +97,7 @@
     "webfetch": "allow",
     "websearch": "allow",
     "external_directory": {
-      "/Users/davidwen/Repositories/lahzo-monorepo*/**": "allow",
+      "~/Repositories/lahzo-monorepo*/**": "allow",
       "~/Repositories/agent-core/**": "allow",
       "~/Repositories/lahzo-integrations/**": "allow",
       "~/Repositories/dotfiles/**": "allow",
