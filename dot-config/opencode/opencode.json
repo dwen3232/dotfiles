@@ -34,7 +34,7 @@
       "dirname *": "allow",
       "rsync *": "allow",
       "true *": "allow",
-      "rg *": "allow",
+      "cp *": "allow",
       "sort *": "allow",
       "nl *": "allow",
       "git": "allow",
