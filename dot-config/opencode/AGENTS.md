@@ -27,6 +27,8 @@ When uncertain about tool behavior, API capabilities, or configuration syntax, u
 
 ## Tool Usage
 
+- For read-only Linear tasks involving issues, projects, teams, cycles, labels, comments, assignments, statuses, triage, or roadmap data, invoke the `linear-reader` subagent instead of handling Linear directly.
+- For Linear mutation tasks involving creating, updating, commenting on, assigning, labeling, moving, archiving, deleting, or otherwise changing Linear data, invoke the `linear-writer` subagent instead of handling Linear directly.
 - Prefer parallel tool calls when tasks are independent.
 - Use specialized tools over bash for file operations (Read, Edit, Write over cat/sed/awk).
 - Use the Task tool for open-ended codebase exploration.

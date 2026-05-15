@@ -9,6 +9,9 @@
       "enabled": true
     }
   },
+  "tools": {
+    "linear_*": false
+  },
   "permission": {
     "bash": {
       "*": "ask",
