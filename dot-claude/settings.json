@@ -15,7 +15,8 @@
       "Bash(gh pr diff:*)",
       "WebSearch",
       "WebFetch"
-    ]
+    ],
+    "defaultMode": "auto"
   },
   "enabledPlugins": {
     "claude-notifications@qol-plugins": true,
@@ -31,13 +32,14 @@
   },
   "alwaysThinkingEnabled": true,
   "effortLevel": "high",
+  "editorMode": "vim",
+  "preferredNotifChannel": "kitty",
+  "autoCompactEnabled": false,
   "voiceEnabled": true,
   "plugins": [
     {
       "source": "~/.claude/plugins/marketplaces/qol-plugins/plugins/claude-notifications"
     }
   ],
-  "editorMode": "vim",
-  "preferredNotifChannel": "kitty",
-  "autoCompactEnabled": false
+  "skipAutoPermissionPrompt": true
 }
