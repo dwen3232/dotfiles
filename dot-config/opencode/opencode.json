@@ -92,6 +92,12 @@
       "terraform output *": "allow",
       "gh pr list *": "allow",
       "gh pr view *": "allow",
+      "~/.config/opencode/skills/pr-comments/scripts/pr-comments.sh": "allow",
+      "~/.config/opencode/skills/pr-comments/scripts/pr-comments.sh *": "allow",
+      "~/.config/opencode/skills/pr-review/scripts/pr-review.sh": "allow",
+      "~/.config/opencode/skills/pr-review/scripts/pr-review.sh *": "allow",
+      "~/.config/opencode/skills/pr-upsert/scripts/pr-upsert.sh": "allow",
+      "~/.config/opencode/skills/pr-upsert/scripts/pr-upsert.sh *": "allow",
       "op *": "allow"
     },
     "task": {
