@@ -20,7 +20,6 @@ require("lazy").setup({
   { import = "dwen.plugins.lsp" },
   { import = "dwen.plugins.testing" },
   { import = "dwen.plugins.ui" },
-  { import = "dwen.plugins.ai",}
 }, {
   checker = {
     enabled = true,

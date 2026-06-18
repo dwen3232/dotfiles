@@ -1,3 +1,4 @@
+-- TODO: I barely use this in the agentic age, should I just kill this?
 return {
   "nvim-neotest/neotest",
   dependencies = {

@@ -1,4 +1,5 @@
 -- TODO: a bunch of cool stuff here https://github.com/kevinhwang91/nvim-ufo?tab=readme-ov-file#setup-and-description
+-- TODO: actually use this
 return {
   "kevinhwang91/nvim-ufo",
   dependencies = {

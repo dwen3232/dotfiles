@@ -18,12 +18,10 @@ return {
       { "<leader>c", group = "+code" },
       { "<leader>d", group = "+debug" },
       { "<leader>e", group = "+explore" },
-      { "<leader>h", group = "+harpoon" },
       { "<leader>f", group = "+find" },
       { "<leader>t", group = "+test" },
       { "<leader>x", group = "+diagnostics" },
       { "<leader>g", group = "+navigation" },
-      { "<leader>l", group = "+ai" },
       { "<leader>o", group = "+options" },
     })
   end,
