@@ -1,8 +1,9 @@
--- TODO: set this up
+-- TODO: Lots of stuff here is kinda fucked up and needs to be revisited
 return {
   "mfussenegger/nvim-dap",
   dependencies = {
     "mfussenegger/nvim-dap-python",
+    -- Do we still need pilot?
     "banjo/package-pilot.nvim",
   },
   config = function()
@@ -115,6 +116,7 @@ return {
       if not dap.configurations[language] then
         dap.configurations[language] = {
           {
+            -- TODO: how do I test this one?
             type = "pwa-node",
             request = "launch",
             name = "Launch file",
@@ -126,6 +128,7 @@ return {
             },
           },
           {
+            -- TODO: this does not work and IDK why
             type = "pwa-node",
             request = "attach",
             name = "Attach",
@@ -153,6 +156,7 @@ return {
     end
   end,
   keys = {
+    -- TODO: any other good commands?
     {
       "<leader>db",
       "<cmd>DapToggleBreakpoint<CR>",
