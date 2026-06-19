@@ -208,7 +208,7 @@ sync-submodules:
 
 # Creates symlinks in ~/.config/
 stow-configs:
-    @stow --restow --dotfiles --target=$HOME --ignore='^(\.claude|\.github|\.gitignore|\.gitmodules|\.venv|AGENTS\.md|CLAUDE\.md|Justfile|README\.md|create-molten-venv\.sh)$' .
+    @stow --restow --dotfiles --target=$HOME .
 
 # Deletes symlinks in ~/.config/
 unstow-configs:

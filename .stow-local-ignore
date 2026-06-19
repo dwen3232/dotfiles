@@ -1,0 +1,10 @@
+\.claude
+\.git
+\.github
+\.gitignore
+\.gitmodules
+\.venv
+AGENTS\.md
+CLAUDE\.md
+Justfile
+README\.md
