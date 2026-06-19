@@ -3,7 +3,7 @@
 ## Setup
 
 - **Config**: `tmux.conf` (requires tmux@3.5a)
-- **Plugin Manager**: TPM installed at `~/.config/tmux/plugins/tpm`
+- **Plugin Manager**: TPM is tracked in the repo and stowed to `~/.config/tmux/plugins/tpm`
 - **Plugins**: Managed as git submodules
   - catppuccin/tmux - Theme
   - tmux-plugins/tmux-continuum - Auto session saving
@@ -14,9 +14,9 @@
 ## Commands
 
 ```bash
-just setup-tmux          # Install TPM and plugins
-just update-tmux-plugins # Update plugin submodules
-just sync-submodules     # Sync all submodules
+just bootstrap        # Install deps, sync submodules, stow configs
+just sync-submodules  # Sync all tmux plugin submodules
+just stow-configs     # Restow the tracked tmux config
 ```
 
 ## Key Bindings

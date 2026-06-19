@@ -59,7 +59,6 @@ esac
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
-complete -o nospace -C /opt/homebrew/Cellar/tfenv/3.0.0/versions/1.8.3/terraform terraform
 
 # Docker completions
 fpath=(/Users/davidwen/.docker/completions $fpath)

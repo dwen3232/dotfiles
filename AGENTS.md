@@ -18,14 +18,14 @@ Personal dotfiles repository for macOS. Uses GNU Stow to symlink `dot-*` directo
 
 ```bash
 # Setup
-just install-all         # Install all dependencies
-just setup-all          # Setup configs, terminal, tmux
-just stow-configs       # Create symlinks to home directory
+just bootstrap         # Install Brewfile deps, sync submodules, stow configs
+just check-deps        # Check whether Brewfile deps are installed
+just stow-configs      # Create symlinks to home directory
 
 # Development
-just setup-tmux         # Setup tmux with plugins
-just sync-submodules    # Update git submodules (tmux plugins)
-just upgrade            # Upgrade Homebrew packages
+just sync-submodules   # Sync git submodules (tmux plugins)
+just upgrade           # Upgrade Brewfile dependencies
+just setup-agents      # Install opt-in Claude/ocx tooling
 ```
 
 ## Architecture
