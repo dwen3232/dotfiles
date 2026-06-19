@@ -16,6 +16,7 @@ brew "jq"
 brew "just"
 brew "kubernetes-cli"
 brew "lazygit"
+brew "mas"
 brew "mercurial"
 brew "minicom"
 brew "mono"
@@ -64,3 +65,6 @@ cask "stats"
 
 # Global npm packages
 npm "@bitwarden/cli"
+
+# Mac App Store apps
+mas "Amphetamine", id: 937984704
