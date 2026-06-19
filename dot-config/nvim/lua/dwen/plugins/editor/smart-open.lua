@@ -12,6 +12,7 @@ return {
     require("telescope").load_extension("smart_open")
   end,
   keys = {
+    -- TODO: I want a keybind that searches in my current buffer's working dir
     {
       "<leader><leader>",
       function()
