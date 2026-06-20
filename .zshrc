@@ -25,22 +25,12 @@ add-zsh-hook precmd set_kitty_title
 # ============================================================================
 
 eval "$(brew shellenv)"
+# Homebrew zsh completions, including asdf, live here.
 fpath=($HOMEBREW_PREFIX/share/zsh/site-functions $fpath)
 
 # ============================================================================
 # VERSION MANAGERS
 # ============================================================================
-
-# Node Version Manager
-export NVM_DIR="$HOME/.nvm"
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
-[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
-
-# Python Environment Manager
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init - zsh)"
-eval "$(pyenv virtualenv-init -)"
 
 # ============================================================================
 # PACKAGE MANAGERS
@@ -110,6 +100,13 @@ for config in ~/.zshrc.*; do
     set +a
   fi
 done
+
+# Reassert asdf shims after per-machine config files mutate PATH.
+export ASDF_DATA_DIR="$HOME/.asdf"
+case ":$PATH:" in
+  *":${ASDF_DATA_DIR}/shims:"*) ;;
+  *) export PATH="${ASDF_DATA_DIR}/shims:$PATH" ;;
+esac
 
 # ============================================================================
 # FUNCTIONS
