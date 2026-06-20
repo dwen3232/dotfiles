@@ -8,3 +8,8 @@ agent/sessions/
 # Pi package install state
 agent/npm/
 agent/git/
+
+# Handwritten extension local dependency/build state
+agent/extensions/**/node_modules/
+agent/extensions/**/dist/
+agent/extensions/**/*.tsbuildinfo
