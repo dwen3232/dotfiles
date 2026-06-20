@@ -1,0 +1,10 @@
+# Pi credentials and trust state
+agent/auth.json
+agent/trust.json
+
+# Pi session history
+agent/sessions/
+
+# Pi package install state
+agent/npm/
+agent/git/

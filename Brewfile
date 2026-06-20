@@ -66,6 +66,7 @@ cask "stats"
 
 # Global npm packages
 npm "@bitwarden/cli"
+npm "@earendil-works/pi-coding-agent"
 
 # Mac App Store apps
 mas "Amphetamine", id: 937984704

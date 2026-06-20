@@ -7,6 +7,7 @@ This file provides guidance to AI coding agents when working with code in this r
 - Never read files directly from `~/` or any absolute path under `/Users/`. All dotfiles are managed here via Stow. Use the repo path instead:
   - `~/.config/foo` → `dot-config/foo`
   - `~/.claude/foo` → `dot-claude/foo`
+  - `~/.pi/foo` → `dot-pi/foo`
   - `~/foo` → `dot-foo` (if it exists)
 - If a file isn't in the repo, ask the user rather than reading it from the home directory.
 
@@ -25,12 +26,11 @@ just stow-configs      # Create symlinks to home directory
 # Development
 just sync-submodules   # Sync git submodules (tmux plugins)
 just upgrade           # Upgrade Brewfile dependencies
-just setup-agents      # Install opt-in Claude/ocx tooling
 ```
 
 ## Architecture
 
-- **Stow**: `dot-config/` → `~/.config/`, `dot-claude/` → `~/.claude/`
+- **Stow**: `dot-config/` → `~/.config/`, `dot-claude/` → `~/.claude/`, `dot-pi/` → `~/.pi/`
 - **Justfile**: All installation and setup automation
 - **Submodules**: tmux plugins in `dot-config/tmux/plugins/`
 - **Shell**: zsh with Oh My Zsh, sources `.zshrc.*` files (gitignored)
@@ -44,6 +44,6 @@ just setup-agents      # Install opt-in Claude/ocx tooling
 When working with specific tools, read their documentation:
 - Neovim: See `dot-config/nvim/README.md`
 - Tmux: See `dot-config/tmux/README.md`
-- Claude Code: See `dot-claude/README.md`
+- Pi: See `dot-pi/agent/`
 
 **Note**: Keep all README files concise (< 100 lines). Focus on essential architecture and commands only.
