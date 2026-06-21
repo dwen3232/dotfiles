@@ -61,8 +61,10 @@ export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/opt/homebrew/share/zsh-syntax-highlightin
 # PATH CONFIGURATION
 # ============================================================================
 
+export PATH="/opt/homebrew/opt/sqlite/bin:$PATH"
 export PATH="$PATH:/Users/davidwen/.local/bin"
 export PATH=$PATH:$HOME/.local/share/pnpm
+export PATH="$PATH:/Applications/Obsidian.app/Contents/MacOS"
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="/Users/davidwen/.rd/bin:$PATH"
@@ -74,9 +76,18 @@ export PATH="/Users/davidwen/.rd/bin:$PATH"
 
 export EDITOR="/opt/homebrew/bin/nvim"
 export XDG_CONFIG_HOME="$HOME/.config"
+export LIBRARY_PATH="$LIBRARY_PATH:$(brew --prefix)/lib"
 export DYLD_LIBRARY_PATH="$(brew --prefix)/lib:$DYLD_LIBRARY_PATH"
 # Allow OpenCode to make websearch calls
 export OPENCODE_ENABLE_EXA=1
+
+if [ -f "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc" ]; then
+  source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
+fi
+
+if [ -f "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc" ]; then
+  source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
+fi
 
 eval "$(direnv hook zsh)"
 
