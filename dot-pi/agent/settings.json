@@ -1,5 +1,8 @@
 {
   "enableInstallTelemetry": false,
   "lastChangelogVersion": "0.79.9",
-  "theme": "dark"
+  "theme": "dark",
+  "defaultProvider": "openai",
+  "defaultModel": "gpt-5.4",
+  "defaultThinkingLevel": "medium"
 }
