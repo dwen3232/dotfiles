@@ -103,10 +103,11 @@ done
 
 # Reassert asdf shims after per-machine config files mutate PATH.
 export ASDF_DATA_DIR="$HOME/.asdf"
-case ":$PATH:" in
-  *":${ASDF_DATA_DIR}/shims:"*) ;;
-  *) export PATH="${ASDF_DATA_DIR}/shims:$PATH" ;;
-esac
+path=(${ASDF_DATA_DIR}/shims ${path:#${ASDF_DATA_DIR}/shims})
+
+if [ -f "${ASDF_DATA_DIR}/plugins/golang/set-env.zsh" ]; then
+  . "${ASDF_DATA_DIR}/plugins/golang/set-env.zsh"
+fi
 
 # ============================================================================
 # FUNCTIONS
