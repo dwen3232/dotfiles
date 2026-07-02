@@ -120,6 +120,13 @@ if [ -f "${ASDF_DATA_DIR}/plugins/golang/set-env.zsh" ]; then
   . "${ASDF_DATA_DIR}/plugins/golang/set-env.zsh"
 fi
 
+# Bypass the asdf-nodejs shims that mis-handle `nodejs system`.
+for system_node_bin in npm npx corepack; do
+  if [ -x "/opt/homebrew/bin/${system_node_bin}" ]; then
+    alias ${system_node_bin}="/opt/homebrew/bin/${system_node_bin}"
+  fi
+done
+
 # ============================================================================
 # FUNCTIONS
 # ============================================================================
