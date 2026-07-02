@@ -26,6 +26,7 @@
       "touch *": "allow",
       "cat *": "allow",
       "xargs *": "allow",
+      "base64 *": "allow",
       "head *": "allow",
       "npx tsc *": "allow",
       "echo *": "allow",
