@@ -2,3 +2,4 @@
 .opencode/
 .opencode
 .pi-subagents/
+.compound-engineering/*.local.yaml
