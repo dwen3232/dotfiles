@@ -4,6 +4,15 @@ agent/trust.json
 
 # Pi session history
 agent/sessions/
+agent/run-history.jsonl
+
+# Pi intercom
+agent/intercom/
+
+# Pi local cache/logs
+agent/cache/
+agent/pi-debug.log
+agent/pi-crash.log
 
 # Pi package install state
 agent/npm/

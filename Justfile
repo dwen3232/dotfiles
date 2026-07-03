@@ -33,6 +33,18 @@ bundle-install: install-brew
     HOMEBREW_NO_AUTO_UPDATE=1 brew bundle install --file {{BREWFILE}} --no-upgrade
 
 
+# Installs agent-browser's managed browser after the npm package is present
+install-agent-browser: bundle-install
+    #!/usr/bin/env bash
+    set -euo pipefail
+    if ! command -v agent-browser >/dev/null 2>&1; then
+      echo "agent-browser is not installed. Run 'just bundle-install' first."
+      exit 1
+    fi
+
+    agent-browser install
+
+
 # Checks whether all Brewfile dependencies are installed
 check-deps: install-brew
     #!/usr/bin/env bash
@@ -77,7 +89,7 @@ install-oh-my-zsh:
 
 
 # Bootstraps the local machine to the repo's declared state
-bootstrap: bundle-install sync-submodules install-oh-my-zsh
+bootstrap: install-agent-browser sync-submodules install-oh-my-zsh
     @just stow-configs
 
 

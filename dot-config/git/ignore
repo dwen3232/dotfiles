@@ -1,3 +1,4 @@
 **/.claude/settings.local.json
 .opencode/
 .opencode
+.pi-subagents/

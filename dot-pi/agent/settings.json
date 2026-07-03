@@ -3,6 +3,50 @@
   "lastChangelogVersion": "0.80.3",
   "theme": "dark",
   "defaultProvider": "openai",
-  "defaultModel": "gpt-5.4",
-  "defaultThinkingLevel": "medium"
+  "defaultModel": "gpt-5.5",
+  "defaultThinkingLevel": "medium",
+  "subagents": {
+    "agentOverrides": {
+      "context-builder": {
+        "model": ""
+      },
+      "planner": {
+        "model": ""
+      },
+      "researcher": {
+        "model": ""
+      },
+      "reviewer": {
+        "model": ""
+      },
+      "scout": {
+        "model": ""
+      },
+      "worker": {
+        "model": ""
+      }
+    }
+  },
+  "packages": [
+    "npm:pi-subagents",
+    "npm:pi-ask-user",
+    "npm:pi-mcp-adapter",
+    "npm:pi-web-access",
+    "npm:pi-prompt-template-model",
+    "npm:pi-claude-cli",
+    "npm:@tmustier/pi-usage-extension",
+    "git:github.com/tintinweb/pi-manage-todo-list@b75c449aa85ce328e9a8b632f62bf642aed40359",
+    "npm:pi-btw",
+    "npm:pi-intercom"
+  ],
+  "hideThinkingBlock": true,
+  "collapseChangelog": true,
+  "quietStartup": true,
+  "treeFilterMode": "default",
+  "compaction": {
+    "enabled": false
+  },
+  "terminal": {
+    "showTerminalProgress": true
+  }
 }
