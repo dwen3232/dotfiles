@@ -96,7 +96,6 @@ eval "$(direnv hook zsh)"
 # ============================================================================
 
 alias nv="nvim"
-alias claude=~/.claude/local/claude
 
 # ============================================================================
 # EXTERNAL CONFIGURATION FILES
