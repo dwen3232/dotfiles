@@ -1,0 +1,70 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+if [ "$#" -ne 2 ]; then
+  echo "usage: navigator <left|down|up|right> <key>" >&2
+  exit 64
+fi
+
+direction="$1"
+key="$2"
+herdr_bin="${HERDR_BIN_PATH:-herdr}"
+pane_id="${HERDR_ACTIVE_PANE_ID:-${HERDR_PANE_ID:-}}"
+
+case "$direction" in
+  left|down|up|right) ;;
+  *)
+    echo "invalid direction: $direction" >&2
+    exit 64
+    ;;
+esac
+
+resolve_current_pane() {
+  if [ -n "$pane_id" ]; then
+    return 0
+  fi
+
+  if ! command -v jq >/dev/null 2>&1; then
+    return 1
+  fi
+
+  pane_id="$("$herdr_bin" pane current --current 2>/dev/null | jq -r '.pane.pane_id // .pane_id // empty')"
+  [ -n "$pane_id" ]
+}
+
+pane_has_vim() {
+  local process_info
+
+  process_info="$($herdr_bin pane process-info --pane "$pane_id" 2>/dev/null || true)"
+  [ -n "$process_info" ] || return 1
+
+  if command -v jq >/dev/null 2>&1; then
+    printf '%s' "$process_info" | jq -e '
+      any(.. | objects;
+        (
+          (.name? // "") + " " +
+          (.cmdline? // "") + " " +
+          (try (.argv? // [] | join(" ")) catch "")
+        ) | test("(^|[ /])(n?vim|view)( |$)")
+      )
+    ' >/dev/null 2>&1
+  else
+    printf '%s' "$process_info" | grep -Eq '(^|[ /])(n?vim|view)( |$)'
+  fi
+}
+
+focus_herdr_pane() {
+  if [ -n "$pane_id" ]; then
+    "$herdr_bin" pane focus --direction "$direction" --pane "$pane_id" >/dev/null
+  else
+    "$herdr_bin" pane focus --direction "$direction" --current >/dev/null
+  fi
+}
+
+resolve_current_pane || true
+
+if [ -n "$pane_id" ] && pane_has_vim; then
+  "$herdr_bin" pane send-keys "$pane_id" "$key" >/dev/null
+else
+  focus_herdr_pane
+fi

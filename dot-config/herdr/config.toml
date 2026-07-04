@@ -1,0 +1,23 @@
+[[keys.command]]
+key = "ctrl+h"
+type = "shell"
+command = "~/.config/herdr/bin/navigator left ctrl+h"
+description = "navigate left"
+
+[[keys.command]]
+key = "ctrl+j"
+type = "shell"
+command = "~/.config/herdr/bin/navigator down ctrl+j"
+description = "navigate down"
+
+[[keys.command]]
+key = "ctrl+k"
+type = "shell"
+command = "~/.config/herdr/bin/navigator up ctrl+k"
+description = "navigate up"
+
+[[keys.command]]
+key = "ctrl+l"
+type = "shell"
+command = "~/.config/herdr/bin/navigator right ctrl+l"
+description = "navigate right"

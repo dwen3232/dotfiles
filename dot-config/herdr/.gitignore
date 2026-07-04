@@ -1,0 +1,9 @@
+# Herdr runtime state
+herdr*.log*
+*.sock
+session.json
+session-history.json
+sessions/
+plugins.json
+plugins/
+agent-detection/
