@@ -16,4 +16,17 @@ return {
   keys = {
     { "<leader>G", "<cmd>LazyGit<cr>", desc = "Open LazyGit" },
   },
+  config = function()
+    vim.api.nvim_create_autocmd("FileType", {
+      group = vim.api.nvim_create_augroup("dwen_lazygit_navigation", { clear = true }),
+      pattern = "lazygit",
+      callback = function(event)
+        require("dwen.core.herdr_navigation").setup_keymaps({
+          mode = "t",
+          buffer = event.buf,
+          herdr_only = true,
+        })
+      end,
+    })
+  end,
 }

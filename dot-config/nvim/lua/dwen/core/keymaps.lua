@@ -5,6 +5,8 @@ vim.g.mapleader = " "
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
+require("dwen.core.herdr_navigation").setup_keymaps()
+
 -- TODO: add window management keybindings?
 -- TODO: add tab switching keybindings?
 
