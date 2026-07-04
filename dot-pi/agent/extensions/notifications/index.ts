@@ -1,4 +1,5 @@
 import type { ExtensionAPI, ExtensionContext } from "@earendil-works/pi-coding-agent";
+import { execFile } from "node:child_process";
 import { basename } from "node:path";
 import notifier from "node-notifier";
 
@@ -16,8 +17,43 @@ let lastQuestionAt = 0;
 let lastIdleAt = 0;
 const activeQuestionToolCalls = new Set<string>();
 
+function focusTerminalApp(): void {
+	if (process.env.PI_NOTIFICATIONS_FOCUS_TERMINAL === "0") return;
+
+	const app = process.env.PI_NOTIFICATIONS_TERMINAL_APP || (process.env.KITTY_WINDOW_ID ? "kitty" : undefined);
+	if (!app) return;
+
+	execFile("open", ["-a", app], { timeout: 2000 }, () => {});
+}
+
+function focusHerdrPane(): void {
+	if (process.env.PI_NOTIFICATIONS_CLICK_FOCUS === "0") return;
+	if (process.env.HERDR_ENV !== "1") return;
+
+	const paneId = process.env.HERDR_PANE_ID;
+	if (!paneId) return;
+
+	const herdr = process.env.HERDR_BIN_PATH || "herdr";
+	execFile(herdr, ["agent", "focus", paneId], { timeout: 2000 }, () => {
+		focusTerminalApp();
+	});
+}
+
+function notificationWasClicked(response: unknown): boolean {
+	if (typeof response !== "string") return false;
+	const normalized = response.toLowerCase().trim();
+	return normalized === "activate" || normalized === "click" || normalized === "clicked";
+}
+
+function notificationGroup(): string | undefined {
+	const paneId = process.env.HERDR_PANE_ID;
+	return paneId ? `pi:${paneId}` : undefined;
+}
+
 function nativeNotification(title: string, body: string, sound: string): void {
-	notifier.notify({ title, message: body, sound });
+	notifier.notify({ title, message: body, sound, wait: true, timeout: 300, group: notificationGroup() }, (_error, response) => {
+		if (notificationWasClicked(response)) focusHerdrPane();
+	});
 }
 
 function notificationsEnabled(ctx: ExtensionContext): boolean {

@@ -81,6 +81,11 @@ export DYLD_LIBRARY_PATH="$(brew --prefix)/lib:$DYLD_LIBRARY_PATH"
 # Allow OpenCode to make websearch calls
 export OPENCODE_ENABLE_EXA=1
 
+# Pi notification click-to-focus behavior
+export PI_NOTIFICATIONS_CLICK_FOCUS=1
+export PI_NOTIFICATIONS_FOCUS_TERMINAL=1
+export PI_NOTIFICATIONS_TERMINAL_APP="kitty"
+
 if [ -f "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc" ]; then
   source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
 fi
