@@ -19,6 +19,7 @@ return {
       { "<leader>d", group = "+debug" },
       { "<leader>e", group = "+explore" },
       { "<leader>f", group = "+find" },
+      { "<leader>fc", desc = "Smart Find in Buffer CWD" },
       { "<leader>t", group = "+test" },
       { "<leader>x", group = "+diagnostics" },
       { "<leader>g", group = "+navigation" },

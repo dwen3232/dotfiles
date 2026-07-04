@@ -1,3 +1,13 @@
+local function buffer_cwd()
+  local buffer_path = vim.api.nvim_buf_get_name(0)
+
+  if buffer_path == "" or vim.bo.buftype ~= "" then
+    return vim.fn.getcwd()
+  end
+
+  return vim.fs.dirname(buffer_path)
+end
+
 return {
   "danielfalk/smart-open.nvim",
   dependencies = {
@@ -12,7 +22,6 @@ return {
     require("telescope").load_extension("smart_open")
   end,
   keys = {
-    -- TODO: I want a keybind that searches in my current buffer's working dir
     {
       "<leader><leader>",
       function()
@@ -21,6 +30,16 @@ return {
         })
       end,
       desc = "Smart Find",
+    },
+    {
+      "<leader>fc",
+      function()
+        require("telescope").extensions.smart_open.smart_open({
+          cwd = buffer_cwd(),
+          cwd_only = true,
+        })
+      end,
+      desc = "Smart Find in Buffer CWD",
     },
   },
 }
