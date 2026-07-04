@@ -14,6 +14,7 @@ const DEDUPE_MS = 1500;
 const recentNotifications = new Map<string, number>();
 let lastQuestionAt = 0;
 let lastIdleAt = 0;
+const activeQuestionToolCalls = new Set<string>();
 
 function nativeNotification(title: string, body: string, sound: string): void {
 	notifier.notify({ title, message: body, sound });
@@ -66,14 +67,42 @@ function sessionTitle(pi: ExtensionAPI, ctx: ExtensionContext): string {
 	return pi.getSessionName() || basename(ctx.cwd) || "Pi";
 }
 
+function setHerdrBlocked(pi: ExtensionAPI, active: boolean): void {
+	pi.events.emit("herdr:blocked", { active, label: "waiting for user" });
+}
+
+function clearHerdrQuestionBlocks(pi: ExtensionAPI): void {
+	for (const _toolCallId of activeQuestionToolCalls) {
+		setHerdrBlocked(pi, false);
+	}
+	activeQuestionToolCalls.clear();
+}
+
 export default function notifications(pi: ExtensionAPI) {
 	pi.on("tool_execution_start", async (event, ctx) => {
 		if (!QUESTION_TOOLS.has(event.toolName)) return;
+
+		activeQuestionToolCalls.add(event.toolCallId);
+		setHerdrBlocked(pi, true);
+
 		const key = `question:${event.toolCallId}`;
 		if (!shouldNotify(key)) return;
 
 		lastQuestionAt = Date.now();
 		notify(ctx, "question", "Pi - Question", "Needs your input");
+	});
+
+	pi.on("tool_execution_end", async (event) => {
+		if (!activeQuestionToolCalls.delete(event.toolCallId)) return;
+		setHerdrBlocked(pi, false);
+	});
+
+	pi.on("agent_start", async () => {
+		clearHerdrQuestionBlocks(pi);
+	});
+
+	pi.on("session_shutdown", async () => {
+		clearHerdrQuestionBlocks(pi);
 	});
 
 	pi.on("after_provider_response", async (event, ctx) => {
