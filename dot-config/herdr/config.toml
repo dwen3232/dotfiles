@@ -1,3 +1,9 @@
+[theme]
+name = "catppuccin"
+
+[keys]
+prefix = "ctrl+a"
+
 [[keys.command]]
 key = "ctrl+h"
 type = "shell"
@@ -21,3 +27,6 @@ key = "ctrl+l"
 type = "shell"
 command = "~/.config/herdr/bin/navigator right ctrl+l"
 description = "navigate right"
+
+[ui]
+agent_panel_sort = "spaces"
