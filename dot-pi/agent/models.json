@@ -1,0 +1,12 @@
+{
+  // pi-btw preflights credentials through modelRegistry.getApiKeyAndHeaders(),
+  // which does not fall back to built-in OPENAI_API_KEY env auth for OpenAI.
+  // Keep this env-backed provider override so /btw sees the same key that
+  // normal Pi OpenAI requests already read from the shell environment.
+  "providers": {
+    "openai": {
+      "baseUrl": "https://api.openai.com/v1",
+      "apiKey": "$OPENAI_API_KEY"
+    }
+  }
+}
