@@ -18,8 +18,24 @@ install-brew:
     NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 
+# Trusts the Moshi Homebrew tap before installing its formulae
+trust-moshi-tap: install-brew
+    #!/usr/bin/env bash
+    set -euo pipefail
+    if command -v brew >/dev/null; then
+      eval "$(brew shellenv)"
+    elif [ -x /opt/homebrew/bin/brew ]; then
+      eval "$(/opt/homebrew/bin/brew shellenv)"
+    else
+      eval "$(/usr/local/bin/brew shellenv)"
+    fi
+
+    HOMEBREW_NO_AUTO_UPDATE=1 brew tap rjyo/moshi
+    HOMEBREW_NO_AUTO_UPDATE=1 brew trust rjyo/moshi
+
+
 # Installs Brewfile dependencies without upgrading existing packages
-bundle-install: install-brew
+bundle-install: trust-moshi-tap
     #!/usr/bin/env bash
     set -euo pipefail
     if command -v brew >/dev/null; then
@@ -31,6 +47,28 @@ bundle-install: install-brew
     fi
 
     HOMEBREW_NO_AUTO_UPDATE=1 brew bundle install --file {{BREWFILE}} --no-upgrade
+
+
+# Starts services needed for Moshi hooks and SSH/Mosh host access
+setup-moshi-services: bundle-install
+    #!/usr/bin/env bash
+    set -euo pipefail
+    if command -v brew >/dev/null; then
+      eval "$(brew shellenv)"
+    elif [ -x /opt/homebrew/bin/brew ]; then
+      eval "$(/opt/homebrew/bin/brew shellenv)"
+    else
+      eval "$(/usr/local/bin/brew shellenv)"
+    fi
+
+    brew services restart moshi-hook
+    if [ "$(uname -s)" = "Darwin" ]; then
+      moshi-hook host enable-ssh
+    fi
+
+    moshi-hook status
+    moshi-hook host list || true
+    echo "Run 'moshi-hook host setup' if no host pairing is listed."
 
 
 # Installs agent-browser's managed browser after the npm package is present
@@ -46,7 +84,7 @@ install-agent-browser: bundle-install
 
 
 # Checks whether all Brewfile dependencies are installed
-check-deps: install-brew
+check-deps: trust-moshi-tap
     #!/usr/bin/env bash
     set -euo pipefail
     if command -v brew >/dev/null; then
@@ -61,7 +99,7 @@ check-deps: install-brew
 
 
 # Upgrades all Brewfile dependencies
-upgrade: install-brew
+upgrade: trust-moshi-tap
     #!/usr/bin/env bash
     set -euo pipefail
     if command -v brew >/dev/null; then

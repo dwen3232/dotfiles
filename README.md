@@ -1,6 +1,10 @@
 # My Dotfiles
 Just some configs for things I like to use
 
+## Setup notes
+
+- Moshi + Herdr + Pi: [`dot-pi/agent/MOSHI.md`](dot-pi/agent/MOSHI.md)
+
 
 # TODOS
 ## nvim

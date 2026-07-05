@@ -1,0 +1,6 @@
+# Loaded by every zsh invocation, including non-interactive SSH probes.
+# Keep this minimal: interactive shell setup belongs in .zshrc.
+
+# Moshi probes hosts through non-interactive shells when detecting Herdr,
+# mosh-server, moshi-hook, and other host capabilities.
+export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$HOME/.local/bin:$HOME/bin:$PATH"

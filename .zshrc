@@ -116,6 +116,13 @@ for config in ~/.zshrc.*; do
   fi
 done
 
+# Moshi webhook notification defaults. Keep MOSHI_WEBHOOK_TOKEN in a private
+# per-machine file such as ~/.zshrc.personal, not in this tracked dotfile.
+export MOSHI_WEBHOOK_NOTIFICATIONS=1
+export MOSHI_WEBHOOK_NOTIFY_COMPLETE=0
+export MOSHI_WEBHOOK_UNIFIED=0
+export MOSHI_WEBHOOK_DEBUG=0
+
 # Reassert asdf shims after per-machine config files mutate PATH.
 export ASDF_DATA_DIR="$HOME/.asdf"
 path=(${ASDF_DATA_DIR}/shims ${path:#${ASDF_DATA_DIR}/shims})

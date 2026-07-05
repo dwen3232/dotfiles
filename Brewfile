@@ -1,3 +1,5 @@
+tap "rjyo/moshi"
+
 # Core CLI tools
 brew "apache-spark"
 brew "awscli"
@@ -27,6 +29,8 @@ brew "mas"
 brew "mercurial"
 brew "minicom"
 brew "mono"
+brew "mosh"
+brew "moshi-hook"
 brew "neovim"
 brew "node"
 brew "openjdk"
