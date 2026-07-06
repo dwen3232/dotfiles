@@ -10,6 +10,7 @@
       "*.env": "deny",
       "*.env.*": "deny",
       "*.env.example": "allow",
+      ".env.dev-vault": "allow",
       "~/.ssh/*": "deny",
       "*.pem": "deny",
       "*.key": "deny"
@@ -42,6 +43,8 @@
       "cp *": "allow",
       "sort *": "allow",
       "nl *": "allow",
+      "echo *": "allow",
+      "printf *": "allow",
       "git": "allow",
       "git *": "allow",
       "git reset": "ask",
