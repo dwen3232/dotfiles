@@ -1,4 +1,34 @@
 {
+  "alwaysThinkingEnabled": true,
+  "autoCompactEnabled": false,
+  "editorMode": "vim",
+  "effortLevel": "high",
+  "enabledPlugins": {
+    "caveman@caveman": true,
+    "claude-notifications@qol-plugins": true
+  },
+  "extraKnownMarketplaces": {
+    "caveman": {
+      "source": {
+        "repo": "JuliusBrussee/caveman",
+        "source": "github"
+      }
+    }
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "command": "bash '/Users/davidwen/.claude/hooks/herdr-agent-state.sh' session",
+            "timeout": 10,
+            "type": "command"
+          }
+        ],
+        "matcher": "*"
+      }
+    ]
+  },
   "permissions": {
     "allow": [
       "Read(~/Repositories/agent-core/)",
@@ -18,28 +48,12 @@
     ],
     "defaultMode": "auto"
   },
-  "enabledPlugins": {
-    "claude-notifications@qol-plugins": true,
-    "caveman@caveman": true
-  },
-  "extraKnownMarketplaces": {
-    "caveman": {
-      "source": {
-        "source": "github",
-        "repo": "JuliusBrussee/caveman"
-      }
-    }
-  },
-  "alwaysThinkingEnabled": true,
-  "effortLevel": "high",
-  "editorMode": "vim",
-  "preferredNotifChannel": "kitty",
-  "autoCompactEnabled": false,
-  "voiceEnabled": true,
   "plugins": [
     {
       "source": "~/.claude/plugins/marketplaces/qol-plugins/plugins/claude-notifications"
     }
   ],
-  "skipAutoPermissionPrompt": true
+  "preferredNotifChannel": "kitty",
+  "skipAutoPermissionPrompt": true,
+  "voiceEnabled": true
 }
