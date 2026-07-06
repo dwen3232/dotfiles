@@ -18,7 +18,7 @@ return {
       end,
       actions = {
         open_file = {
-          -- quit_on_open = true,
+          quit_on_open = true,
         },
       },
       sort = {
@@ -51,7 +51,21 @@ return {
     local keymap = vim.keymap -- for conciseness
 
     keymap.set("n", "<leader>ee", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle file explorer" }) -- toggle file explorer
-    keymap.set("n", "<leader>ef", "<cmd>NvimTreeFindFileToggle<CR>", { desc = "Toggle file explorer on current file" }) -- toggle file explorer on current file
+    keymap.set("n", "<leader>ef", function()
+      local bufnr = vim.api.nvim_get_current_buf()
+
+      api.tree.find_file({
+        open = true,
+        focus = true,
+      })
+
+      if vim.api.nvim_buf_is_valid(bufnr) and not api.tree.is_tree_buf(bufnr) then
+        local ok, err = pcall(vim.api.nvim_buf_delete, bufnr, {})
+        if not ok then
+          vim.notify(err, vim.log.levels.ERROR)
+        end
+      end
+    end, { desc = "Close buffer and reveal in file explorer" })
     keymap.set("n", "<leader>er", "<cmd>NvimTreeRefresh<CR>", { desc = "Refresh file explorer" }) -- refresh file explorer
     keymap.set("n", "<leader>ei", api.node.show_info_popup, { desc = "Show file info" })
   end,
