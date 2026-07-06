@@ -30,7 +30,7 @@ command = "~/.config/herdr/bin/navigator right ctrl+l"
 description = "navigate right"
 
 [ui]
-agent_panel_sort = "spaces"
+agent_panel_sort = "priority"
 pane_borders = true
 pane_gaps = false
 show_agent_labels_on_pane_borders = false
