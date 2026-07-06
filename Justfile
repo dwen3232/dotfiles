@@ -83,6 +83,29 @@ install-agent-browser: bundle-install
     agent-browser install
 
 
+# Ensures Claude Code's native binary is present after npm package install
+install-claude-code: bundle-install
+    #!/usr/bin/env bash
+    set -euo pipefail
+    if ! command -v claude >/dev/null 2>&1; then
+      echo "claude is not installed. Run 'just bundle-install' first."
+      exit 1
+    fi
+
+    if claude --version >/dev/null 2>&1; then
+      exit 0
+    fi
+
+    package_root="$(npm root -g)/@anthropic-ai/claude-code"
+    if [ ! -f "$package_root/install.cjs" ]; then
+      echo "Claude Code postinstall script not found at $package_root/install.cjs"
+      exit 1
+    fi
+
+    node "$package_root/install.cjs"
+    claude --version >/dev/null
+
+
 # Checks whether all Brewfile dependencies are installed
 check-deps: trust-moshi-tap
     #!/usr/bin/env bash
@@ -127,7 +150,7 @@ install-oh-my-zsh:
 
 
 # Bootstraps the local machine to the repo's declared state
-bootstrap: install-agent-browser sync-submodules install-oh-my-zsh
+bootstrap: install-agent-browser install-claude-code sync-submodules install-oh-my-zsh
     @just stow-configs
 
 

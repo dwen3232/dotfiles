@@ -5,6 +5,8 @@
 \.gitmodules
 \.venv
 AGENTS\.md
+Brewfile
 CLAUDE\.md
+docs
 Justfile
 README\.md
