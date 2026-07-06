@@ -33,9 +33,12 @@
       "npx tsc *": "allow",
       "echo *": "allow",
       "mkdir *": "allow",
+      "sed *": "allow",
       "mv *": "allow",
+      "if *": "allow",
       "rm *": "allow",
       "jq *": "allow",
+      "command -v *": "allow",
       "which *": "allow",
       "dirname *": "allow",
       "rsync *": "allow",
@@ -96,7 +99,8 @@
       "terraform show *": "allow",
       "terraform output *": "allow",
       "gh *": "allow",
-      "op *": "allow"
+      "op *": "allow",
+      "herder *": "allow"
     },
     "task": "allow",
     "mcp": {
