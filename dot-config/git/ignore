@@ -1,5 +1,8 @@
 **/.claude/settings.local.json
 .opencode/
 .opencode
-.pi-subagents/
+.pi
+.pi/
+.pi-subagents
+.pi-subagents/**
 .compound-engineering/*.local.yaml
