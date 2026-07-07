@@ -5,30 +5,7 @@
   "defaultProvider": "openai",
   "defaultModel": "gpt-5.5",
   "defaultThinkingLevel": "medium",
-  "subagents": {
-    "agentOverrides": {
-      "context-builder": {
-        "model": ""
-      },
-      "planner": {
-        "model": ""
-      },
-      "researcher": {
-        "model": ""
-      },
-      "reviewer": {
-        "model": ""
-      },
-      "scout": {
-        "model": ""
-      },
-      "worker": {
-        "model": ""
-      }
-    }
-  },
   "packages": [
-    "npm:pi-subagents",
     "npm:pi-ask-user",
     "npm:pi-mcp-adapter",
     "npm:pi-web-access",
