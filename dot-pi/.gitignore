@@ -11,8 +11,12 @@ agent/intercom/
 
 # Pi local cache/logs
 agent/cache/
+agent/mcp-cache.json
 agent/pi-debug.log
 agent/pi-crash.log
+
+# Pi MCP OAuth tokens
+agent/mcp-oauth/
 
 # Pi package install state
 agent/npm/
