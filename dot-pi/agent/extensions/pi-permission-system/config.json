@@ -21,8 +21,6 @@
       "sudo *": "ask",
       "su": "ask",
       "su *": "ask",
-      "rm": "ask",
-      "rm *": "ask",
       "chmod *": "ask",
       "chown *": "ask",
       "chgrp *": "ask",

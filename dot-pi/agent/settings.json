@@ -3,7 +3,7 @@
   "lastChangelogVersion": "0.80.3",
   "theme": "dark",
   "defaultProvider": "openai",
-  "defaultModel": "gpt-5.5",
+  "defaultModel": "gpt-5.5-pro",
   "defaultThinkingLevel": "medium",
   "packages": [
     "npm:pi-ask-user",
@@ -15,9 +15,10 @@
     "git:github.com/tintinweb/pi-manage-todo-list@b75c449aa85ce328e9a8b632f62bf642aed40359",
     "npm:pi-btw",
     "npm:pi-intercom",
-    "npm:@gotgenes/pi-permission-system"
+    "npm:@gotgenes/pi-permission-system",
+    "npm:pi-claude-auth"
   ],
-  "hideThinkingBlock": true,
+  "hideThinkingBlock": false,
   "collapseChangelog": true,
   "quietStartup": true,
   "treeFilterMode": "default",
