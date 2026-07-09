@@ -1,34 +1,4 @@
 {
-  "alwaysThinkingEnabled": true,
-  "autoCompactEnabled": false,
-  "editorMode": "vim",
-  "effortLevel": "high",
-  "enabledPlugins": {
-    "caveman@caveman": true,
-    "claude-notifications@qol-plugins": true
-  },
-  "extraKnownMarketplaces": {
-    "caveman": {
-      "source": {
-        "repo": "JuliusBrussee/caveman",
-        "source": "github"
-      }
-    }
-  },
-  "hooks": {
-    "SessionStart": [
-      {
-        "hooks": [
-          {
-            "command": "bash '/Users/davidwen/.claude/hooks/herdr-agent-state.sh' session",
-            "timeout": 10,
-            "type": "command"
-          }
-        ],
-        "matcher": "*"
-      }
-    ]
-  },
   "permissions": {
     "allow": [
       "Read(~/Repositories/agent-core/)",
@@ -48,12 +18,60 @@
     ],
     "defaultMode": "auto"
   },
-  "plugins": [
-    {
-      "source": "~/.claude/plugins/marketplaces/qol-plugins/plugins/claude-notifications"
-    }
-  ],
+  "model": "opus[1m]",
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$HOME/.claude/hooks/herdr-agent-state.sh\" session",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "AskUserQuestion",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$HOME/.claude/hooks/notifications.sh\" question",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "PermissionRequest": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$HOME/.claude/hooks/notifications.sh\" permission",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$HOME/.claude/hooks/notifications.sh\" stop",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  },
+  "alwaysThinkingEnabled": true,
+  "effortLevel": "high",
+  "editorMode": "vim",
   "preferredNotifChannel": "kitty",
+  "autoCompactEnabled": false,
   "skipAutoPermissionPrompt": true,
   "voiceEnabled": true
 }
