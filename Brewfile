@@ -55,6 +55,7 @@ brew "zsh-completions"
 brew "zsh-syntax-highlighting"
 
 # Desktop apps
+cask "redis-insight"
 cask "1password-cli"
 cask "anki"
 cask "basictex"
