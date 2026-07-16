@@ -18,7 +18,7 @@
     ],
     "defaultMode": "auto"
   },
-  "model": "opus[1m]",
+  "model": "sonnet",
   "hooks": {
     "SessionStart": [
       {
@@ -69,7 +69,7 @@
   },
   "alwaysThinkingEnabled": true,
   "effortLevel": "high",
-  "editorMode": "vim",
+  "editorMode": "normal",
   "preferredNotifChannel": "kitty",
   "autoCompactEnabled": false,
   "skipAutoPermissionPrompt": true,
