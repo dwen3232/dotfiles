@@ -15,8 +15,6 @@ CYAN='\033[36m'
 DIM='\033[2m'
 RESET='\033[0m'
 
-dir_display="${dir/#$HOME/~}"
-
 if [ -n "$pct" ]; then
   pct_int=$(printf "%.0f" "$pct")
   if [ "$pct_int" -ge 90 ]; then pct_color="$RED"
@@ -52,10 +50,10 @@ fi
 
 if [ -n "$branch" ]; then
   git_str="$(printf "🌿 %s" "$branch")"
-  [ -n "$pr_link" ] && git_str="${git_str} $(printf "${CYAN}🔗 %s${RESET}" "$pr_link")"
 else
   git_str="$(printf "${DIM}no branch${RESET}")"
 fi
 
-printf "🤖 %s | %b | %b | %b\n📁 %s | %b\n" \
-  "$model" "$ctx_str" "$cost_str" "$diff_str" "$dir_display" "$git_str"
+printf "🤖 %s | %b | %b | %b | %b\n" \
+  "$model" "$ctx_str" "$cost_str" "$diff_str" "$git_str"
+[ -n "$pr_link" ] && printf "${CYAN}🔗 %s${RESET}\n" "$pr_link"
