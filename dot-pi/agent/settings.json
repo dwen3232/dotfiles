@@ -15,7 +15,6 @@
     "git:github.com/tintinweb/pi-manage-todo-list@b75c449aa85ce328e9a8b632f62bf642aed40359",
     "npm:pi-btw",
     "npm:pi-intercom",
-    "npm:@gotgenes/pi-permission-system",
     "npm:pi-claude-auth"
   ],
   "hideThinkingBlock": false,
