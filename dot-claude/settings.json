@@ -79,6 +79,7 @@
     "mode": "tap"
   },
   "editorMode": "normal",
+  "verbose": false,
   "preferredNotifChannel": "kitty",
   "autoCompactEnabled": false,
   "skipAutoPermissionPrompt": true,
