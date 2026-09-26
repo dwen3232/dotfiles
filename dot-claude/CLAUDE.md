@@ -40,5 +40,6 @@ When uncertain about tool behavior, API capabilities, or configuration syntax, c
 ## Code Standards
 
 - Prefer editing existing files over creating new ones.
-- No unnecessary comments or documentation unless asked.
+- The code should be self-explanatory. If you feel included to write a lengthy code comment, then the code is likely bad.
+- If a code comment is really necessary, it should _NEVER_ be longer than three lines.
 - No emojis unless explicitly requested.
