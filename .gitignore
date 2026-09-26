@@ -3,3 +3,4 @@
 .zshrc.*
 __pycache__/
 *.pyc
+dot-claude/skills/synced/
