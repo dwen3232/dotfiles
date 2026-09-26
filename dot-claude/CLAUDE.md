@@ -21,11 +21,17 @@ All of these rules are _must follow_. You must always adhere to this in order to
 - _Never_ read `.env` files or any file containing secrets or credentials, unless explicitly asked to.
 
 ## Version Control
-- _Never_ stage, unstage, commit, or push changes in git, unless explicitly asked to.
-  - _NEVER_ assume that permission to commit earlier work implies permission to commit later work _unless explicitly stated_.
-- _Never_ create a new git worktree unless explicitly asked to.
-- _Never_ make code changes unless explicitly asked to.
-- _Never_ respond to comments on PRs unless explicitly asked to.
+
+Git history is shared and hard to reverse — a wrong commit, push, or worktree costs real time to undo. Propose the action and what it will do, then wait for the user's go-ahead before running it.
+
+Applies to: staging, committing, unstaging, pushing, creating worktrees, making code changes, and replying to PR comments.
+
+"Explicit" means the user's most recent message authorizes this specific action (e.g. "commit this," "yes, push it," "reply to that comment"). It does NOT carry over from:
+- The request that produced the change ("fix the bug" ≠ "commit the fix")
+- Approval of a different git action ("ok, commit" ≠ "also push")
+- An earlier turn, once anything has changed since
+
+If unsure whether you have permission, ask.
 
 
 ## Research
