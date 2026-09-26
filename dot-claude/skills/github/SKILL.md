@@ -26,6 +26,13 @@ subcommand exists for that (`gh pr comment`, `gh pr review`, `gh pr edit`,
 for reads that have no subcommand equivalent (custom field selection,
 GraphQL-only data).
 
+Exception: replying to a specific PR review comment thread has no `gh`
+subcommand. Use `gh api
+repos/{owner}/{repo}/pulls/{pull_number}/comments/{comment_id}/replies -f
+body='...'`, or install the `agynio/gh-pr-review` extension
+(`gh pr-review comments reply <pr-number> -R owner/repo --thread_id
+<thread-id> --body <message>`).
+
 ## Stacked PRs (gh-stack)
 
 `gh stack` manages an ordered chain of branches, each with its own PR based on
