@@ -83,5 +83,6 @@
   "preferredNotifChannel": "kitty",
   "autoCompactEnabled": false,
   "skipAutoPermissionPrompt": true,
-  "voiceEnabled": true
+  "voiceEnabled": true,
+  "feedbackDrafts": "off"
 }
