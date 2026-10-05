@@ -79,11 +79,15 @@ launch_tuicr_pane() {
   log_info "Launching tuicr in a Herdr pane split $TUICR_PANE_DIRECTION"
   log_info "Directory: $target_dir"
 
+  # --current is the focused pane, which may be in another workspace by now.
+  local split_target=(--current)
+  [[ -n "${HERDR_PANE_ID:-}" ]] && split_target=(--pane "$HERDR_PANE_ID")
+
   local split_response
-  split_response=$("$HERDR_BIN" pane split --current \
+  split_response=$("$HERDR_BIN" pane split "${split_target[@]}" \
     --direction "$TUICR_PANE_DIRECTION" \
     --cwd "$target_dir" \
-    --focus)
+    --no-focus)
 
   new_pane_id=$(printf '%s\n' "$split_response" | \
     "$JQ_BIN" -er '.result.pane.pane_id')
