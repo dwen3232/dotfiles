@@ -72,17 +72,18 @@
     "command": "~/.claude/statusline.sh",
     "padding": 0
   },
+  "feedbackDrafts": "off",
   "alwaysThinkingEnabled": true,
   "effortLevel": "high",
   "voice": {
     "enabled": true,
     "mode": "tap"
   },
+  "skipWorkflowUsageWarning": true,
   "editorMode": "normal",
   "verbose": false,
   "preferredNotifChannel": "kitty",
   "autoCompactEnabled": false,
   "skipAutoPermissionPrompt": true,
-  "voiceEnabled": true,
-  "feedbackDrafts": "off"
+  "voiceEnabled": true
 }
