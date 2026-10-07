@@ -1,6 +1,6 @@
 ---
 name: agent-browser
-description: Browser automation CLI for AI agents. Use when the user needs to interact with websites, including navigating pages, filling forms, clicking buttons, taking screenshots, extracting data, testing web apps, logging into a site, automating browser tasks, exploratory testing, Slack, Electron apps, or cloud browser providers.
+description: Headless browser automation CLI for AI agents. Use when the user needs to interact with websites without watching, including navigating pages, filling forms, clicking buttons, taking screenshots, extracting data, testing web apps, logging into a site, automating browser tasks, exploratory testing, Slack, Electron apps, or cloud browser providers. When the user should see the page in their terminal, use terminal-browser instead.
 ---
 
 # agent-browser

@@ -83,6 +83,35 @@ install-agent-browser: bundle-install
     agent-browser install
 
 
+# Keeps terminal-browser from symlinking its skill into the stowed skills dir
+setup-terminal-browser: bundle-install
+    #!/usr/bin/env bash
+    set -euo pipefail
+    if ! command -v terminal-browser >/dev/null 2>&1; then
+      echo "terminal-browser is not installed. Run 'just bundle-install' first."
+      exit 1
+    fi
+
+    state="${XDG_STATE_HOME:-$HOME/.local/state}/terminal-browser"
+    mkdir -p "$state"
+    echo no > "$state/skills-choice"
+
+    for agent in .claude .codex .cursor .gemini; do
+      link="$HOME/$agent/skills/terminal-browser"
+      [ -L "$link" ] && rm -f "$link"
+    done
+
+    echo "terminal-browser will not install its own skill; use dot-claude/skills/terminal-browser"
+
+
+# Diffs the vendored terminal-browser skill against the one the CLI ships
+diff-terminal-browser-skill:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    shipped="$(ls -d "$(brew --prefix)"/Caskroom/terminal-browser/*/terminal-browser/skills/default/terminal-browser/SKILL.md | tail -1)"
+    diff -u "$shipped" dot-claude/skills/terminal-browser/SKILL.md || true
+
+
 # Installs the gh-stack extension for managing stacked PRs
 install-gh-stack: bundle-install
     #!/usr/bin/env bash
@@ -166,7 +195,7 @@ install-oh-my-zsh:
 
 
 # Bootstraps the local machine to the repo's declared state
-bootstrap: install-agent-browser install-claude-code install-gh-stack sync-submodules install-oh-my-zsh
+bootstrap: install-agent-browser setup-terminal-browser install-claude-code install-gh-stack sync-submodules install-oh-my-zsh
     @just stow-configs
 
 

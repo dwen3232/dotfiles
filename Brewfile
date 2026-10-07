@@ -80,6 +80,7 @@ cask "raycast"
 cask "rectangle"
 cask "spotify"
 cask "stats"
+cask "terminal-browser"
 
 # Global npm packages
 npm "@anthropic-ai/claude-code"
