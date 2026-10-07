@@ -1,10 +1,14 @@
 # Herdr runtime state
 herdr*.log*
 *.sock
+*.sock.*
 session.json
+session.json.*
 session-history.json
+session-snapshots/
 sessions/
 plugins.json
+.plugins.lock
 plugins/
 agent-detection/
 release-notes.json
