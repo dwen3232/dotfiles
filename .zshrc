@@ -89,6 +89,12 @@ export PI_NOTIFICATIONS_CLICK_FOCUS=1
 export PI_NOTIFICATIONS_FOCUS_TERMINAL=1
 export PI_NOTIFICATIONS_TERMINAL_APP="kitty"
 
+# Claude Code notification click-to-focus behavior
+# herdr panes do not carry KITTY_WINDOW_ID, so name the terminal explicitly
+export CLAUDE_NOTIFICATIONS_CLICK_FOCUS=1
+export CLAUDE_NOTIFICATIONS_FOCUS_TERMINAL=1
+export CLAUDE_NOTIFICATIONS_TERMINAL_APP="kitty"
+
 if [ -f "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc" ]; then
   source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
 fi
