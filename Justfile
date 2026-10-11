@@ -18,8 +18,8 @@ install-brew:
     NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 
-# Trusts the Moshi Homebrew tap before installing its formulae
-trust-moshi-tap: install-brew
+# Trusts third-party Homebrew taps before installing from them
+trust-taps: install-brew
     #!/usr/bin/env bash
     set -euo pipefail
     if command -v brew >/dev/null; then
@@ -30,12 +30,14 @@ trust-moshi-tap: install-brew
       eval "$(/usr/local/bin/brew shellenv)"
     fi
 
-    HOMEBREW_NO_AUTO_UPDATE=1 brew tap rjyo/moshi
-    HOMEBREW_NO_AUTO_UPDATE=1 brew trust rjyo/moshi
+    for tap in rjyo/moshi supercmdlabs/supercmd; do
+      HOMEBREW_NO_AUTO_UPDATE=1 brew tap "$tap"
+      HOMEBREW_NO_AUTO_UPDATE=1 brew trust "$tap"
+    done
 
 
 # Installs Brewfile dependencies without upgrading existing packages
-bundle-install: trust-moshi-tap
+bundle-install: trust-taps
     #!/usr/bin/env bash
     set -euo pipefail
     if command -v brew >/dev/null; then
@@ -152,7 +154,7 @@ install-claude-code: bundle-install
 
 
 # Checks whether all Brewfile dependencies are installed
-check-deps: trust-moshi-tap
+check-deps: trust-taps
     #!/usr/bin/env bash
     set -euo pipefail
     if command -v brew >/dev/null; then
@@ -167,7 +169,7 @@ check-deps: trust-moshi-tap
 
 
 # Upgrades all Brewfile dependencies
-upgrade: trust-moshi-tap
+upgrade: trust-taps
     #!/usr/bin/env bash
     set -euo pipefail
     if command -v brew >/dev/null; then
@@ -194,9 +196,28 @@ install-oh-my-zsh:
     RUNZSH=no CHSH=no KEEP_ZSHRC=yes sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
 
+# Points SuperCmd at the stowed settings dir; run after stow-configs
+setup-supercmd:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    config_dir="$HOME/.config/supercmd"
+    if [ ! -f "$config_dir/settings.json" ]; then
+      echo "$config_dir/settings.json is missing. Run 'just stow-configs' first."
+      exit 1
+    fi
+
+    support_dir="$HOME/Library/Application Support/SuperCmd"
+    mkdir -p "$support_dir"
+    osascript -e 'quit app "SuperCmd"' 2>/dev/null || true
+    while pgrep -xq SuperCmd; do sleep 0.5; done
+    printf '{\n  "path": "%s"\n}\n' "$config_dir" > "$support_dir/settings-location.json"
+    open -a SuperCmd
+
+
 # Bootstraps the local machine to the repo's declared state
 bootstrap: install-agent-browser setup-terminal-browser install-claude-code install-gh-stack sync-submodules install-oh-my-zsh
     @just stow-configs
+    @just setup-supercmd
 
 
 # Syncs all submodules

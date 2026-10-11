@@ -1,0 +1,160 @@
+{
+  "globalShortcut": "Alt+Space",
+  "openAtLogin": true,
+  "disabledCommands": [],
+  "enabledCommands": [],
+  "searchApplicationsScope": [
+    "/Applications",
+    "/Applications/Utilities",
+    "/System/Applications",
+    "/System/Applications/Utilities",
+    "/System/Library/CoreServices/Applications",
+    "/Users/davidwen/Applications"
+  ],
+  "scriptCommandFolders": [],
+  "commandHotkeys": {
+    "system-supercmd-whisper": "Command+Shift+W",
+    "system-supercmd-whisper-speak-toggle": "Fn",
+    "system-supercmd-speak": "Command+Shift+S",
+    "system-window-management-left": "Control+Alt+Left",
+    "system-window-management-right": "Control+Alt+Right",
+    "system-window-management-top": "Control+Alt+Up",
+    "system-window-management-bottom": "Control+Alt+Down",
+    "system-window-management-top-left": "Control+Alt+U",
+    "system-window-management-top-right": "Control+Alt+I",
+    "system-window-management-bottom-left": "Control+Alt+J",
+    "system-window-management-bottom-right": "Control+Alt+K",
+    "system-window-management-first-third": "Control+Alt+D",
+    "system-window-management-center-third": "Control+Alt+F",
+    "system-window-management-last-third": "Control+Alt+G",
+    "system-window-management-first-two-thirds": "Control+Alt+E",
+    "system-window-management-center-two-thirds": "Control+Alt+R",
+    "system-window-management-last-two-thirds": "Control+Alt+T",
+    "system-window-management-center": "Control+Alt+C",
+    "system-window-management-fill": "Control+Alt+Return",
+    "system-window-management-increase-size-10": "Control+Alt+=",
+    "system-window-management-decrease-size-10": "Control+Alt+-"
+  },
+  "commandAliases": {},
+  "pinnedCommands": [
+    "system-open-settings"
+  ],
+  "recentCommands": [
+    "system-open-settings",
+    "app-supercmd"
+  ],
+  "recentCommandLaunchCounts": {
+    "app-supercmd": 1,
+    "system-open-settings": 1
+  },
+  "hasSeenOnboarding": true,
+  "hasSeenWhisperOnboarding": true,
+  "disableFileSearchResults": false,
+  "showMenuBarIcon": true,
+  "ai": {
+    "provider": "openai",
+    "openaiApiKey": "",
+    "anthropicApiKey": "",
+    "geminiApiKey": "",
+    "elevenlabsApiKey": "",
+    "mistralApiKey": "",
+    "supermemoryApiKey": "",
+    "supermemoryClient": "",
+    "supermemoryBaseUrl": "https://api.supermemory.ai",
+    "supermemoryLocalMode": false,
+    "ollamaBaseUrl": "http://localhost:11434",
+    "defaultModel": "",
+    "speechCorrectionModel": "",
+    "speechToTextModel": "whispercpp",
+    "speechLanguage": "en-US",
+    "speechVocabulary": "",
+    "textToSpeechModel": "edge-tts",
+    "edgeTtsVoice": "en-US-EricNeural",
+    "speechCorrectionEnabled": false,
+    "enabled": true,
+    "llmEnabled": true,
+    "whisperEnabled": true,
+    "readEnabled": true,
+    "openaiCompatibleAppendV1": true,
+    "openaiCompatibleBaseUrl": "",
+    "openaiCompatibleApiKey": "",
+    "openaiCompatibleModel": "",
+    "lmStudioBaseUrl": "http://127.0.0.1:1234/v1",
+    "lmStudioModel": "",
+    "lmStudioApiKey": ""
+  },
+  "hyperKey": {
+    "enabled": false,
+    "sourceKey": "caps-lock",
+    "capsLockTapBehavior": "nothing"
+  },
+  "debugMode": false,
+  "appLanguage": "system",
+  "fontSize": "medium",
+  "uiStyle": "glassy",
+  "baseColor": "#101113",
+  "launcherBackgroundImageEverywhere": false,
+  "launcherBackgroundImageBlurPercent": 25,
+  "launcherBackgroundImageOpacityPercent": 45,
+  "launcherViewMode": "expanded",
+  "navigationStyle": "vim",
+  "clipboardHistoryRetentionDays": null,
+  "clipboardAppBlacklist": [],
+  "emojiPickerEnabled": true,
+  "emojiPickerTriggerPrefix": ":",
+  "emojiPickerExcludedAppBundleIds": [],
+  "browserSearch": {
+    "enabled": true,
+    "alphaChromiumRootSearchEnabled": false,
+    "historyRetentionDays": 90,
+    "profileSourceIds": [],
+    "profiles": [],
+    "profileFilters": {},
+    "resultLimitPerGroup": 2,
+    "resultGroups": [
+      {
+        "kind": "bookmark",
+        "limit": 2
+      },
+      {
+        "kind": "open-tab",
+        "limit": 2
+      },
+      {
+        "kind": "history",
+        "limit": 2
+      }
+    ],
+    "nicknames": [],
+    "webSearchDefaultBangKey": "g",
+    "webSearchBangOverrides": [],
+    "webSearchBangUsage": {},
+    "webSearchDisabledBangKeys": [],
+    "webSearchBangCustomProviders": [],
+    "webSearchShowHiddenBangs": false,
+    "webSearchSuggestionsEnabled": true
+  },
+  "rootSearchRanking": {
+    "command:app-supercmd": {
+      "useCount": 1,
+      "lastUsedAt": 1791751795805,
+      "frecencyScore": 1,
+      "inputHistory": {
+        "sup": {
+          "useCount": 1,
+          "lastUsedAt": 1791751795805,
+          "score": 1
+        }
+      }
+    }
+  },
+  "rootSearchAutocompleteEnabled": true,
+  "popToRootSearchTimeoutSeconds": 90,
+  "installedExtensions": [],
+  "extensionUninstallTombstones": {},
+  "extensionPreferences": {},
+  "extensionCommandPreferences": {},
+  "extensionCommandArguments": {},
+  "autoQuitApps": [],
+  "autoQuitDefaultTimeoutSeconds": 180
+}
