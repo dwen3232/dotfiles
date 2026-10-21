@@ -30,7 +30,7 @@ trust-taps: install-brew
       eval "$(/usr/local/bin/brew shellenv)"
     fi
 
-    for tap in rjyo/moshi supercmdlabs/supercmd; do
+    for tap in rjyo/moshi; do
       HOMEBREW_NO_AUTO_UPDATE=1 brew tap "$tap"
       HOMEBREW_NO_AUTO_UPDATE=1 brew trust "$tap"
     done
@@ -196,33 +196,9 @@ install-oh-my-zsh:
     RUNZSH=no CHSH=no KEEP_ZSHRC=yes sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
 
-# Points SuperCmd at the stowed settings dir; run after stow-configs
-setup-supercmd:
-    #!/usr/bin/env bash
-    set -euo pipefail
-    config_dir="$HOME/.config/supercmd"
-    if [ ! -f "$config_dir/settings.json" ]; then
-      echo "$config_dir/settings.json is missing. Run 'just stow-configs' first."
-      exit 1
-    fi
-
-    support_dir="$HOME/Library/Application Support/SuperCmd"
-    mkdir -p "$support_dir"
-    osascript -e 'quit app "SuperCmd"' 2>/dev/null || true
-    while pgrep -xq SuperCmd; do sleep 0.5; done
-    printf '{\n  "path": "%s"\n}\n' "$config_dir" > "$support_dir/settings-location.json"
-    open -a SuperCmd
-
-
-# Strips SuperCmd usage stats from settings.json when it is staged
-setup-git-filters:
-    @git config filter.supercmd.clean "jq --indent 2 '.recentCommands = [] | .recentCommandLaunchCounts = {} | .rootSearchRanking = {} | .browserSearch.webSearchBangUsage = {}'"
-
-
 # Bootstraps the local machine to the repo's declared state
-bootstrap: install-agent-browser setup-terminal-browser install-claude-code install-gh-stack sync-submodules install-oh-my-zsh setup-git-filters
+bootstrap: install-agent-browser setup-terminal-browser install-claude-code install-gh-stack sync-submodules install-oh-my-zsh
     @just stow-configs
-    @just setup-supercmd
 
 
 # Syncs all submodules

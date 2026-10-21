@@ -1,5 +1,4 @@
 tap "rjyo/moshi"
-tap "supercmdlabs/supercmd"
 
 # Core CLI tools
 brew "apache-spark"
@@ -81,7 +80,6 @@ cask "orbstack"
 cask "rectangle"
 cask "spotify"
 cask "stats"
-cask "supercmdlabs/supercmd/supercmd"
 cask "terminal-browser"
 
 # Global npm packages
