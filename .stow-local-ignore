@@ -1,6 +1,7 @@
 \.claude
 \.git
 \.github
+\.gitattributes
 \.gitignore
 \.gitmodules
 \.venv

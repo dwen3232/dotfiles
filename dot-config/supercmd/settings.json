@@ -39,14 +39,8 @@
   "pinnedCommands": [
     "system-open-settings"
   ],
-  "recentCommands": [
-    "system-open-settings",
-    "app-supercmd"
-  ],
-  "recentCommandLaunchCounts": {
-    "app-supercmd": 1,
-    "system-open-settings": 1
-  },
+  "recentCommands": [],
+  "recentCommandLaunchCounts": {},
   "hasSeenOnboarding": true,
   "hasSeenWhisperOnboarding": true,
   "disableFileSearchResults": false,
@@ -134,20 +128,7 @@
     "webSearchShowHiddenBangs": false,
     "webSearchSuggestionsEnabled": true
   },
-  "rootSearchRanking": {
-    "command:app-supercmd": {
-      "useCount": 1,
-      "lastUsedAt": 1791751795805,
-      "frecencyScore": 1,
-      "inputHistory": {
-        "sup": {
-          "useCount": 1,
-          "lastUsedAt": 1791751795805,
-          "score": 1
-        }
-      }
-    }
-  },
+  "rootSearchRanking": {},
   "rootSearchAutocompleteEnabled": true,
   "popToRootSearchTimeoutSeconds": 90,
   "installedExtensions": [],

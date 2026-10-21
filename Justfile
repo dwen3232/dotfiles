@@ -214,8 +214,13 @@ setup-supercmd:
     open -a SuperCmd
 
 
+# Strips SuperCmd usage stats from settings.json when it is staged
+setup-git-filters:
+    @git config filter.supercmd.clean "jq --indent 2 '.recentCommands = [] | .recentCommandLaunchCounts = {} | .rootSearchRanking = {} | .browserSearch.webSearchBangUsage = {}'"
+
+
 # Bootstraps the local machine to the repo's declared state
-bootstrap: install-agent-browser setup-terminal-browser install-claude-code install-gh-stack sync-submodules install-oh-my-zsh
+bootstrap: install-agent-browser setup-terminal-browser install-claude-code install-gh-stack sync-submodules install-oh-my-zsh setup-git-filters
     @just stow-configs
     @just setup-supercmd
 
