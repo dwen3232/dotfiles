@@ -11,9 +11,9 @@ transparent_background = true
 scroll_offset = 5
 
 comment_types = [
+  { id = "note", definition = "ask for clarification or acknowledge", color = "blue" },
   { id = "issue", definition = "problems to fix", color = "red" },
   { id = "suggestion", definition = "possible improvements", color = "yellow" },
-  { id = "note", definition = "ask for clarification or acknowledge", color = "blue" },
   { id = "praise", definition = "positive feedback", color = "green" },
 ]
 
