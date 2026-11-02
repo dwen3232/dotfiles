@@ -168,6 +168,9 @@ return {
     })
 
     vim.lsp.config("terraformls", {
+      cmd = { "terraform-ls", "serve", "-log-file=/dev/null" },
+      -- lspconfig's default on_attach calls vim.lsp.codelens.enable, which needs Nvim 0.12
+      on_attach = function() end,
       capabilities = capabilities,
       init_options = {
         indexing = {
