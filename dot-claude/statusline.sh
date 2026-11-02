@@ -38,50 +38,11 @@ diff_str=""
 [ -z "$diff_str" ] && diff_str="$(printf "${DIM}±0${RESET}")"
 
 branch=""
-stack_str=""
-pr_str=""
+pr_line=""
 if git -C "$dir" rev-parse --is-inside-work-tree >/dev/null 2>&1; then
   branch=$(git -C "$dir" branch --show-current 2>/dev/null)
   [ -z "$branch" ] && branch=$(git -C "$dir" rev-parse --abbrev-ref HEAD 2>/dev/null)
-  if [ -n "$branch" ] && command -v gh >/dev/null 2>&1; then
-    stack_json=$(cd "$dir" && gh stack view --json 2>/dev/null)
-    if [ -n "$stack_json" ]; then
-      pr_list_json=$(cd "$dir" && gh pr list --state all --json number,isDraft 2>/dev/null)
-      [ -z "$pr_list_json" ] && pr_list_json="[]"
-      stack_str=$(jq -n --argjson stack "$stack_json" --argjson prs "$pr_list_json" -r '
-        def icon(b):
-          if b.needsRebase then "⚠"
-          elif b.isMerged then "✓"
-          elif b.isQueued then "◎"
-          elif b.pr != null and b.pr.state == "OPEN" then "○"
-          else "·" end;
-        ($prs | map({(.number|tostring): .isDraft}) | add // {}) as $draftmap
-        | ($stack.branches | map(select(.pr != null))) as $withpr
-        | ($withpr | map(select(.pr.state != "MERGED"))) as $active
-        | (if ($withpr | length) == 0 then ""
-           elif ($active | length) == 0 then "🟣 "
-           elif ($active | map($draftmap[(.pr.number|tostring)] == true) | any) then "⚪ "
-           else "🟢 "
-           end) as $status
-        | ($stack.branches | length) as $total
-        | (($stack.branches | map(.isCurrent) | index(true)) + 1) as $position
-        | $status + ($position|tostring) + "/" + ($total|tostring) + "  " + ([$stack.branches[] |
-            (if .isCurrent then "[" + icon(.) + "]" else icon(.) end)
-          ] | join(""))
-      ')
-    else
-      pr_json=$(cd "$dir" && gh pr view --json number,state,isDraft 2>/dev/null)
-      if [ -n "$pr_json" ]; then
-        pr_str=$(echo "$pr_json" | jq -r '
-          (if .state == "MERGED" then "🟣"
-           elif .state == "CLOSED" then "🔴"
-           elif .isDraft then "⚪"
-           else "🟢" end) as $badge
-          | $badge + " #" + (.number|tostring)
-        ')
-      fi
-    fi
-  fi
+  pr_line=$("$HOME/.claude/bin/pr-status.sh" "$dir" 2>/dev/null)
 fi
 
 if [ -n "$branch" ]; then
@@ -92,9 +53,7 @@ fi
 
 printf "🤖 %s | %b | %b | %b | %b\n" \
   "$model" "$ctx_str" "$cost_str" "$diff_str" "$git_str"
-if [ -n "$stack_str" ]; then
-  printf "📚 %s\n" "$stack_str"
-elif [ -n "$pr_str" ]; then
-  printf "🔀 %s\n" "$pr_str"
+if [ -n "$pr_line" ]; then
+  printf "%s\n" "$pr_line"
 fi
 exit 0
